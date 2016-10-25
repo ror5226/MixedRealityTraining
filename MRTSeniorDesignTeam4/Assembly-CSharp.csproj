@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BeginScan.cs" />
      <Compile Include="Assets\HoloToolkit\CrossPlatform\Scripts\MetroHandleRef.cs" />
      <Compile Include="Assets\HoloToolkit\CrossPlatform\Scripts\Reflection\ReflectionExtensions.cs" />
      <Compile Include="Assets\HoloToolkit\CrossPlatform\Scripts\Reflection\TypeUtils.cs" />
