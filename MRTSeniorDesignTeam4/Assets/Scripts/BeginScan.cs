@@ -18,7 +18,7 @@ public class BeginScan : Singleton<BeginScan> {
 	}
 
     void OnSelect() {
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
         spatialMappingManager.StartObserver();
     }
 }
