@@ -54,7 +54,7 @@ public class AnchorDownloadRequest : global::System.IDisposable {
     int ret = SharingClientPINVOKE.AnchorDownloadRequest_GetDataSize(swigCPtr);
     return ret;
   }
-
+    
   public unsafe bool GetData(byte[] data, int dataSize) {
     fixed ( byte* swig_ptrTo_data = data ) {
     {
@@ -63,7 +63,7 @@ public class AnchorDownloadRequest : global::System.IDisposable {
     }
     }
   }
-
+  
 }
 
 }
