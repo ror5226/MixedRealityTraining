@@ -2,7 +2,7 @@
 using System.Collections;
 using HoloToolkit.Unity;
 
-public class BeginScan : MonoBehaviour {
+public class BeginScan : Singleton<BeginScan> {
 
     SpatialMappingManager spatialMappingManager; 
 
@@ -10,11 +10,15 @@ public class BeginScan : MonoBehaviour {
 	void Start () {
 
         spatialMappingManager = SpatialMappingManager.Instance;
-        spatialMappingManager.StartObserver();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    void OnSelect() {
+        Destroy(this.gameObject);
+        spatialMappingManager.StartObserver();
+    }
 }
