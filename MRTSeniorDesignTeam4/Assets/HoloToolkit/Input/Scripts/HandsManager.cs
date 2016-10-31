@@ -18,6 +18,7 @@ namespace HoloToolkit.Unity
         /// <param name="handDetected">True if a hand is Detected, else false.</param>
         public delegate void HandInViewDelegate(bool handDetected);
         public event HandInViewDelegate HandInView;
+        public GameObject focusedObject { get; private set; }
 
         /// <summary>
         /// HandDetected tracks the hand detected state.
@@ -67,6 +68,7 @@ namespace HoloToolkit.Unity
             InteractionManager.SourceReleased += InteractionManager_SourceReleased;
             InteractionManager.SourceUpdated += InteractionManager_SourceUpdated;
             InteractionManager.SourceLost += InteractionManager_SourceLost;
+            focusedObject = null;
         }
 
         private void OnDisable()
@@ -165,6 +167,10 @@ namespace HoloToolkit.Unity
                     }
                 }
             }
+        }
+
+        private void resetFocusedGameObject() {
+            focusedObject = null;
         }
     }
 }
