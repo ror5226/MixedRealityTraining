@@ -13,11 +13,15 @@ public class MainMenu : Singleton<MainMenu> {
     // Use this for initialization
     public void Start ()
     {
+        spaceUnderstanding = SpaceUnderstanding.Instance;
 
         // Start to recognize gestures 
         gestureRecognizer = new GestureRecognizer();
         gestureRecognizer.SetRecognizableGestures(GestureSettings.Tap);
         gestureRecognizer.StartCapturingGestures();
+
+        // Listen for Tap to place menu 
+        gestureRecognizer.TappedEvent += Place_Menu;
     }
 
     // Update is called once per frame
@@ -26,15 +30,22 @@ public class MainMenu : Singleton<MainMenu> {
 
     }
 
-    public void OnSelect()
+    // First tap detected **NEED TO ADD PLACEMENT**
+    private void Place_Menu(InteractionSourceKind source, int tapCount, Ray headRay)
     {
-        if (gestureRecognizer != null && spatialMappingManager != null )
+        if (gestureRecognizer != null)
         {
-            this.gameObject.SetActive(false);
-            spatialMappingManager.drawVisualMeshes = true;
-            gestureRecognizer.TappedEvent += Planes_Finished;
+            gestureRecognizer.TappedEvent -= Place_Menu;
+       
+            GameObject textBox = GameObject.Find("StartText");
+            TextMesh text = textBox.GetComponent<TextMesh>();
+            text.text = "Look Around the Room to Scan";
+
+            spaceUnderstanding.StartScan();
         }
         else
         {
+            Debug.Log("Gesture Recognizer must be instantiated");
         }
     }
+ }
