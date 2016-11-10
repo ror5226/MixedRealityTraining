@@ -219,6 +219,7 @@
      <Compile Include="Assets\Scripts\PlaySpaceManager.cs" />
      <Compile Include="Assets\Scripts\SimpleTagalong.cs" />
      <Compile Include="Assets\Scripts\SpaceCollectionManager.cs" />
+     <Compile Include="Assets\Scripts\SpaceUnderstanding.cs" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\UnlitConfigurable.shader" />
      <None Include="Assets\HoloToolkit\SpatialUnderstanding\Materials\SpatialUnderstandingSurface.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurable.cginc" />

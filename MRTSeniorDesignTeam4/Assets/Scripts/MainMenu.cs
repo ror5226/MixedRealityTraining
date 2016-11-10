@@ -2,23 +2,17 @@
 using System.Collections;
 using HoloToolkit.Unity;
 using UnityEngine.VR.WSA.Input;
+using System.Collections.Generic;
 using System;
 
 public class MainMenu : Singleton<MainMenu> {
 
-    private SpatialMappingManager spatialMappingManager;
-    private SurfaceMeshesToPlanes surfaceMeshesToPlanes;
     private GestureRecognizer gestureRecognizer;
+    private SpaceUnderstanding spaceUnderstanding;
 
-	// Use this for initialization
-	public void Start ()
+    // Use this for initialization
+    public void Start ()
     {
-        // Start mapping room
-        spatialMappingManager = SpatialMappingManager.Instance;
-        spatialMappingManager.DrawVisualMeshes = false;
-        spatialMappingManager.StartObserver();
-
-        surfaceMeshesToPlanes = SurfaceMeshesToPlanes.Instance;
 
         // Start to recognize gestures 
         gestureRecognizer = new GestureRecognizer();
@@ -42,13 +36,5 @@ public class MainMenu : Singleton<MainMenu> {
         }
         else
         {
-            //Console.WriteLine("Gesture Recognizer and SpatialMappingManager must be instantiated");
         }
     }
-
-    private void Planes_Finished(InteractionSourceKind source, int tapCount, Ray headRay)
-    {
-        surfaceMeshesToPlanes.MakePlanes();
-        gestureRecognizer.TappedEvent -= Planes_Finished;
-    }
-}
