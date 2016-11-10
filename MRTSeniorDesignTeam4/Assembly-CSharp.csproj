@@ -213,9 +213,12 @@
      <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroup.cs" />
      <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroupPicker.cs" />
      <Compile Include="Assets\HoloToolkit\Utilities\Tests\TextToSpeechManagerTest.cs" />
-     <Compile Include="Assets\Scripts\BeginScan.cs" />
      <Compile Include="Assets\Scripts\Interpolator.cs" />
+     <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Placeable.cs" />
+     <Compile Include="Assets\Scripts\PlaySpaceManager.cs" />
      <Compile Include="Assets\Scripts\SimpleTagalong.cs" />
+     <Compile Include="Assets\Scripts\SpaceCollectionManager.cs" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\UnlitConfigurable.shader" />
      <None Include="Assets\HoloToolkit\SpatialUnderstanding\Materials\SpatialUnderstandingSurface.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurable.cginc" />
