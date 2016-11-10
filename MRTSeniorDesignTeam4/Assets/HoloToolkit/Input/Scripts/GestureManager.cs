@@ -136,7 +136,7 @@ namespace HoloToolkit.Unity
         public MouseButton MouseSelectButton = MouseButton.Right;
 #endif
 
-        private GestureRecognizer gestureRecognizer;
+        public  GestureRecognizer gestureRecognizer;
 
         /// <summary> We use a separate manipulation recognizer here because the tap gesture recognizer cancels
         /// capturing gestures whenever the GazeManager focus changes, which is not the behavior
