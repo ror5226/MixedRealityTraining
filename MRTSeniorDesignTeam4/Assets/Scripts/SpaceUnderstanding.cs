@@ -19,10 +19,8 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
     // Use this for initialization
     private void Start () {
 
-        // Start mapping room
+        // Get Instance of SpatialMappingManager
         spatialMappingManager = SpatialMappingManager.Instance;
-        spatialMappingManager.DrawVisualMeshes = false;
-        spatialMappingManager.StartObserver();
 
         surfaceMeshesToPlanes = SurfaceMeshesToPlanes.Instance;
 
@@ -76,9 +74,11 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         List<GameObject> horizontal = new List<GameObject>();
         List<GameObject> vertical = new List<GameObject>();
 
+        //
         horizontal = surfaceMeshesToPlanes.GetActivePlanes(PlaneTypes.Table | PlaneTypes.Floor);
         vertical = surfaceMeshesToPlanes.GetActivePlanes(PlaneTypes.Wall);
 
+        // Ensure that enough of the room has been scanned 
         if (horizontal.Count >= minFloors && vertical.Count >= minWalls)
         {
             if (removeVerts != null && removeVerts.enabled)
