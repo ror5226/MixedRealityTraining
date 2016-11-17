@@ -32,7 +32,7 @@ public class MainMenu : Singleton<MainMenu> {
     }
 
 
-    /*
+    
     Vector3 normal;
     private void menuMove()
     {
@@ -40,7 +40,7 @@ public class MainMenu : Singleton<MainMenu> {
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, 31))
         {
-            this.transform.position =  hitInfo.point
+            this.transform.position = hitInfo.point
             // 2.a: Assign property Normal to be the hitInfo normal.
             l = hitInfo.normal;
         }
@@ -49,12 +49,12 @@ public class MainMenu : Singleton<MainMenu> {
             Vector3 Position = Camera.main.transform.position + (Camera.main.transform.forward * 5);
             Vector3 Normal = Camera.main.transform.forward;
         }
-    */
+    }
 
 // Update is called once per frame
 private void Update()
     {
-    //    menuMove();
+       menuMove();
     }
 
     // First tap detected **NEED TO ADD PLACEMENT**
