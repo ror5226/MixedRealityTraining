@@ -38,11 +38,10 @@ public class MainMenu : Singleton<MainMenu> {
     {
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, 31))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, 1 << 31))
         {
-            this.transform.position = hitInfo.point
-            // 2.a: Assign property Normal to be the hitInfo normal.
-            l = hitInfo.normal;
+            this.transform.position = hitInfo.point;
+            this.transform.forward = Camera.main.transform.forward;
         }
         else
         {
