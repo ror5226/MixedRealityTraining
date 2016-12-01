@@ -270,7 +270,10 @@ namespace HoloToolkit.Unity
                 }
             }
         }
-
+        void OnDestroy()
+        {
+            print("Script was destroyed");
+        }
         /// <summary>
         /// Updates the rendering state on the currently enabled surfaces.
         /// Updates the material and shadow casting mode for each renderer.

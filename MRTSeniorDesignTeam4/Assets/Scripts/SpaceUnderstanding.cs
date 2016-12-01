@@ -38,8 +38,13 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
 
     public void StartScan()
     {
-        if (gestureRecognizer != null && spatialMappingManager != null)
-        {
+        // if (spatialMappingManager != null)
+        // {
+        if (gestureRecognizer == null)
+            {
+                Debug.Log("Gesture Recognizer");
+
+            }
             // Begin spatial scanning
             spatialMappingManager.drawVisualMeshes = true;
 
@@ -47,11 +52,11 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
 
             // Listen for an airtap to create planes
             gestureRecognizer.TappedEvent += Create_Planes;
-        }
-        else
-        {
-            Debug.Log("Gesture Recognizer and SpatialMappingManager must be instantiated");
-        }
+       // }
+       // else
+       // {
+      //      Debug.Log("Gesture Recognizer and SpatialMappingManager must be instantiated");
+       // }
     }
 
     private void Create_Planes(InteractionSourceKind source, int tapCount, Ray headRay)

@@ -10,6 +10,7 @@ public class MainMenu : Singleton<MainMenu> {
     private GestureRecognizer gestureRecognizer;
     private SpaceUnderstanding spaceUnderstanding;
     private SpatialMappingManager spatialMappingManager;
+    private bool mobileMenu = true;
 
     // Use this for initialization
     public void Start()
@@ -31,21 +32,20 @@ public class MainMenu : Singleton<MainMenu> {
 
     }
 
-
-    
-    Vector3 normal;
     private void menuMove()
     {
         RaycastHit hitInfo;
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, 1 << 31))
         {
-            this.transform.position = hitInfo.point;
+            this.transform.position = hitInfo.point + GazeManager.Instance.Normal * .03f;
             this.transform.forward = Camera.main.transform.forward;
+          //  gameObject.transform.up = GazeManager.Instance.Normal;
+
         }
         else
         {
-            Vector3 Position = Camera.main.transform.position + (Camera.main.transform.forward * 5);
+            Vector3 Position = Camera.main.transform.position;
             Vector3 Normal = Camera.main.transform.forward;
         }
     }
@@ -53,20 +53,24 @@ public class MainMenu : Singleton<MainMenu> {
 // Update is called once per frame
 private void Update()
     {
-       menuMove();
+        if (mobileMenu)
+        {
+            menuMove();
+        }
     }
 
     // First tap detected **NEED TO ADD PLACEMENT**
     private void Place_Menu(InteractionSourceKind source, int tapCount, Ray headRay)
     {
+        mobileMenu = false;
         if (gestureRecognizer != null)
         {
             gestureRecognizer.TappedEvent -= Place_Menu;
        
             // Change Text Box
             GameObject textBox = GameObject.Find("StartText");
-            TextMesh text = textBox.GetComponent<TextMesh>();
-            text.text = "Look Around the Room to Scan";
+         //   TextMesh text = textBox.GetComponent<TextMesh>();
+         //   text.text = "Look Around the Room to Scan";
 
             spaceUnderstanding.StartScan();
         }
