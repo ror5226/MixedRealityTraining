@@ -10,7 +10,7 @@ public class MainMenu : Singleton<MainMenu> {
     private GestureRecognizer gestureRecognizer;
     private SpaceUnderstanding spaceUnderstanding;
     private SpatialMappingManager spatialMappingManager;
-    private bool mobileMenu = true;
+    private bool mobileMenu = false; 
 
     // Use this for initialization
     public void Start()
@@ -27,9 +27,6 @@ public class MainMenu : Singleton<MainMenu> {
         gestureRecognizer.SetRecognizableGestures(GestureSettings.Tap);
         gestureRecognizer.StartCapturingGestures();
 
-        // Listen for Tap to place menu 
-        gestureRecognizer.TappedEvent += Place_Menu;
-
     }
 
     private void menuMove()
@@ -38,9 +35,9 @@ public class MainMenu : Singleton<MainMenu> {
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, 1 << 31))
         {
-            this.transform.position = hitInfo.point + GazeManager.Instance.Normal * .03f;
+            this.transform.position = hitInfo.point + GazeManager.Instance.Normal * .5f;
             this.transform.forward = Camera.main.transform.forward;
-          //  gameObject.transform.up = GazeManager.Instance.Normal;
+           // gameObject.transform. = hitInfo.normal;
 
         }
         else
@@ -60,15 +57,14 @@ private void Update()
     }
 
     // First tap detected **NEED TO ADD PLACEMENT**
-    private void Place_Menu(InteractionSourceKind source, int tapCount, Ray headRay)
+    private void Place_Menu()
     {
-        mobileMenu = false;
         if (gestureRecognizer != null)
         {
-            gestureRecognizer.TappedEvent -= Place_Menu;
+         //   gestureRecognizer.TappedEvent -= Place_Menu;
        
             // Change Text Box
-            GameObject textBox = GameObject.Find("StartText");
+          //  GameObject textBox = GameObject.Find("StartText");
          //   TextMesh text = textBox.GetComponent<TextMesh>();
          //   text.text = "Look Around the Room to Scan";
 
@@ -79,4 +75,33 @@ private void Update()
             Debug.Log("Gesture Recognizer must be instantiated");
         }
     }
- }
+    public void Place_Menu_Button()
+    {
+        mobileMenu = true; 
+
+        GameObject menuPanel = this.transform.FindChild("AssessmentPanel").gameObject;
+        GameObject startCanvas = this.transform.FindChild("FirstMenu").gameObject;
+
+        //
+        //  First set the assessmentPanel to be visable
+        //  Then set the assessmentPanel's position to be where the damage info's position.
+        //  then hide damageInfoPanel.
+        //
+
+        menuPanel.SetActive(true);
+        menuPanel.transform.position = startCanvas.transform.position;
+        startCanvas.SetActive(false);
+
+        gestureRecognizer.TappedEvent += Stop_Menu_Moving;
+  
+    }
+
+    private void Stop_Menu_Moving(InteractionSourceKind source, int tapCount, Ray headRay)
+    {
+        mobileMenu = false;
+
+        gestureRecognizer.TappedEvent -= Stop_Menu_Moving;
+
+        Place_Menu();
+    }
+}

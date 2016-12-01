@@ -218,6 +218,7 @@
      <Compile Include="Assets\Scripts\Interpolator.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MenuExitButton.cs" />
+     <Compile Include="Assets\Scripts\OpenSecondMenu.cs" />
      <Compile Include="Assets\Scripts\OpenSecondPanel.cs" />
      <Compile Include="Assets\Scripts\Placeable.cs" />
      <Compile Include="Assets\Scripts\PlaySpaceManager.cs" />
