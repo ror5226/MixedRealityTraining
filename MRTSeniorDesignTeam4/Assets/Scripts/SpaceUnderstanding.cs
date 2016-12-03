@@ -36,7 +36,7 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
 	
 	}
 
-    public void StartScan()
+    public void ShowScan()
     {
        if (spatialMappingManager != null || gestureRecognizer != null)
        {

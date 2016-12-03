@@ -107,7 +107,7 @@ MonoBehaviour:
   FloorBuffer: 0.1
   CeilingBuffer: 0.1
   WallMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  FloorMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  FloorMaterial: {fileID: 2100000, guid: b5ef5f90c8d1b2b43b5689f5699addbb, type: 2}
   CeilingMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   TableMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   UnknownMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
