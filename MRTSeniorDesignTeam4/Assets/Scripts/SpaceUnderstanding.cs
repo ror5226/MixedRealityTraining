@@ -71,6 +71,17 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
 
     private void Remove_Verts(object source, EventArgs args)
     {
+        foreach (GameObject plane in surfaceMeshesToPlanes.ActivePlanes)
+        {
+            plane.SetActive(false);
+        }
+
+        List<GameObject> floors = surfaceMeshesToPlanes.GetActivePlanes(PlaneTypes.Floor);
+        
+        foreach (GameObject floor in floors)
+        {
+            floor.SetActive(true);
+        }
         List<GameObject> horizontal = new List<GameObject>();
         List<GameObject> vertical = new List<GameObject>();
 

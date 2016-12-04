@@ -34,6 +34,8 @@ public class MainMenu : Singleton<MainMenu> {
 
     private void menuMove()
     {
+        billboard = false;
+
         RaycastHit hitInfo;
 
         int raymask = 1 << 5;
@@ -42,8 +44,7 @@ public class MainMenu : Singleton<MainMenu> {
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, raymask))
         {
             this.transform.position = hitInfo.point + GazeManager.Instance.Normal * .05f;
-            this.transform.forward = Camera.main.transform.forward;
-           // gameObject.transform. = hitInfo.normal;
+            this.transform.forward = -hitInfo.normal;
 
         }
         else
