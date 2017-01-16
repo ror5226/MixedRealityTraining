@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainCamMove : MonoBehaviour {
+public class S : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -22,8 +22,13 @@ public class MainMenu : Singleton<MainMenu> {
 
         // Start mapping room, hide mesh 
         spatialMappingManager = SpatialMappingManager.Instance;
+
+#if UNITY_EDITOR
+        spatialMappingManager.DrawVisualMeshes = true;
+#else
         spatialMappingManager.DrawVisualMeshes = false;
         spatialMappingManager.StartObserver();
+#endif
 
         // Start to recognize gestures 
         gestureRecognizer = new GestureRecognizer();
@@ -32,15 +37,18 @@ public class MainMenu : Singleton<MainMenu> {
 
     }
 
+    //Move menu with user gaze against wall
     private void menuMove()
     {
         billboard = false;
 
         RaycastHit hitInfo;
 
+        //Hit everything but UI layer
         int raymask = 1 << 5;
         raymask = ~raymask;
 
+        //Raycast against wall to place menu 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, raymask))
         {
             this.transform.position = hitInfo.point + GazeManager.Instance.Normal * .05f;
@@ -57,11 +65,13 @@ public class MainMenu : Singleton<MainMenu> {
     // Update is called once per frame
     private void Update()
     {
+        //Place menu
         if (mobileMenu)
         {
             menuMove();
         }
 
+        //Menu faces user
         if (billboard)
         {
             this.transform.forward = Camera.main.transform.forward;
@@ -78,18 +88,22 @@ public class MainMenu : Singleton<MainMenu> {
             {
                 spaceUnderstanding.ShowScan();
 
-                GameObject panelButton = GameObject.FindGameObjectWithTag("Scan_Button_Text"); //.transform.FindChild("Text").GetComponent<GUIText>();
+                GameObject panelButton = GameObject.FindGameObjectWithTag("Scan_Button_Text"); 
 
                 Text buttonText = panelButton.GetComponent<Text>();
 
                 buttonText.text = "Stop Scan";
 
                 mainMenu_ButtonCount++;
-
             }
             else
             {
+
+#if UNITY_EDITOR
+                spatialMappingManager.DrawVisualMeshes = true;
+#else
                 spatialMappingManager.DrawVisualMeshes = false;
+#endif
                 Place_Menu();
             }
         }
@@ -128,5 +142,4 @@ public class MainMenu : Singleton<MainMenu> {
         gestureRecognizer.TappedEvent -= Stop_Menu_Moving;
 
     }
-    
 }
