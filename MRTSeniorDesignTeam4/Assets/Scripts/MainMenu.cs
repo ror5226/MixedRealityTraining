@@ -117,7 +117,7 @@ public class MainMenu : Singleton<MainMenu> {
     {
             mobileMenu = true;
 
-            GameObject menuPanel = this.transform.FindChild("AssessmentPanel").gameObject;
+            GameObject menuPanel = this.transform.FindChild("RoomSelection").gameObject;
             GameObject startCanvas = this.transform.FindChild("FirstMenu").gameObject;
 
             //

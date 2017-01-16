@@ -248,7 +248,6 @@
     <Compile Include="Assets\Scripts\Placeable.cs" />
     <Compile Include="Assets\Scripts\PlaySpaceManager.cs" />
     <Compile Include="Assets\Scripts\SpaceCollectionManager.cs" />
-    <Compile Include="Assets\Scripts\SpaceManager.cs" />
     <Compile Include="Assets\Scripts\SpaceUnderstanding.cs" />
     <Compile Include="Assets\Scripts\ToolKitScripts\Interpolator.cs" />
     <Compile Include="Assets\Scripts\ToolKitScripts\SimpleTagalong.cs" />

@@ -80,7 +80,7 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         
         foreach (GameObject floor in floors)
         {
-            floor.SetActive(true);
+           // floor.SetActive(true);
         }
         List<GameObject> horizontal = new List<GameObject>();
         List<GameObject> vertical = new List<GameObject>();

@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d883c0118351e4890753200e0ac916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomModel: {fileID: 100006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
+  roomModel: {fileID: 100006, guid: 788b6a5e6059efe46b8a245d0123267e, type: 3}
 --- !u!1 &103312177
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +544,47 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 370930557}
+--- !u!1 &470834592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 470834594}
+  - 114: {fileID: 470834593}
+  m_Layer: 0
+  m_Name: KitchenSpace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &470834593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470834592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aba7668fef2f5a4fb0606ec9d0bcb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceObjectPrefabs: []
+--- !u!4 &470834594
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470834592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &512237113
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +596,7 @@ GameObject:
   - 222: {fileID: 512237116}
   - 114: {fileID: 512237115}
   m_Layer: 5
-  m_Name: Panel (2)
+  m_Name: PSULogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,7 +664,7 @@ GameObject:
   - 222: {fileID: 515494891}
   - 114: {fileID: 515494890}
   m_Layer: 5
-  m_Name: Panel (3)
+  m_Name: UpperGreyBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -691,7 +732,7 @@ GameObject:
   - 222: {fileID: 534672176}
   - 114: {fileID: 534672175}
   m_Layer: 5
-  m_Name: Panel (2)
+  m_Name: PSULogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,14 +746,14 @@ RectTransform:
   m_GameObject: {fileID: 534672173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8299992, y: 0.33124962, z: 1}
+  m_LocalScale: {x: 1.8299992, y: 1.4854814, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 558500452}
-  m_RootOrder: 6
+  m_Father: {fileID: 1828719430}
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0.7225501}
   m_AnchorMax: {x: 0.18871537, y: 1}
-  m_AnchoredPosition: {x: 532, y: 12.993828}
+  m_AnchoredPosition: {x: 531, y: -155.52579}
   m_SizeDelta: {x: 0, y: 325.02704}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534672175
@@ -763,7 +804,7 @@ GameObject:
   - 114: {fileID: 558500454}
   - 114: {fileID: 558500453}
   m_Layer: 5
-  m_Name: AssessmentPanel
+  m_Name: RoomSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -787,7 +828,6 @@ RectTransform:
   - {fileID: 1249011088}
   - {fileID: 1613923446}
   - {fileID: 1828719430}
-  - {fileID: 534672174}
   - {fileID: 1265552789}
   m_Father: {fileID: 1784955180}
   m_RootOrder: 0
@@ -1290,7 +1330,7 @@ GameObject:
   - 114: {fileID: 1118182213}
   - 114: {fileID: 1118182212}
   m_Layer: 5
-  m_Name: Answer1Button
+  m_Name: RoomOption1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1441,7 +1481,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013535415816, guid: b2db04283121ca74495c2ee000fb4243, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114000014146313642, guid: b2db04283121ca74495c2ee000fb4243,
         type: 2}
@@ -1466,7 +1506,7 @@ GameObject:
   - 222: {fileID: 1227814118}
   - 114: {fileID: 1227814117}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: EILogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1523,60 +1563,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1227814115}
---- !u!1001 &1229178476
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.2039027
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.090093255
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.0814915
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.0009996442
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.9921158
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.064774744
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.10728249
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -167.886
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 7.3210006
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.89100003
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 409374600c79e1b4b821cd8ca9ebc8f0, type: 3}
-  m_IsPrefabParent: 0
 --- !u!1 &1249011087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1576,7 @@ GameObject:
   - 114: {fileID: 1249011090}
   - 114: {fileID: 1249011089}
   m_Layer: 5
-  m_Name: Answer4Button
+  m_Name: RoomOption3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1716,7 +1702,7 @@ GameObject:
   - 222: {fileID: 1265552791}
   - 114: {fileID: 1265552790}
   m_Layer: 5
-  m_Name: DamgeInfo
+  m_Name: SelectionPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1735,7 +1721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 558500452}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5, y: -62}
@@ -2222,7 +2208,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1676693216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,7 +2300,6 @@ GameObject:
   - 64: {fileID: 1784955178}
   - 114: {fileID: 1784955176}
   - 114: {fileID: 1784955179}
-  - 114: {fileID: 1784955181}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -2386,18 +2371,6 @@ Transform:
   - {fileID: 103312178}
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!114 &1784955181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1784955175}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8d5b128a1d8204fb76c86f47b75912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PivotAxis: 2
 --- !u!1 &1828719429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,7 +2382,7 @@ GameObject:
   - 222: {fileID: 1828719432}
   - 114: {fileID: 1828719431}
   m_Layer: 5
-  m_Name: Panel (3)
+  m_Name: TopPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2427,6 +2400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2090232267}
+  - {fileID: 534672174}
   m_Father: {fileID: 558500452}
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
@@ -2481,7 +2455,7 @@ GameObject:
   - 114: {fileID: 1867615094}
   - 114: {fileID: 1867615093}
   m_Layer: 5
-  m_Name: ScanRoom
+  m_Name: ScanRoomButton
   m_TagString: Scan_Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2618,7 +2592,7 @@ GameObject:
   - 222: {fileID: 2090232269}
   - 114: {fileID: 2090232268}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: EILogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2687,7 +2661,7 @@ GameObject:
   - 222: {fileID: 2096262454}
   - 114: {fileID: 2096262453}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: MenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2762,7 +2736,7 @@ GameObject:
   - 114: {fileID: 2125645091}
   - 114: {fileID: 2125645090}
   m_Layer: 5
-  m_Name: Answer3Button
+  m_Name: RoomOption2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
