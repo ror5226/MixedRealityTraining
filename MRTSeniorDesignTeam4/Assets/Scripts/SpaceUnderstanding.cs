@@ -45,18 +45,11 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
 
             gestureRecognizer.StartCapturingGestures();
 
-            // Listen for an airtap to create planes
-            gestureRecognizer.TappedEvent += Create_Planes;
        }
       else
       {
            Debug.Log("Gesture Recognizer and SpatialMappingManager must be instantiated");
       }
-    }
-
-    private void Create_Planes(InteractionSourceKind source, int tapCount, Ray headRay)
-    {
-        Create_Planes();
     }
 
     public void Create_Planes()
@@ -66,22 +59,20 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         surfaceMeshesToPlanes.MakePlanes();
 
         surfaceMeshesToPlanes.MakePlanesComplete += Remove_Verts;
-        gestureRecognizer.TappedEvent -= Create_Planes;
     }
 
     private void Remove_Verts(object source, EventArgs args)
     {
+        // Display the planes if in the editor
         foreach (GameObject plane in surfaceMeshesToPlanes.ActivePlanes)
         {
+#if UNITY_EDITOR
+            plane.SetActive(true);
+#else
             plane.SetActive(false);
+#endif
         }
 
-        List<GameObject> floors = surfaceMeshesToPlanes.GetActivePlanes(PlaneTypes.Floor);
-        
-        foreach (GameObject floor in floors)
-        {
-           // floor.SetActive(true);
-        }
         List<GameObject> horizontal = new List<GameObject>();
         List<GameObject> vertical = new List<GameObject>();
 
@@ -100,9 +91,22 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
                 Debug.Log("RemoveVerts must be enabled");
             }
         }
+
+        // Eventually should add in code to only enable scan button once enough walls are found or something like that 
         else
         {
             Debug.Log("Not enough walls or floors");
+        }
+
+        SpaceCollectionManager.Instance.GenerateItemsInWorld(horizontal, vertical);
+
+    }
+
+    private void OnDestroy()
+    {
+        if (SurfaceMeshesToPlanes.Instance != null)
+        {
+            SurfaceMeshesToPlanes.Instance.MakePlanesComplete -= Remove_Verts;
         }
     }
 }

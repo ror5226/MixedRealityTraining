@@ -104,6 +104,10 @@ public class MainMenu : Singleton<MainMenu> {
 #else
                 spatialMappingManager.DrawVisualMeshes = false;
 #endif
+                // Generate PLanes from scan
+                spaceUnderstanding.Create_Planes();
+
+                // Permenently plane menu on the wall
                 Place_Menu();
             }
         }
