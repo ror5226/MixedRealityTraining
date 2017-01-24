@@ -11,7 +11,6 @@ public class Placement : MonoBehaviour {
         MidWall = 3,
         LowWall = 4,
         WallFloor = 5
-
     }
 
     // Use this for initialization
