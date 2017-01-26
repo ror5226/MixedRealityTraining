@@ -165,6 +165,12 @@
     <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurableTransparent.shader" />
     <None Include="Assets\HoloToolkit\Utilities\Shaders\WindowOcclusion.shader" />
     <None Include="Assets\Materials\BlueLinesOnWalls.shader" />
+    <None Include="Assets\Resources\Description\Cube_desc.txt" />
+    <None Include="Assets\Resources\Description\Cube_mat.txt" />
+    <None Include="Assets\Resources\Description\Sphere_desc.txt" />
+    <None Include="Assets\Resources\Description\Sphere_mat.txt" />
+    <None Include="Assets\Resources\QuestionAndAnswers\Cube_quest.txt" />
+    <None Include="Assets\Resources\QuestionAndAnswers\Sphere_quest.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
