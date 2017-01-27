@@ -21,7 +21,14 @@ public class MainMenu : Singleton<MainMenu> {
         spaceUnderstanding = SpaceUnderstanding.Instance;
 
         // Start mapping room, hide mesh 
-        spatialMappingManager = SpatialMappingManager.Instance;
+        if (SpatialMappingManager.Instance == null)
+        {
+            Debug.Log("SpatialMappingManager is null");
+        }
+        else
+        {
+            spatialMappingManager = SpatialMappingManager.Instance;
+        }
 
 #if UNITY_EDITOR
         spatialMappingManager.DrawVisualMeshes = true;

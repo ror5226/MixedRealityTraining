@@ -2,8 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HoloToolkit.Unity;
 
-public class RoomAssetManager : MonoBehaviour {
+
+public class RoomAssetManager : Singleton<RoomAssetManager> {
 
 
     [Tooltip("A collection of assessable room objects to generate in the world.")]
@@ -41,7 +43,7 @@ public class RoomAssetManager : MonoBehaviour {
                 wallFloorObjects.Add(spacePrefab);
             }
         }
-        
+
 
         if (floorObjects.Count > 0)
         {
@@ -65,9 +67,9 @@ public class RoomAssetManager : MonoBehaviour {
 
         if (wallFloorObjects.Count > 0)
         {
-           // CreateSpaceObjects(verticalObjects, verticalSurfaces, PlacementSurfaces.Vertical);
+            // CreateSpaceObjects(verticalObjects, verticalSurfaces, PlacementSurfaces.Vertical);
         }
-        
+
     }
 
     private void CreateSpaceObjects(List<GameObject> spaceObjects, List<GameObject> surfaces, PlacementPosition placementType)
@@ -81,24 +83,84 @@ public class RoomAssetManager : MonoBehaviour {
             Collider rightCollider = rhs.GetComponent<Collider>();
             Collider leftCollider = lhs.GetComponent<Collider>();
 
-            // This plane is big enough, now we will evaluate how far the plane is from the user's head.  
-            // Since planes can be quite large, we should find the closest point on the plane's bounds to the 
-            // user's head, rather than just taking the plane's center position.
+            // Order planes by distance to user
             Vector3 rightSpot = rightCollider.ClosestPointOnBounds(headPosition);
             Vector3 leftSpot = leftCollider.ClosestPointOnBounds(headPosition);
 
             return Vector3.Distance(leftSpot, headPosition).CompareTo(Vector3.Distance(rightSpot, headPosition));
         });
+
+        foreach (GameObject item in spaceObjects)
+        {
+            int index = -1;
+            Collider collider = item.GetComponent<Collider>();
+
+            index = FindNearestPlane(surfaces, collider.bounds.size, placementType);
+
+            Quaternion rotation = Quaternion.identity;
+            Vector3 position;
+
+            // If there is somewhere to put the object 
+            if (index >= 0)
+            {
+                GameObject surface = surfaces[index];
+                SurfacePlane plane = surface.GetComponent<SurfacePlane>();
+                position = surface.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
+                position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
+                //rotation = Camera.main.transform.localRotation;
+
+                if (placementType == PlacementPosition.HighWall || placementType == PlacementPosition.MidWall || placementType == PlacementPosition.LowWall|| placementType == PlacementPosition.WallFloor)
+                {
+                    // Vertical objects should face out from the wall.
+                    rotation = Quaternion.LookRotation(surface.transform.forward, Vector3.up);
+                }
+                else
+                {
+                    // Horizontal objects should face the user.
+                    rotation = Quaternion.LookRotation(Camera.main.transform.position);
+                    rotation.x = 0f;
+                    rotation.z = 0f;
+                }
+
+                //Vector3 finalPosition = AdjustPositionWithSpatialMap(position, placementType);
+                GameObject spaceObject = Instantiate(item, position, rotation) as GameObject;
+               // spaceObject.transform.up = -surface.transform.forward;
+               // spaceObject.transform.up = surface.transform.up;
+                //spaceObject.transform.parent = gameObject.transform;
+            }
+        }
+    }
+    private int FindNearestPlane(List<GameObject> planes, Vector3 minSize, PlacementPosition surface)
+    {
+        int planeIndex = -1;
+
+        for (int i = 0; i < planes.Count; i++)
+        {
+           
+            Collider collider = planes[i].GetComponent<Collider>();
+            if (collider.bounds.size.x < minSize.x || collider.bounds.size.y < minSize.y)
+            {
+                // Plain is too small
+                continue;
+            }
+            
+            return i;
+        }
+        return planeIndex;
     }
 
+    private Vector3 AdjustPositionWithSpatialMap(Vector3 position, Vector3 surfaceNormal)
+    {
+        Vector3 newPosition = position;
+        RaycastHit hitInfo;
+        float distance = 0.5f;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        // Check to see if there is a SpatialMapping mesh occluding the object at its current position.
+        if (Physics.Raycast(position, surfaceNormal, out hitInfo, distance, SpatialMappingManager.Instance.LayerMask))
+        {
+            // If the object is occluded, reset its position.
+            newPosition = hitInfo.point;
+        }
+        return newPosition;
+    }
 }
