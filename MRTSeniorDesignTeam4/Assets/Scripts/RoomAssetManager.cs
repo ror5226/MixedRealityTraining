@@ -44,6 +44,41 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             }
         }
 
+        // Remove any tables/other raised objects
+        foreach (GameObject horizontal in horizontalSurfaces)
+        {
+            SurfacePlane plane = horizontal.GetComponent<SurfacePlane>();
+            if (plane != null)
+            {
+                if(plane.PlaneType != PlaneTypes.Floor)
+                {
+                    Destroy(horizontal);
+                }
+                else
+                {
+                    Debug.Log("floor");
+                }
+            }
+        }
+
+        // Remove anything not considered a wall 
+        foreach (GameObject vertical in verticalSurfaces)
+        {
+            SurfacePlane plane = vertical.GetComponent<SurfacePlane>();
+            if (plane != null)
+            {
+                if (plane.PlaneType != PlaneTypes.Wall)
+                {
+                    Destroy(vertical);
+                }
+                else
+                {
+                    Debug.Log("wall");
+                }
+            }
+        }
+
+
 
         if (floorObjects.Count > 0)
         {
