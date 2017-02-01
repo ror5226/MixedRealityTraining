@@ -128,21 +128,23 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         foreach (GameObject item in spaceObjects)
         {
             int index = -1;
-            Collider collider = item.GetComponent<Collider>();
+
+            BoxCollider collider = item.GetComponent<BoxCollider>();
 
             index = FindNearestPlane(surfaces, collider.bounds.size, placementType);
 
             Quaternion rotation = Quaternion.identity;
             Vector3 position;
 
-            BoxCollider itemCollider = item.GetComponentInChildren<BoxCollider>();
 
             // If there is somewhere to put the object 
             if (index >= 0)
             {
                 GameObject surface = surfaces[index];
                 SurfacePlane plane = surface.GetComponent<SurfacePlane>();
-                position = surface.transform.position + ((plane.PlaneThickness + (.45f * Math.Abs(itemCollider.size.z))) * plane.SurfaceNormal);
+
+                // Generate postion by taking middle point of plane and then offseting by the width of the asset
+                position = surface.transform.position + ((plane.PlaneThickness + (.45f * Math.Abs(collider.size.z))) * plane.SurfaceNormal);
                 position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
 
 
