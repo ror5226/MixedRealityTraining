@@ -135,13 +135,17 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             Quaternion rotation = Quaternion.identity;
             Vector3 position;
 
+            BoxCollider itemCollider = item.GetComponentInChildren<BoxCollider>();
+
             // If there is somewhere to put the object 
             if (index >= 0)
             {
                 GameObject surface = surfaces[index];
                 SurfacePlane plane = surface.GetComponent<SurfacePlane>();
-                position = surface.transform.position + (plane.PlaneThickness * plane.SurfaceNormal);
+                position = surface.transform.position + ((plane.PlaneThickness + (.45f * Math.Abs(itemCollider.size.z))) * plane.SurfaceNormal);
                 position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
+
+
                 //rotation = Camera.main.transform.localRotation;
 
                 if (placementType == PlacementPosition.HighWall || placementType == PlacementPosition.MidWall || placementType == PlacementPosition.LowWall|| placementType == PlacementPosition.WallFloor)
@@ -159,9 +163,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 //Vector3 finalPosition = AdjustPositionWithSpatialMap(position, placementType);
                 GameObject spaceObject = Instantiate(item, position, rotation) as GameObject;
-               // spaceObject.transform.up = -surface.transform.forward;
-               // spaceObject.transform.up = surface.transform.up;
-                //spaceObject.transform.parent = gameObject.transform;
+              
             }
         }
     }
