@@ -52,6 +52,9 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -66,6 +69,9 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -246,9 +252,11 @@
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroup.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroupPicker.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\TextToSpeechManagerTest.cs" />
+    <Compile Include="Assets\Scripts\Assessable.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\AccessPanel.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\AnswerScript.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\AssessmentExitButton.cs" />
+    <Compile Include="Assets\Scripts\Assessment Panel\AssessmentHider.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\MenuInteractions.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\ObjectSelect.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\SetupAnswers.cs" />
@@ -256,7 +264,6 @@
     <Compile Include="Assets\Scripts\MainMenu Panel\OpenSecondPanel.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Placeable.cs" />
-    <Compile Include="Assets\Scripts\Placement.cs" />
     <Compile Include="Assets\Scripts\RoomAssetManager.cs" />
     <Compile Include="Assets\Scripts\SpaceCollectionManager.cs" />
     <Compile Include="Assets\Scripts\SpaceUnderstanding.cs" />
