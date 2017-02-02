@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spaceObjectPrefabs:
-  - {fileID: 1279267428}
+  - {fileID: 1578486093}
 --- !u!4 &470834594
 Transform:
   m_ObjectHideFlags: 0
@@ -2239,6 +2239,11 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!1 &1578486093 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1875344881365386, guid: 4b414b479decda74f92d1ff315dc4e1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580462681}
 --- !u!1001 &1580462681
 Prefab:
   m_ObjectHideFlags: 0
