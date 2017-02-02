@@ -10,6 +10,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
     [Tooltip("A collection of assessable room objects to generate in the world.")]
     public List<GameObject> spaceObjectPrefabs;
+    private SurfacePlane mainFloor;
 
     public void GenerateItemsInWorld(List<GameObject> horizontalSurfaces, List<GameObject> verticalSurfaces)
     {
@@ -44,6 +45,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             }
         }
 
+        float highArea = 0.0f; 
         // Remove any tables/other raised objects
         foreach (GameObject horizontal in horizontalSurfaces)
         {
@@ -56,7 +58,10 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 }
                 else
                 {
-                    Debug.Log("floor");
+                    if(plane.Plane.Area > highArea)
+                    {
+                        mainFloor = plane;
+                    }
                 }
             }
         }
@@ -145,7 +150,10 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 // Generate postion by taking middle point of plane and then offseting by the width of the asset
                 position = surface.transform.position + ((plane.PlaneThickness + (.45f * Math.Abs(collider.size.z))) * plane.SurfaceNormal);
+                position.y = mainFloor.Plane.Bounds.Center.y;
+
                 position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
+  //              position = AdjustPositionWithSpatialMap(position, mainFloor.SurfaceNormal);
 
 
                 //rotation = Camera.main.transform.localRotation;
