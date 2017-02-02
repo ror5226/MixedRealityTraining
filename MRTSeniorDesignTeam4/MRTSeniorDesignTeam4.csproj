@@ -243,7 +243,6 @@
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroup.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroupPicker.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\TextToSpeechManagerTest.cs" />
-    <Compile Include="Assets\Scripts\Assessable.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\AccessPanel.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\AnswerScript.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\AssessmentExitButton.cs" />
