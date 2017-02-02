@@ -246,8 +246,12 @@
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroup.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\Scripts\PlaneTargetGroupPicker.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Tests\TextToSpeechManagerTest.cs" />
+    <Compile Include="Assets\Scripts\Assessment Panel\AccessPanel.cs" />
+    <Compile Include="Assets\Scripts\Assessment Panel\AnswerScript.cs" />
     <Compile Include="Assets\Scripts\Assessment Panel\AssessmentExitButton.cs" />
-    <Compile Include="Assets\Scripts\Assessment Panel\AssessmentHider.cs" />
+    <Compile Include="Assets\Scripts\Assessment Panel\MenuInteractions.cs" />
+    <Compile Include="Assets\Scripts\Assessment Panel\ObjectSelect.cs" />
+    <Compile Include="Assets\Scripts\Assessment Panel\SetupAnswers.cs" />
     <Compile Include="Assets\Scripts\MainMenu Panel\MenuExitButton.cs" />
     <Compile Include="Assets\Scripts\MainMenu Panel\OpenSecondPanel.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
@@ -282,6 +286,12 @@
     <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurableTransparent.shader" />
     <None Include="Assets\HoloToolkit\Utilities\Shaders\WindowOcclusion.shader" />
     <None Include="Assets\Materials\BlueLinesOnWalls.shader" />
+    <None Include="Assets\Resources\Description\Cube_desc.txt" />
+    <None Include="Assets\Resources\Description\Cube_mat.txt" />
+    <None Include="Assets\Resources\Description\Sphere_desc.txt" />
+    <None Include="Assets\Resources\Description\Sphere_mat.txt" />
+    <None Include="Assets\Resources\QuestionAndAnswers\Cube_quest.txt" />
+    <None Include="Assets\Resources\QuestionAndAnswers\Sphere_quest.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

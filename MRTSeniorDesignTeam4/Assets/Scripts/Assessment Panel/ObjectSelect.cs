@@ -6,16 +6,17 @@ using System.IO;
 
 public class ObjectSelect : MonoBehaviour {
 
-    GameObject assessmentMenu;
-    GameObject damageInfo;
+    AccessPanel aPanel;
     Vector3 objPos;
 
     // Use this for initialization
     void Start() {
-        assessmentMenu = GameObject.Find("AssessmentPanel");
-        damageInfo = GameObject.Find("DamageInfo");
-        damageInfo.SetActive(false);
-        assessmentMenu.SetActive(false);
+        if (AccessPanel.Instance == null) {
+            Debug.Log("No AccessPanel Instance");
+        }
+        else {
+            aPanel = AccessPanel.Instance;
+        }
     }
 
 
@@ -36,14 +37,13 @@ public class ObjectSelect : MonoBehaviour {
 
         //  get the name of the selected object
         string selectedObjName = this.gameObject.name;
-        GameObject infoPanel = damageInfo.transform.FindChild("InfoPanel").gameObject;
 
-        changeDescription(infoPanel, selectedObjName);
-        changeAssessment(assessmentMenu, selectedObjName);
+        changeDescription(aPanel.getDamageInfo().transform.FindChild("InfoPanel").gameObject, selectedObjName);
+        changeAssessment(aPanel.getAssessmentPanel(), selectedObjName);
 
         objPos = this.transform.position;
-        damageInfo.SetActive(true);
-        damageInfo.transform.position = new Vector3(objPos.x, (objPos.y + (float).5), (objPos.z - (float).5));
+        aPanel.setDamageActive(true);
+        aPanel.getDamageInfo().transform.position = new Vector3(objPos.x, (objPos.y + (float).5), (objPos.z - (float).5));
 
     }
 
@@ -68,7 +68,9 @@ public class ObjectSelect : MonoBehaviour {
         //  getting the two end points for where the text should go.
         Text damageText = infoPanel.transform.FindChild("DamgeInfoParagraph").GetComponent<Text>();
         Text materialText = infoPanel.transform.FindChild("MaterialInfoParagraph").GetComponent<Text>();
+        Text title = infoPanel.transform.FindChild("ObjectTitle").GetComponent<Text>();
 
+        title.text = this.gameObject.name;
         //  get description of the object.
         TextAsset txt = (TextAsset)Resources.Load(descPath, typeof(TextAsset));
         string desc = txt.text;
@@ -93,9 +95,8 @@ public class ObjectSelect : MonoBehaviour {
         GameObject answerPanel = aPanel.transform.FindChild("AnswerPanel").gameObject;
 
         TextAsset txt = (TextAsset)Resources.Load(questPath, typeof(TextAsset));
-        string question = txt.text;
 
-        assessmentText.text = question;
+        assessmentText.text = txt.text; 
 
     }
 
