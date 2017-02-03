@@ -4,6 +4,9 @@
 
 # =============== #
 
+
+/*.bin
+
 [Tt]emp/
 
 [Oo]bj/
@@ -33,8 +36,6 @@ sysinfo.txt
 /*.csproj
 
 /*.pidb
-
-/*.bin
 
 /*.suo
 
