@@ -5,15 +5,15 @@
 # =============== #
 
 
-/*.bin
+MRTSeniorDesignTeam4/[Tt]emp/
 
-[Tt]emp/
+MRTSeniorDesignTeam4/[Oo]bj/
 
-[Oo]bj/
+MRTSeniorDesignTeam4/[Bb]uild
 
-[Bb]uild
+MRTSeniorDesignTeam4/[Ll]ibrary/
 
-/[Ll]ibrary/
+
 
 sysinfo.txt
 
