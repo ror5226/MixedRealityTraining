@@ -76,7 +76,7 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         List<GameObject> horizontal = new List<GameObject>();
         List<GameObject> vertical = new List<GameObject>();
 
-        horizontal = surfaceMeshesToPlanes.GetActivePlanes(PlaneTypes.Table | PlaneTypes.Floor);
+        horizontal = surfaceMeshesToPlanes.GetActivePlanes(PlaneTypes.Table | PlaneTypes.Floor | PlaneTypes.Ceiling);
         vertical = surfaceMeshesToPlanes.GetActivePlanes(PlaneTypes.Wall);
 
         // Ensure that enough of the room has been scanned 

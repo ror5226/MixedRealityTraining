@@ -23,6 +23,11 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         foreach (GameObject spacePrefab in spaceObjectPrefabs)
         {
             Assessable assessObject = spacePrefab.GetComponent<Assessable>();
+
+            if(assessObject == null)
+            {
+                Debug.Log("Item needs to have Assable script attached to it");
+            }
             if (assessObject.placement == PlacementPosition.Floor)
             {
                 floorObjects.Add(spacePrefab);
@@ -45,7 +50,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             }
         }
 
-        float highArea = 0.0f; 
+        float largestArea = 0.0f; 
         // Remove any tables/other raised objects
         foreach (GameObject horizontal in horizontalSurfaces)
         {
@@ -58,9 +63,13 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 }
                 else
                 {
-                    if(plane.Plane.Area > highArea)
+                    if(plane.Plane.Area > largestArea)
                     {
                         mainFloor = plane;
+                    }
+                    else //remove any smaller floors
+                    {
+                        Destroy(horizontal);
                     }
                 }
             }
@@ -76,10 +85,6 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 {
                     Destroy(vertical);
                 }
-                else
-                {
-                    Debug.Log("wall");
-                }
             }
         }
 
@@ -87,12 +92,12 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
         if (floorObjects.Count > 0)
         {
-            //CreateSpaceObjects(horizontalObjects, horizontalSurfaces, PlacementSurfaces.Horizontal);
+           // CreateSpaceObjects(horizontalObjects, horizontalSurfaces, PlacementSurfaces.Horizontal);
         }
 
         if (lowWallObjects.Count > 0)
         {
-            // CreateSpaceObjects(verticalObjects, verticalSurfaces, PlacementSurfaces.Vertical);
+            CreateSpaceObjects(lowWallObjects, verticalSurfaces, PlacementPosition.LowWall);
         }
 
         if (midWallObjects.Count > 0)
@@ -102,12 +107,12 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
         if (highWallObjects.Count > 0)
         {
-            // CreateSpaceObjects(verticalObjects, verticalSurfaces, PlacementSurfaces.Vertical);
+            CreateSpaceObjects(highWallObjects, verticalSurfaces, PlacementPosition.HighWall);
         }
 
         if (wallFloorObjects.Count > 0)
         {
-            // CreateSpaceObjects(verticalObjects, verticalSurfaces, PlacementSurfaces.Vertical);
+             CreateSpaceObjects(wallFloorObjects, verticalSurfaces, PlacementPosition.WallFloor);
         }
 
     }
@@ -136,6 +141,11 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
             BoxCollider collider = item.GetComponent<BoxCollider>();
 
+            if(collider == null)
+            {
+                Debug.Log("Object needs BoxCollider");
+            }
+
             index = FindNearestPlane(surfaces, collider.bounds.size, placementType);
 
             Quaternion rotation = Quaternion.identity;
@@ -150,10 +160,14 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 // Generate postion by taking middle point of plane and then offseting by the width of the asset
                 position = surface.transform.position + ((plane.PlaneThickness + (.45f * Math.Abs(collider.size.z))) * plane.SurfaceNormal);
-                position.y = mainFloor.Plane.Bounds.Center.y;
 
-   //             position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
-  //              position = AdjustPositionWithSpatialMap(position, mainFloor.SurfaceNormal);
+                if(placementType == PlacementPosition.WallFloor)
+                {
+                    position.y = mainFloor.Plane.Bounds.Center.y;
+                }
+
+                //     position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
+                //     position = AdjustPositionWithSpatialMap(position, mainFloor.SurfaceNormal);
 
 
                 //rotation = Camera.main.transform.localRotation;
