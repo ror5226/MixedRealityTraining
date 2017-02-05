@@ -152,7 +152,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 position = surface.transform.position + ((plane.PlaneThickness + (.45f * Math.Abs(collider.size.z))) * plane.SurfaceNormal);
                 position.y = mainFloor.Plane.Bounds.Center.y;
 
-                position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
+   //             position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
   //              position = AdjustPositionWithSpatialMap(position, mainFloor.SurfaceNormal);
 
 

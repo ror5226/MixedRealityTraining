@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRTSeniorDesignTeam4", "MRTSeniorDesignTeam4.csproj", "{54724A05-65DD-8B46-FC14-2EF10CC61D4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRTSeniorDesignTeam4.Editor", "MRTSeniorDesignTeam4.Editor.csproj", "{18F73AB4-B6E0-C4E5-EB89-4448D9BE171D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54724A05-65DD-8B46-FC14-2EF10CC61D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54724A05-65DD-8B46-FC14-2EF10CC61D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54724A05-65DD-8B46-FC14-2EF10CC61D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54724A05-65DD-8B46-FC14-2EF10CC61D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18F73AB4-B6E0-C4E5-EB89-4448D9BE171D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18F73AB4-B6E0-C4E5-EB89-4448D9BE171D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18F73AB4-B6E0-C4E5-EB89-4448D9BE171D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18F73AB4-B6E0-C4E5-EB89-4448D9BE171D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
