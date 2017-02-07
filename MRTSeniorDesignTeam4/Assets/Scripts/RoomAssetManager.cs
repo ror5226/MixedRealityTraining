@@ -146,7 +146,9 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 Debug.Log("Object needs BoxCollider");
             }
 
-            index = FindNearestPlane(surfaces, collider.bounds.size, placementType);
+            index = FindNearestPlane(surfaces, item.transform.localScale, placementType, UsedPlanes);
+
+            UsedPlanes.Add(index);
 
             Quaternion rotation = Quaternion.identity;
             Vector3 position;
@@ -191,15 +193,20 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             }
         }
     }
-    private int FindNearestPlane(List<GameObject> planes, Vector3 minSize, PlacementPosition surface)
+    private int FindNearestPlane(List<GameObject> planes, Vector3 minSize, PlacementPosition surface, List<int> usedPlanes)
     {
         int planeIndex = -1;
 
         for (int i = 0; i < planes.Count; i++)
         {
-           
-            Collider collider = planes[i].GetComponent<Collider>();
-            if (collider.bounds.size.x < minSize.x || collider.bounds.size.y < minSize.y)
+
+            if (usedPlanes.Contains(i))
+            {
+                continue;
+            }
+
+            //BoxCollider collider = planes[i].GetComponent<BoxCollider>();
+            if (planes[i].transform.localScale.x < minSize.x || planes[i].transform.localScale.y < minSize.y)
             {
                 // Plain is too small
                 continue;
