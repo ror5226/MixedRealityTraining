@@ -6,16 +6,17 @@ using System.IO;
 
 public class ObjectSelect : MonoBehaviour {
 
-    GameObject assessmentMenu;
-    GameObject damageInfo;
+    AccessPanel aPanel;
     Vector3 objPos;
 
     // Use this for initialization
     void Start() {
-        assessmentMenu = GameObject.Find("AssessmentPanel");
-        damageInfo = GameObject.Find("DamageInfo");
-        damageInfo.SetActive(false);
-        assessmentMenu.SetActive(false);
+        if (AccessPanel.Instance == null) {
+            Debug.Log("No AccessPanel Instance");
+        }
+        else {
+            aPanel = AccessPanel.Instance;
+        }
     }
 
 
@@ -36,14 +37,13 @@ public class ObjectSelect : MonoBehaviour {
 
         //  get the name of the selected object
         string selectedObjName = this.gameObject.name;
-        GameObject infoPanel = damageInfo.transform.FindChild("InfoPanel").gameObject;
 
-        changeDescription(infoPanel, selectedObjName);
-        changeAssessment(assessmentMenu, selectedObjName);
+        changeDescription(aPanel.getDamageInfo().transform.FindChild("InfoPanel").gameObject, selectedObjName);
+        changeAssessment(aPanel.getAssessmentPanel(), selectedObjName);
 
         objPos = this.transform.position;
-        damageInfo.SetActive(true);
-        damageInfo.transform.position = new Vector3(objPos.x, (objPos.y + (float).5), (objPos.z - (float).5));
+        aPanel.setDamageActive(true);
+        aPanel.getDamageInfo().transform.position = new Vector3(objPos.x, (objPos.y + (float).5), (objPos.z - (float).5));
 
     }
 
@@ -68,7 +68,9 @@ public class ObjectSelect : MonoBehaviour {
         //  getting the two end points for where the text should go.
         Text damageText = infoPanel.transform.FindChild("DamgeInfoParagraph").GetComponent<Text>();
         Text materialText = infoPanel.transform.FindChild("MaterialInfoParagraph").GetComponent<Text>();
+        Text title = infoPanel.transform.FindChild("ObjectTitle").GetComponent<Text>();
 
+        title.text = this.gameObject.name;
         //  get description of the object.
         TextAsset txt = (TextAsset)Resources.Load(descPath, typeof(TextAsset));
         string desc = txt.text;
@@ -82,21 +84,134 @@ public class ObjectSelect : MonoBehaviour {
         materialText.text = matInfo;
     }
 
-    private void changeAssessment(GameObject aPanel, string objName) {
+    private void changeAssessment(GameObject gObj, string objName) {
 
         //  Adds the proper file locations to the path to change the question and answers
         string questPath = "QuestionAndAnswers/" + objName +  "_quest";
         string ansPath = "QuestionAndAnswers/" + objName + "_ans";
 
         //  getting the two end points for where the text should go.
-        Text assessmentText = aPanel.transform.FindChild("QuestionPanel").FindChild("QuestionText").GetComponent<Text>();
-        GameObject answerPanel = aPanel.transform.FindChild("AnswerPanel").gameObject;
-
+        GameObject assessmentPanel = aPanel.getAssessmentPanel();
+        Text assessmentText = gObj.transform.FindChild("QuestionPanel").FindChild("QuestionText").GetComponent<Text>();
         TextAsset txt = (TextAsset)Resources.Load(questPath, typeof(TextAsset));
-        string question = txt.text;
+        
+        assessmentText.text = txt.text;
 
-        assessmentText.text = question;
+        txt = (TextAsset)Resources.Load(ansPath, typeof(TextAsset));
+        string tempText = txt.text;
+        tempText = tempText.Replace("\r\n", "");
+        string[] answers = tempText.Split('#');
 
+        aPanel.setAnsA(false);
+        aPanel.setAnsB(false);
+        aPanel.setAnsC(false);
+        aPanel.setAnsD(false);
+        aPanel.setAnsE(false);
+        aPanel.setAnsF(false);
+
+        aPanel.setAssessmentActive(true);
+
+        for (int i=0; i < answers.Length-1; i++) {
+            switch (i) {
+
+                //
+                //  from 0-3 we only have one row of answers
+                //
+                case 0:
+                    aPanel.getAnsA().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
+                    aPanel.setAnsA(true);
+                break;
+
+                case 1:
+                if (answers[i] == "T")
+                    aPanel.getAnsA().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = true;
+                else
+                   aPanel.getAnsA().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = false;
+                break;
+
+                case 2:
+                    aPanel.getAnsB().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
+                    aPanel.setAnsB(true);
+                break;
+
+                case 3:
+                    if (answers[i] == "T")
+                        aPanel.getAnsB().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = true;
+                    else
+                        aPanel.getAnsB().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = false;
+                break;
+                
+                //
+                //  from 4-7 we have 2 rows of answers
+                //
+                case 4:
+                    aPanel.getAnsC().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
+                    aPanel.setAnsC(true);
+                break;
+
+                case 5:
+                    if (answers[i] == "T")
+                        aPanel.getAnsC().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = true;
+                    else
+                        aPanel.getAnsC().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = false;
+                break;
+
+                case 6:
+                    aPanel.getAnsD().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
+                    aPanel.setAnsD(true);
+                break;
+
+                case 7:
+                    if (answers[i] == "T")
+                        aPanel.getAnsD().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = true;
+                    else
+                        aPanel.getAnsD().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = false;
+                break;
+
+                //
+                //  from 8-11 we have 3 rows of answers
+                // 
+                case 8:
+                    aPanel.getAnsE().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
+                    aPanel.setAnsE(true);
+                break;
+                    
+                case 9:
+                    if (answers[i] == "T")
+                        aPanel.getAnsE().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = true;
+                    else
+                        aPanel.getAnsE().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = false;
+                break;
+
+                case 10:
+                    aPanel.getAnsF().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
+                    aPanel.setAnsF(true);
+                break;
+
+                case 11:
+                    if (answers[i] == "T")
+                        aPanel.getAnsF().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = true;
+                    else
+                        aPanel.getAnsF().transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = false;
+                break;
+
+                default:
+                break;
+
+            }
+        }
+
+        if ( answers.Length-1 == 4) {
+            aPanel.setAssessmentRows(1);
+        }
+        else if (answers.Length-1 == 6) {
+            aPanel.setAssessmentRows(2);
+        }
+        else if (answers.Length-1 == 12) {
+            aPanel.setAssessmentRows(3);
+        }
+
+        aPanel.setAssessmentActive(false);
     }
 
 }

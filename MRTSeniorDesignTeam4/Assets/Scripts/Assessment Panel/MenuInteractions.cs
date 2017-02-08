@@ -4,31 +4,28 @@ using UnityEngine;
 
 public class MenuInteractions : MonoBehaviour {
 
-    GameObject assessmentMenu;
-    GameObject damageInfo;
+    AccessPanel aPanel;
 
     // Use this for initialization
     void Start () {
-        assessmentMenu = GameObject.Find("AssessmentPanel");
-        damageInfo = GameObject.Find("DamageInfo");
+        if (AccessPanel.Instance == null) {
+            Debug.Log("No AccessPanel Instance");
+        }
+        else {
+            aPanel = AccessPanel.Instance;
+        }
     }
 
     public void damageInfo_OpenAssessment() {
-        assessmentMenu.transform.position = damageInfo.transform.position;
-        damageInfo.SetActive(false);
-        assessmentMenu.SetActive(true);
-    }
-
-    public void AssessmentMenu_DamageOpen() {
-        damageInfo.transform.position = assessmentMenu.transform.position;
-        assessmentMenu.SetActive(false);
-        damageInfo.SetActive(true);
+        aPanel.setAssessmentActive(true);
+        aPanel.getAssessmentPanel().transform.position = aPanel.getDamageInfo().transform.position;
+        aPanel.setDamageActive(false);
+        aPanel.setCorrectPanelActive(false);
     }
 
     public void closeMenus() {
-        if(assessmentMenu.activeSelf == true)
-            assessmentMenu.SetActive(false);
-        else if(damageInfo.activeSelf == true)
-            damageInfo.SetActive(false);
+        aPanel.setAssessmentActive(false);
+        aPanel.setDamageActive(false);
+        aPanel.setCorrectPanelActive(false);
     }
 }
