@@ -23,10 +23,12 @@ public class AnswerScript : MonoBehaviour {
 
         if (correctAnswer) {
             aPanel.setCorrectPanelText("You have answered correct. Good Job!");
+            aPanel.getCorrectPanel().transform.FindChild("TryAgainButton").gameObject.SetActive(false);
             //  Increment precent finished if we are still doing that here.
         }
         else {
             aPanel.setCorrectPanelText("You have answered incorrectly. Try Again?");
+            aPanel.getCorrectPanel().transform.FindChild("TryAgainButton").gameObject.SetActive(true);
         }
     }
 }
