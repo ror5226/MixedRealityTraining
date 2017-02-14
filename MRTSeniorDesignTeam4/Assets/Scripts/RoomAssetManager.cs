@@ -163,7 +163,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 if(placementType == PlacementPosition.WallFloor)
                 {
-                    position.y = mainFloor.Plane.Bounds.Center.y;
+                    position.y = mainFloor.Plane.Bounds.Center.y + collider.size.y * .5f;
                 }
 
                 //     position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
