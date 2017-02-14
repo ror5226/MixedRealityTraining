@@ -88,8 +88,6 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             }
         }
 
-
-
         if (floorObjects.Count > 0)
         {
            // CreateSpaceObjects(horizontalObjects, horizontalSurfaces, PlacementSurfaces.Horizontal);
@@ -161,7 +159,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 SurfacePlane plane = surface.GetComponent<SurfacePlane>();
 
                 // Generate postion by taking middle point of plane and then offseting by the width of the asset
-                position = surface.transform.position + ((plane.PlaneThickness + (.45f * Math.Abs(collider.size.z))) * plane.SurfaceNormal);
+                position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(collider.size.z))) * plane.SurfaceNormal);
 
                 if(placementType == PlacementPosition.WallFloor)
                 {
@@ -170,9 +168,6 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 //     position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
                 //     position = AdjustPositionWithSpatialMap(position, mainFloor.SurfaceNormal);
-
-
-                //rotation = Camera.main.transform.localRotation;
 
                 if (placementType == PlacementPosition.HighWall || placementType == PlacementPosition.MidWall || placementType == PlacementPosition.LowWall|| placementType == PlacementPosition.WallFloor)
                 {
@@ -189,7 +184,6 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 //Vector3 finalPosition = AdjustPositionWithSpatialMap(position, placementType);
                 GameObject spaceObject = Instantiate(item, position, rotation) as GameObject;
-              
             }
         }
     }
