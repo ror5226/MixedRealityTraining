@@ -8,13 +8,18 @@ using System;
 
 public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
 
+    // Min number of surfaces for placement
     public int minWalls = 2;
-    public int minFloors = 2;
+    public int minFloors = 1;
 
     private SpatialMappingManager spatialMappingManager;
     private SurfaceMeshesToPlanes surfaceMeshesToPlanes;
     private GestureRecognizer gestureRecognizer;
     RemoveSurfaceVertices removeVerts;
+
+    // Lists of scanned surfaces
+    List<GameObject> horizontal = new List<GameObject>();
+    List<GameObject> vertical = new List<GameObject>();
 
     // Use this for initialization
     private void Start () {
@@ -73,9 +78,7 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
 #endif
         }
 
-        List<GameObject> horizontal = new List<GameObject>();
-        List<GameObject> vertical = new List<GameObject>();
-
+        // Store horizontal andf vertical surfaces
         horizontal = surfaceMeshesToPlanes.GetActivePlanes(PlaneTypes.Table | PlaneTypes.Floor | PlaneTypes.Ceiling);
         vertical = surfaceMeshesToPlanes.GetActivePlanes(PlaneTypes.Wall);
 
@@ -98,8 +101,6 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
             Debug.Log("Not enough walls or floors");
         }
 
-        RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical);
-
     }
 
     private void OnDestroy()
@@ -108,5 +109,15 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         {
             SurfaceMeshesToPlanes.Instance.MakePlanesComplete -= Remove_Verts;
         }
+    }
+
+    public void RunKitchenScene()
+    {
+        RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical);
+    }
+
+    public void RunLivingRoonScene()
+    {
+        RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical);
     }
 }

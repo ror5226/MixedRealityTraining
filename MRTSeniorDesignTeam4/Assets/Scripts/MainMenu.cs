@@ -93,12 +93,16 @@ public class MainMenu : Singleton<MainMenu> {
         {
             if(mainMenu_ButtonCount == 0)
             {
+                // Show mesh on walls
                 spaceUnderstanding.ShowScan();
 
+                // Update UI text
+                GameObject startPanel = GameObject.FindGameObjectWithTag("Start_Panel_Text");
+                Text panelText = startPanel.GetComponent<Text>();
+                panelText.text = "Please look around the room\nwhere training items can be placed";
+
                 GameObject panelButton = GameObject.FindGameObjectWithTag("Scan_Button_Text"); 
-
                 Text buttonText = panelButton.GetComponent<Text>();
-
                 buttonText.text = "Stop Scan";
 
                 mainMenu_ButtonCount++;
@@ -108,12 +112,11 @@ public class MainMenu : Singleton<MainMenu> {
 
 #if UNITY_EDITOR
                 spatialMappingManager.DrawVisualMeshes = true;
+                // Generate Planes from scan
+                spaceUnderstanding.Create_Planes();
 #else
                 spatialMappingManager.DrawVisualMeshes = false;
 #endif
-                // Generate PLanes from scan
-                spaceUnderstanding.Create_Planes();
-
                 // Permenently plane menu on the wall
                 Place_Menu();
             }
@@ -149,6 +152,9 @@ public class MainMenu : Singleton<MainMenu> {
     private void Stop_Menu_Moving(InteractionSourceKind source, int tapCount, Ray headRay)
     {
         mobileMenu = false;
+
+        // Generate Planes from scan
+        spaceUnderstanding.Create_Planes();
 
         gestureRecognizer.TappedEvent -= Stop_Menu_Moving;
 

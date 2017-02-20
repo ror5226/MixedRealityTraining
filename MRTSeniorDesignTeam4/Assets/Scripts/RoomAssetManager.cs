@@ -169,17 +169,18 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 //     position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
                 //     position = AdjustPositionWithSpatialMap(position, mainFloor.SurfaceNormal);
 
-                if (placementType == PlacementPosition.HighWall || placementType == PlacementPosition.MidWall || placementType == PlacementPosition.LowWall|| placementType == PlacementPosition.WallFloor)
+                if (placementType == PlacementPosition.HighWall || placementType == PlacementPosition.MidWall || placementType == PlacementPosition.LowWall)
                 {
                     // Vertical objects should face out from the wall.
+                    position.y = position.y + collider.size.y * .5f;
                     rotation = Quaternion.LookRotation(surface.transform.forward, Vector3.up);
+
+
                 }
                 else
                 {
-                    // Horizontal objects should face the user.
-                    rotation = Quaternion.LookRotation(Camera.main.transform.position);
-                    rotation.x = 0f;
-                    rotation.z = 0f;
+                    rotation = Quaternion.LookRotation(surface.transform.forward, Vector3.up);
+
                 }
 
                 //Vector3 finalPosition = AdjustPositionWithSpatialMap(position, placementType);
