@@ -159,11 +159,11 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 SurfacePlane plane = surface.GetComponent<SurfacePlane>();
 
                 // Generate postion by taking middle point of plane and then offseting by the width of the asset
-                position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(collider.size.z))) * plane.SurfaceNormal);
+                position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(collider.size.z) * this.transform.localScale.z)) * plane.SurfaceNormal);
 
                 if(placementType == PlacementPosition.WallFloor)
                 {
-                    position.y = mainFloor.Plane.Bounds.Center.y + collider.size.y * .5f;
+                    position.y = mainFloor.Plane.Bounds.Center.y + collider.size.y * .5f * this.transform.localScale.z;
                 }
 
                 //     position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);

@@ -101,6 +101,8 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
             Debug.Log("Not enough walls or floors");
         }
 
+        RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical);
+
     }
 
     private void OnDestroy()
