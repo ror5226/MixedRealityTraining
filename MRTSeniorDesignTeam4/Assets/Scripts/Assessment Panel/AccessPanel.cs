@@ -17,6 +17,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     GameObject ansD;
     GameObject ansE;
     GameObject ansF;
+    new AudioSource audio;
 
     void Start() {
         assessmentPanel = GameObject.Find("AssessmentPanel");
@@ -30,6 +31,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         ansD = answerPanel.transform.FindChild("AnswerD").gameObject;
         ansE = answerPanel.transform.FindChild("AnswerE").gameObject;
         ansF = answerPanel.transform.FindChild("AnswerF").gameObject;
+        audio = damageInfo.transform.GetComponent<AudioSource>();
         ansC.SetActive(false);
         ansD.SetActive(false);
         ansF.SetActive(false);
@@ -37,6 +39,25 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         damageInfo.SetActive(false);
         assessmentPanel.SetActive(false);
         correctPanel.SetActive(false);
+    }
+
+    public void setAudioClip(string s) {
+        audio.clip = (AudioClip)Resources.Load(s);
+    }
+
+    public void playAudioClip() {
+        if (audio.time <= 2)
+            audio.Play();
+        else
+            audio.UnPause();
+    } 
+
+    public bool isAudioPlaying() {
+        return audio.isPlaying;
+    }
+
+    public void pauseAudio() {
+        audio.Pause();
     }
 
     public GameObject getAssessmentPanel() {

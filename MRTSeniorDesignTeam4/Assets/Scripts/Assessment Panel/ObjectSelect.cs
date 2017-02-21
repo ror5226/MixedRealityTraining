@@ -64,6 +64,7 @@ public class ObjectSelect : MonoBehaviour {
         //  Adds the proper file locations to the path to change the description and material info
         string descPath = "Description/" + objName + "_desc";
         string matPath = "Description/" + objName + "_mat";
+        string soundPath = "Description/" + objName + "_audio";
 
         //  getting the two end points for where the text should go.
         Text damageText = infoPanel.transform.FindChild("DamgeInfoParagraph").GetComponent<Text>();
@@ -80,6 +81,7 @@ public class ObjectSelect : MonoBehaviour {
         string matInfo = txt.text;
 
         //  Change the two areas.
+        aPanel.setAudioClip(soundPath);
         damageText.text = desc;
         materialText.text = matInfo;
     }
