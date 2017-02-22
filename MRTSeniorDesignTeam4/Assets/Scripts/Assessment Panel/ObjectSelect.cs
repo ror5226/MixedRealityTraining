@@ -50,7 +50,7 @@ public class ObjectSelect : MonoBehaviour {
         //
         GameObject cam = GameObject.Find("Main Camera");
         Vector3 camPos = cam.transform.position;
-        aPanel.getDamageInfo().transform.position = new Vector3(camPos.x + 1, camPos.y, camPos.z);
+        aPanel.getDamageInfo().transform.position = new Vector3(camPos.x, camPos.y, camPos.z+1);
 
     }
 
