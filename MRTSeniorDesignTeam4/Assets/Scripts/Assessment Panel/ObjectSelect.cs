@@ -37,8 +37,9 @@ public class ObjectSelect : MonoBehaviour {
 
         //  get the name of the selected object
         string selectedObjName = this.gameObject.name;
+        string[] split = selectedObjName.Split('(');
 
-        changeDescription(aPanel.getDamageInfo().transform.FindChild("InfoPanel").gameObject, selectedObjName);
+        changeDescription(aPanel.getDamageInfo().transform.FindChild("InfoPanel").gameObject, split[0]);
         changeAssessment(aPanel.getAssessmentPanel(), selectedObjName);
 
         objPos = this.transform.position;
