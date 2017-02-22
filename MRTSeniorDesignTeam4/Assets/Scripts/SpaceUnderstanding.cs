@@ -93,10 +93,6 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
             {
                 Debug.Log("RemoveVerts must be enabled");
             }
-
-#if UNITY_EDITOR
-            RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical, ModuleType.Kitchen);
-#endif
         }
 
         // Eventually should add in code to only enable scan button once enough walls are found or something like that 
@@ -104,6 +100,10 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         {
             Debug.Log("Not enough walls or floors");
         }
+
+#if UNITY_EDITOR
+        RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical, ModuleType.Kitchen);
+#endif
 
     }
 
