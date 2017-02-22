@@ -44,7 +44,13 @@ public class ObjectSelect : MonoBehaviour {
 
         objPos = this.transform.position;
         aPanel.setDamageActive(true);
-        aPanel.getDamageInfo().transform.position = new Vector3(objPos.x, (objPos.y + (float).5), (objPos.z - (float).5));
+
+        //
+        //  to be optimized later
+        //
+        GameObject cam = GameObject.Find("Main Camera");
+        Vector3 camPos = cam.transform.position;
+        aPanel.getDamageInfo().transform.position = new Vector3(camPos.x + 1, camPos.y, camPos.z);
 
     }
 
@@ -72,7 +78,7 @@ public class ObjectSelect : MonoBehaviour {
         Text materialText = infoPanel.transform.FindChild("MaterialInfoParagraph").GetComponent<Text>();
         Text title = infoPanel.transform.FindChild("ObjectTitle").GetComponent<Text>();
 
-        title.text = this.gameObject.name;
+        title.text = objName;
         //  get description of the object.
         TextAsset txt = (TextAsset)Resources.Load(descPath, typeof(TextAsset));
         string desc = txt.text;
