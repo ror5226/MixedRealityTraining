@@ -11,10 +11,18 @@ public enum PlacementPosition
     WallFloor = 5
 }
 
+public enum ModuleType
+{
+    Kitchen = 1,
+    LivingRoom = 2
+}
+
 public class Assessable : MonoBehaviour {
 
     [Tooltip("Type of plane that the object has been classified as.")]
     public PlacementPosition placement = PlacementPosition.MidWall;
+
+    public ModuleType module = ModuleType.Kitchen;
 
     // Use this for initialization
     void Start () {

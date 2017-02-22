@@ -12,7 +12,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     public List<GameObject> spaceObjectPrefabs;
     private SurfacePlane mainFloor;
 
-    public void GenerateItemsInWorld(List<GameObject> horizontalSurfaces, List<GameObject> verticalSurfaces)
+    public void GenerateItemsInWorld(List<GameObject> horizontalSurfaces, List<GameObject> verticalSurfaces, ModuleType moduleSelected)
     {
         List<GameObject> floorObjects = new List<GameObject>();
         List<GameObject> highWallObjects = new List<GameObject>();

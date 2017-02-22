@@ -18,8 +18,8 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
     RemoveSurfaceVertices removeVerts;
 
     // Lists of scanned surfaces
-    List<GameObject> horizontal = new List<GameObject>();
-    List<GameObject> vertical = new List<GameObject>();
+    public static List<GameObject> horizontal = new List<GameObject>();
+    public static List<GameObject> vertical = new List<GameObject>();
 
     // Use this for initialization
     private void Start () {
@@ -93,6 +93,10 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
             {
                 Debug.Log("RemoveVerts must be enabled");
             }
+
+#if UNITY_EDITOR
+            RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical, ModuleType.Kitchen);
+#endif
         }
 
         // Eventually should add in code to only enable scan button once enough walls are found or something like that 
@@ -100,8 +104,6 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         {
             Debug.Log("Not enough walls or floors");
         }
-
-        RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical);
 
     }
 
@@ -111,15 +113,5 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         {
             SurfaceMeshesToPlanes.Instance.MakePlanesComplete -= Remove_Verts;
         }
-    }
-
-    public void RunKitchenScene()
-    {
-        RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical);
-    }
-
-    public void RunLivingRoonScene()
-    {
-        RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical);
     }
 }
