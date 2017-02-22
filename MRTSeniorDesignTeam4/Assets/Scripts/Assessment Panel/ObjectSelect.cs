@@ -40,7 +40,7 @@ public class ObjectSelect : MonoBehaviour {
         string[] split = selectedObjName.Split('(');
 
         changeDescription(aPanel.getDamageInfo().transform.FindChild("InfoPanel").gameObject, split[0]);
-        changeAssessment(aPanel.getAssessmentPanel(), selectedObjName);
+        changeAssessment(aPanel.getAssessmentPanel(), split[0]);
 
         objPos = this.transform.position;
         aPanel.setDamageActive(true);
