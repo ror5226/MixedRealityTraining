@@ -42,14 +42,14 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     }
 
     public void setAudioClip(string s) {
-        audio.clip = (AudioClip)Resources.Load(s);
+   //     audio.clip = (AudioClip)Resources.Load(s);
     }
 
     public void playAudioClip() {
-        if (audio.time <= 2)
-            audio.Play();
-        else
-            audio.UnPause();
+     //   if (audio.time <= 2)
+      //      audio.Play();
+      //  else
+      //      audio.UnPause();
     } 
 
     public bool isAudioPlaying() {

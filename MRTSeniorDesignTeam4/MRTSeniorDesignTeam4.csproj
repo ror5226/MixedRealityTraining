@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -344,7 +338,7 @@
     <None Include="Assets\Resources\Description\Double Hung Window_mat.txt" />
     <None Include="Assets\Resources\Description\Fireplace_desc.txt" />
     <None Include="Assets\Resources\Description\Fireplace_mat.txt" />
-    <None Include="Assets\Resources\Description\Overhead Cabinet_desc .txt" />
+    <None Include="Assets\Resources\Description\Overhead Cabinet_desc.txt" />
     <None Include="Assets\Resources\Description\Overhead Cabinet_mat.txt" />
     <None Include="Assets\Resources\Description\Sphere_desc.txt" />
     <None Include="Assets\Resources\Description\Sphere_mat.txt" />
