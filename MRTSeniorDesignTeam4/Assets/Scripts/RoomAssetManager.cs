@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.UI;
 using HoloToolkit.Unity;
+using UnityEngine;
 
 
 public class RoomAssetManager : Singleton<RoomAssetManager> {
@@ -54,7 +55,12 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         // Remove any tables/other raised objects
         foreach (GameObject horizontal in horizontalSurfaces)
         {
-            SurfacePlane plane = horizontal.GetComponent<SurfacePlane>();
+            SurfacePlane plane = null;
+            if (horizontal != null)
+            {
+                plane = horizontal.GetComponent<SurfacePlane>();
+            }
+
             if (plane != null)
             {
                 if(plane.PlaneType != PlaneTypes.Floor)
@@ -112,6 +118,11 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         {
              CreateSpaceObjects(wallFloorObjects, verticalSurfaces, PlacementPosition.WallFloor);
         }
+
+        // Update UI text
+        GameObject startPanel = GameObject.FindGameObjectWithTag("InModule_Text");
+        Text panelText = startPanel.GetComponent<Text>();
+        panelText.text = "Module Score: 0/100";
 
     }
 

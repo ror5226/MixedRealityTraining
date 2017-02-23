@@ -5,11 +5,16 @@ using HoloToolkit.Unity;
 
 
 public class ModuleMenu : Singleton<ModuleMenu>{
+    GameObject currentPanel;
+    GameObject modulePanel;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start () {
+
+        currentPanel = this.transform.FindChild("RoomSelection").gameObject;
+        modulePanel = this.transform.FindChild("InModule").gameObject;
+        modulePanel.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -39,9 +44,6 @@ public class ModuleMenu : Singleton<ModuleMenu>{
     // Swap the current menu with the in module menu 
     void MenuSwap()
     {
-        GameObject currentPanel = this.transform.FindChild("RoomSelection").gameObject;
-        GameObject modulePanel = this.transform.FindChild("InModule").gameObject;
-
         modulePanel.SetActive(true);
         modulePanel.transform.position = currentPanel.transform.position;
         currentPanel.GetComponent<MeshRenderer>().enabled = false;

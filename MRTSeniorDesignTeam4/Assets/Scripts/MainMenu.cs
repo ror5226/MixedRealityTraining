@@ -129,22 +129,18 @@ public class MainMenu : Singleton<MainMenu> {
 
     public void Place_Menu()
     {
-            mobileMenu = true;
+        mobileMenu = true;
 
-            GameObject menuPanel = this.transform.FindChild("RoomSelection").gameObject;
-            GameObject startCanvas = this.transform.FindChild("FirstMenu").gameObject;
+        // Update UI text
+        GameObject startPanel = GameObject.FindGameObjectWithTag("Start_Panel_Text");
+        Text panelText = startPanel.GetComponent<Text>();
+        panelText.text = "Look around the room to place menu\n airtap to place";
 
-            //
-            //  First set the assessmentPanel to be visable
-            //  Then set the assessmentPanel's position to be where the damage info's position.
-            //  then hide damageInfoPanel.
-            //
+        // Remove Button on UI
+        GameObject scanButton = GameObject.FindGameObjectWithTag("Scan_Button");
+        scanButton.SetActive(false);
 
-            menuPanel.SetActive(true);
-            menuPanel.transform.position = startCanvas.transform.position;
-            startCanvas.SetActive(false);
-
-            gestureRecognizer.TappedEvent += Stop_Menu_Moving;
+        gestureRecognizer.TappedEvent += Stop_Menu_Moving;
 
             mainMenu_ButtonCount++;
     }
@@ -153,10 +149,17 @@ public class MainMenu : Singleton<MainMenu> {
     {
         mobileMenu = false;
 
+
+        GameObject menuPanel = this.transform.FindChild("RoomSelection").gameObject;
+        GameObject startCanvas = this.transform.FindChild("FirstMenu").gameObject;
+
+        menuPanel.SetActive(true);
+        menuPanel.transform.position = startCanvas.transform.position;
+        startCanvas.SetActive(false);
+
         // Generate Planes from scan
         spaceUnderstanding.Create_Planes();
 
         gestureRecognizer.TappedEvent -= Stop_Menu_Moving;
-
     }
 }
