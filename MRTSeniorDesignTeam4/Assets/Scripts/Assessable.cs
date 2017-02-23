@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using HoloToolkit.Unity;
 public enum PlacementPosition
 {
     Floor = 1,
@@ -17,12 +17,25 @@ public enum ModuleType
     LivingRoom = 2
 }
 
+ 
 public class Assessable : MonoBehaviour {
+
+    public SurfacePlane plane = null;
 
     [Tooltip("Type of plane that the object has been classified as.")]
     public PlacementPosition placement = PlacementPosition.MidWall;
 
     public ModuleType module = ModuleType.Kitchen;
+
+    public void setPlane(SurfacePlane surfacePlane)
+    {
+        plane = surfacePlane;
+    }
+
+    public SurfacePlane getPlane()
+    {
+        return plane; 
+    }
 
     // Use this for initialization
     void Start () {

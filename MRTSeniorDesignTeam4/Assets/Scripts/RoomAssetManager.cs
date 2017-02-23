@@ -169,6 +169,8 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 GameObject surface = surfaces[index];
                 SurfacePlane plane = surface.GetComponent<SurfacePlane>();
 
+
+
                 // Generate postion by taking middle point of plane and then offseting by the width of the asset
                 position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(collider.size.z) * item.transform.localScale.z)) * plane.SurfaceNormal);
 
@@ -196,6 +198,10 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 //Vector3 finalPosition = AdjustPositionWithSpatialMap(position, placementType);
                 GameObject spaceObject = Instantiate(item, position, rotation) as GameObject;
+
+                Assessable assessable = spaceObject.GetComponent<Assessable>();
+                assessable.setPlane(plane);
+
             }
         }
     }
