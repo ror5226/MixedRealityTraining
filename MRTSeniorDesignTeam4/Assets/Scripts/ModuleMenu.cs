@@ -26,8 +26,8 @@ public class ModuleMenu : Singleton<ModuleMenu>{
         if(SpaceUnderstanding.horizontal != null && SpaceUnderstanding.vertical != null)
         {
             // Load kitchen objects and swap menu
-            RoomAssetManager.Instance.GenerateItemsInWorld(SpaceUnderstanding.horizontal, SpaceUnderstanding.vertical, ModuleType.Kitchen);
             MenuSwap();
+            RoomAssetManager.Instance.GenerateItemsInWorld(SpaceUnderstanding.horizontal, SpaceUnderstanding.vertical, ModuleType.Kitchen);
         }
     }
 
@@ -36,16 +36,16 @@ public class ModuleMenu : Singleton<ModuleMenu>{
         if (SpaceUnderstanding.horizontal != null && SpaceUnderstanding.vertical != null)
         {
             // Load living room objects and swap menu
-            RoomAssetManager.Instance.GenerateItemsInWorld(SpaceUnderstanding.horizontal, SpaceUnderstanding.vertical, ModuleType.LivingRoom);
             MenuSwap();
+            RoomAssetManager.Instance.GenerateItemsInWorld(SpaceUnderstanding.horizontal, SpaceUnderstanding.vertical, ModuleType.LivingRoom);
         }
     }
 
     // Swap the current menu with the in module menu 
-    void MenuSwap()
+    public void MenuSwap()
     {
         modulePanel.SetActive(true);
         modulePanel.transform.position = currentPanel.transform.position;
-        currentPanel.GetComponent<MeshRenderer>().enabled = false;
+        currentPanel.SetActive(false);
     }
 }
