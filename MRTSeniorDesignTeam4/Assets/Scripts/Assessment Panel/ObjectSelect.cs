@@ -88,11 +88,18 @@ public class ObjectSelect : MonoBehaviour {
         string descPath = "Description/" + objName + "_desc";
         string matPath = "Description/" + objName + "_mat";
         string soundPath = "Description/" + objName + "_audio";
+        string imgPath = "Description/" + objName + "_img";
 
         //  getting the two end points for where the text should go.
         Text damageText = infoPanel.transform.FindChild("DamgeInfoParagraph").GetComponent<Text>();
         Text materialText = infoPanel.transform.FindChild("MaterialInfoParagraph").GetComponent<Text>();
         Text title = infoPanel.transform.FindChild("ObjectTitle").GetComponent<Text>();
+        
+        
+        //  Setting the image based on file name.
+        Image img = infoPanel.transform.FindChild("ObjectImage").GetComponent<Image>();
+        Sprite s =(Sprite)Resources.Load<Sprite>(imgPath);
+        img.sprite = s;
 
         title.text = objName;
         //  get description of the object.
