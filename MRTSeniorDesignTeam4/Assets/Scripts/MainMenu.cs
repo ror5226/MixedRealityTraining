@@ -61,7 +61,7 @@ public class MainMenu : Singleton<MainMenu> {
         //Raycast against wall to place menu 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, raymask))
         {
-           // this.transform.position = hitInfo.point + GazeManager.Instance.Normal * .05f;
+            this.transform.position = hitInfo.point - GazeManager.Instance.GazeNormal * .05f;
             this.transform.forward = -hitInfo.normal;
 
         }
@@ -132,7 +132,7 @@ public class MainMenu : Singleton<MainMenu> {
 
     public void Place_Menu()
     {
-        SpatialUnderstandingDllObjectPlacement.Solver_Init();
+     /*   SpatialUnderstandingDllObjectPlacement.Solver_Init();
 
         List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule> rules =
         new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
@@ -152,7 +152,7 @@ public class MainMenu : Singleton<MainMenu> {
             constraints.Count,
             SpatialUnderstanding.Instance.UnderstandingDLL.PinObject(constraints.ToArray()),
             SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticObjectPlacementResultPtr());
-
+        */
         mobileMenu = true;
 
         // Update UI text
