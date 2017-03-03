@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity;
+using HoloToolkit.Unity.SpatialMapping;
+
 public enum PlacementPosition
 {
     Floor = 1,
