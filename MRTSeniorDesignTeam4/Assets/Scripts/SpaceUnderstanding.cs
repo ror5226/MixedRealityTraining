@@ -4,6 +4,7 @@ using HoloToolkit.Unity;
 using UnityEngine.VR.WSA.Input;
 using System.Collections.Generic;
 using System;
+using HoloToolkit.Unity.SpatialMapping;
 
 
 public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
@@ -46,7 +47,7 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
        if (spatialMappingManager != null || gestureRecognizer != null)
        {
             // Begin spatial scanning
-            spatialMappingManager.drawVisualMeshes = true;
+            spatialMappingManager.DrawVisualMeshes = true;
 
             gestureRecognizer.StartCapturingGestures();
 

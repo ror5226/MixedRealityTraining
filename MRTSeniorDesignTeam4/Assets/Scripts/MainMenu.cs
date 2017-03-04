@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using HoloToolkit.Unity;
+using HoloToolkit.Unity.SpatialMapping;
 using UnityEngine.VR.WSA.Input;
 using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
+using HoloToolkit.Unity;
+using HoloToolkit.Unity.InputModule;
+
 
 public class MainMenu : Singleton<MainMenu> {
 
@@ -58,7 +61,7 @@ public class MainMenu : Singleton<MainMenu> {
         //Raycast against wall to place menu 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, raymask))
         {
-            this.transform.position = hitInfo.point + GazeManager.Instance.Normal * .05f;
+            this.transform.position = hitInfo.point - GazeManager.Instance.GazeNormal * .05f;
             this.transform.forward = -hitInfo.normal;
 
         }
@@ -129,6 +132,27 @@ public class MainMenu : Singleton<MainMenu> {
 
     public void Place_Menu()
     {
+     /*   SpatialUnderstandingDllObjectPlacement.Solver_Init();
+
+        List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule> rules =
+        new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
+        SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(1.0f),
+    };
+
+        List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementConstraint> constraints =
+            new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementConstraint> {
+            SpatialUnderstandingDllObjectPlacement.ObjectPlacementConstraint.Create_NearCenter(),
+            };
+
+        SpatialUnderstandingDllObjectPlacement.Solver_PlaceObject(
+             "MyCustomObject",
+             SpatialUnderstanding.Instance.UnderstandingDLL.PinObject(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(0.25f, 0.25f, 0.25f), 0.0f, 10.0f)),
+            rules.Count,
+            SpatialUnderstanding.Instance.UnderstandingDLL.PinObject(rules.ToArray()),
+            constraints.Count,
+            SpatialUnderstanding.Instance.UnderstandingDLL.PinObject(constraints.ToArray()),
+            SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticObjectPlacementResultPtr());
+        */
         mobileMenu = true;
 
         // Update UI text

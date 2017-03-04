@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using HoloToolkit.Unity;
 using UnityEngine;
+using HoloToolkit.Unity.SpatialMapping;
 
 
 public class RoomAssetManager : Singleton<RoomAssetManager> {

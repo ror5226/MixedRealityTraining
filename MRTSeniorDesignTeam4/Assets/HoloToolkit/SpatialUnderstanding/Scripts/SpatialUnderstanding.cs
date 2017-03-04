@@ -1,12 +1,9 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using UnityEngine;
-using System.Collections;
-using HoloToolkit.Unity;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System;
+using UnityEngine;
+using HoloToolkit.Unity.SpatialMapping;
 
 namespace HoloToolkit.Unity
 {
@@ -47,11 +44,7 @@ namespace HoloToolkit.Unity
         {
             get
             {
-#if UNITY_METRO && !UNITY_EDITOR
                 return true;
-#else
-                return false;
-#endif
             }
         }
         /// <summary>
@@ -116,8 +109,10 @@ namespace HoloToolkit.Unity
         private float timeSinceLastUpdate = 0.0f;
 
         // Functions
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             // Cache references to required component
             UnderstandingDLL = new SpatialUnderstandingDll();
             UnderstandingSourceMesh = GetComponent<SpatialUnderstandingSourceMesh>();
@@ -152,13 +147,15 @@ namespace HoloToolkit.Unity
             }
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             // Term the DLL
             if (AllowSpatialUnderstanding)
             {
                 SpatialUnderstandingDll.Imports.SpatialUnderstanding_Term();
             }
+
+            base.OnDestroy();
         }
 
         /// <summary>
@@ -230,12 +227,21 @@ namespace HoloToolkit.Unity
                 IntPtr meshList;
                 if (UnderstandingSourceMesh.GetInputMeshList(out meshCount, out meshList))
                 {
+                    var stopWatch = System.Diagnostics.Stopwatch.StartNew();
+
                     scanDone = SpatialUnderstandingDll.Imports.GeneratePlayspace_UpdateScan(
                         meshCount, meshList,
                         camPos.x, camPos.y, camPos.z,
                         camFwd.x, camFwd.y, camFwd.z,
                         camUp.x, camUp.y, camUp.z,
                         deltaTime) == 1;
+
+                    stopWatch.Stop();
+
+                    if (stopWatch.Elapsed.TotalMilliseconds > (1000.0 / 30.0))
+                    {
+                        Debug.LogWarningFormat("SpatialUnderstandingDll.Imports.GeneratePlayspace_UpdateScan took {0,9:N2} ms", stopWatch.Elapsed.TotalMilliseconds);
+                    }
                 }
             }
 
