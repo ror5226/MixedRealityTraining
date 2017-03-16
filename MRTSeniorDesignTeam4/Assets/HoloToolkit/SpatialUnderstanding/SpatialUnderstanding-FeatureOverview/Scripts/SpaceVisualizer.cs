@@ -34,7 +34,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
         public void ClearGeometry(bool clearAll = true)
         {
             lineBoxList = new List<AnimatedBox>();
-            AppState.Instance.SpaceQueryDescription = "";
+            QuerySetup.Instance.SpaceQueryDescription = "";
 
             if (clearAll && (LevelSolver.Instance != null))
             {
@@ -67,7 +67,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                     Color.magenta,
                     new Vector3(alignment.HalfDims.x, (alignment.CeilingYValue - alignment.FloorYValue) * 0.5f, alignment.HalfDims.z))
             );
-            AppState.Instance.SpaceQueryDescription = "Playspace Alignment OBB";
+            QuerySetup.Instance.SpaceQueryDescription = "Playspace Alignment OBB";
         }
 
         public void Query_Topology_FindPositionOnWall()
@@ -136,7 +136,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 wallPtr);
             if (wallCount == 0)
             {
-                AppState.Instance.SpaceQueryDescription = "Find Largest Wall (0)";
+                QuerySetup.Instance.SpaceQueryDescription = "Find Largest Wall (0)";
                 return;
             }
 
@@ -150,7 +150,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                     Color.magenta,
                     new Vector3(resultsTopology[0].width, resultsTopology[0].length, 0.05f) * 0.5f)
             );
-            AppState.Instance.SpaceQueryDescription = "Find Largest Wall (1)";
+            QuerySetup.Instance.SpaceQueryDescription = "Find Largest Wall (1)";
         }
 
         public void Query_Topology_FindPositionsOnFloor()
@@ -279,11 +279,11 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             // Vis description
             if (locationCount == boxesDisplayed)
             {
-                AppState.Instance.SpaceQueryDescription = string.Format("{0} ({1})", visDesc, locationCount);
+                QuerySetup.Instance.SpaceQueryDescription = string.Format("{0} ({1})", visDesc, locationCount);
             }
             else
             {
-                AppState.Instance.SpaceQueryDescription = string.Format("{0} (found={1}, displayed={2})", visDesc, locationCount, boxesDisplayed);
+                QuerySetup.Instance.SpaceQueryDescription = string.Format("{0} (found={1}, displayed={2})", visDesc, locationCount, boxesDisplayed);
             }
         }
 
@@ -322,11 +322,11 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             // Vis description
             if (shapeCount == boxesDisplayed)
             {
-                AppState.Instance.SpaceQueryDescription = string.Format("{0} ({1})", visDesc, shapeCount);
+                QuerySetup.Instance.SpaceQueryDescription = string.Format("{0} ({1})", visDesc, shapeCount);
             }
             else
             {
-                AppState.Instance.SpaceQueryDescription = string.Format("{0} (found={1}, displayed={2})", visDesc, shapeCount, boxesDisplayed);
+                QuerySetup.Instance.SpaceQueryDescription = string.Format("{0} (found={1}, displayed={2})", visDesc, shapeCount, boxesDisplayed);
             }
         }
 

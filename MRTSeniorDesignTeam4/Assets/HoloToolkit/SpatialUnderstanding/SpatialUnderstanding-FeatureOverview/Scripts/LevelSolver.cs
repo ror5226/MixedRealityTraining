@@ -91,13 +91,15 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             {
                 SpatialUnderstandingDllObjectPlacement.Solver_RemoveAllObjects();
             }
-            AppState.Instance.ObjectPlacementDescription = "";
+            QuerySetup.Instance.ObjectPlacementDescription = "";
 
             if (clearAll && (SpaceVisualizer.Instance != null))
             {
                 SpaceVisualizer.Instance.ClearGeometry(false);
             }
         }
+
+        
 
         private bool Draw_PlacementResults()
         {
@@ -147,7 +149,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             queryStatus.Name = placementName;
 
             // Tell user we are processing
-            AppState.Instance.ObjectPlacementDescription = placementName + " (processing)";
+            QuerySetup.Instance.ObjectPlacementDescription = placementName + " (processing)";
 
             // Kick off a thread to do process the queries
 #if UNITY_EDITOR || !UNITY_WSA
@@ -218,7 +220,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 if (!isASync)
                 {
                     // If not running async, we can just add the results to the draw list right now
-                    AppState.Instance.ObjectPlacementDescription = placementName + " (1)";
+                    QuerySetup.Instance.ObjectPlacementDescription = placementName + " (1)";
                     float timeDelay = (float)placementResults.Count * AnimatedBox.DelayPerItem;
                     placementResults.Add(new PlacementResult(timeDelay, placementResult.Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult));
                 }
@@ -230,7 +232,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             }
             if (!isASync)
             {
-                AppState.Instance.ObjectPlacementDescription = placementName + " (0)";
+                QuerySetup.Instance.ObjectPlacementDescription = placementName + " (0)";
             }
             return false;
         }
@@ -266,7 +268,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             }
 
             // Text
-            AppState.Instance.ObjectPlacementDescription = queryStatus.Name + " (" + placementResults.Count + "/" + (queryStatus.CountSuccess + queryStatus.CountFail) + ")";
+            QuerySetup.Instance.ObjectPlacementDescription = queryStatus.Name + " (" + placementResults.Count + "/" + (queryStatus.CountSuccess + queryStatus.CountFail) + ")";
 
             // Mark done
             queryStatus.Reset();
