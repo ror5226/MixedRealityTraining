@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -308,6 +302,14 @@
     <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstandingDllShapes.cs" />
     <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstandingDllTopology.cs" />
     <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\Scripts\SpatialUnderstandingSourceMesh.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\SpatialUnderstanding-FeatureOverview\Scripts\AppState.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\SpatialUnderstanding-FeatureOverview\Scripts\LevelSolver.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\SpatialUnderstanding-FeatureOverview\Scripts\LineDrawer.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\SpatialUnderstanding-FeatureOverview\Scripts\ShapeDefinition.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\SpatialUnderstanding-FeatureOverview\Scripts\SpaceVisualizer.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\SpatialUnderstanding-FeatureOverview\Scripts\SpatialUnderstandingBasicCursor.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\SpatialUnderstanding-FeatureOverview\Scripts\SpatialUnderstandingCursor.cs" />
+    <Compile Include="Assets\HoloToolkit\SpatialUnderstanding\SpatialUnderstanding-FeatureOverview\Scripts\UI.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\Billboard.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\BitManipulator.cs" />
     <Compile Include="Assets\HoloToolkit\Utilities\Scripts\CircularBuffer.cs" />
