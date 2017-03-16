@@ -145,6 +145,12 @@ namespace HoloToolkit.Unity
                 Update_Scan(timeSinceLastUpdate);
                 timeSinceLastUpdate = 0;
             }
+
+            if (Input.GetKeyDown(KeyCode.I))
+                {
+                RequestFinishScan();
+            }
+
         }
 
         protected override void OnDestroy()
