@@ -171,17 +171,18 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
 
         private void OnAirTap(InteractionSourceState state)
         {
+            /*
             // Try to intersect one of the buttons
             Vector3 hitPos, hitNormal;
             Button hitButton;
-            if (AppState.Instance.AppCursor.RayCastUI(out hitPos, out hitNormal, out hitButton) &&
+            if (QuerySetup.Instance.AppCursor.RayCastUI(out hitPos, out hitNormal, out hitButton) &&
                 (hitButton != null))
             {
                 if (hitButton.onClick != null)
                 {
                     hitButton.onClick.Invoke();
                 }
-            }
+            }*/
         }
 
         private void SetActiveTab(Panels panel)

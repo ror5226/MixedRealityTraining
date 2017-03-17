@@ -21,6 +21,7 @@ public class MainMenu : Singleton<MainMenu> {
     // Use this for initialization
     public void Start()
     {
+       
         spaceUnderstanding = SpaceUnderstanding.Instance;
 
         // Start mapping room, hide mesh 
