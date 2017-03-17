@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using HoloToolkit.Unity.InputModule;
+using System;
 
-public class ObjectSelect : MonoBehaviour {
+public class ObjectSelect : MonoBehaviour, IInputClickHandler {
 
     AccessPanel aPanel;
     Vector3 objPos;
@@ -246,4 +248,7 @@ public class ObjectSelect : MonoBehaviour {
         aPanel.setAssessmentActive(false);
     }
 
+    public void OnInputClicked(InputClickedEventData eventData) {
+        OnSelect();
+    }
 }
