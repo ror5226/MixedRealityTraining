@@ -62,6 +62,11 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
     {
         // Quit observer and complete planes
         spatialMappingManager.StopObserver();
+
+#if UNITY_EDITOR
+#else
+        surfaceMeshesToPlanes.drawPlanesMask = PlaneTypes.Unknown;
+#endif
         surfaceMeshesToPlanes.MakePlanes();
 
         surfaceMeshesToPlanes.MakePlanesComplete += Remove_Verts;

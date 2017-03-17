@@ -213,7 +213,8 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             keywordRecognizer.Start();
             */
 
-#if UNITY_WSA_10_0
+#if UNITY_EDITOR
+#else
             if(SpatialUnderstanding.Instance != null)
             {
                   SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
