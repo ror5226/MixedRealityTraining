@@ -103,7 +103,7 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         }
 
 #if UNITY_EDITOR
-        ModuleMenu.Instance.MenuSwap();
+       ModuleMenu.Instance.MenuSwap();
         RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical, ModuleType.Kitchen);
 #endif
 

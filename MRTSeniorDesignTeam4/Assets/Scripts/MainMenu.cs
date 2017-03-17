@@ -133,30 +133,6 @@ public class MainMenu : Singleton<MainMenu> {
 
     public void Place_Menu()
     {
-     /*   SpatialUnderstandingDllObjectPlacement.Solver_Init();
-
-        List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule> rules =
-        new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
-        SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(1.0f),
-    };
-
-        List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementConstraint> constraints =
-            new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementConstraint> {
-            SpatialUnderstandingDllObjectPlacement.ObjectPlacementConstraint.Create_NearCenter(),
-            };
-            */
-    /*      
-        SpatialUnderstandingDllObjectPlacement.Solver_PlaceObject(
-             "MyCustomObject",
-             SpatialUnderstanding.Instance.UnderstandingDLL.PinObject(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_RandomInAir(new Vector3(0.25f, 0.25f, 0.25f))),
-            0,
-            IntPtr.Zero,
-            0,
-            IntPtr.Zero,
-            SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticObjectPlacementResultPtr());
-
-        SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult placementResult = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticObjectPlacementResult();
-        */
         mobileMenu = true;
 
         // Update UI text
