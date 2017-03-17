@@ -87,6 +87,24 @@ public class MainMenu : Singleton<MainMenu> {
         {
             this.transform.forward = Camera.main.transform.forward;
         }
+
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            mobileMenu = false;
+            GameObject menuPanel = this.transform.FindChild("RoomSelection").gameObject;
+            GameObject startCanvas = this.transform.FindChild("FirstMenu").gameObject;
+
+            menuPanel.SetActive(true);
+            menuPanel.transform.position = startCanvas.transform.position;
+            startCanvas.SetActive(false);
+
+            // Generate Planes from scan
+            spaceUnderstanding.Create_Planes();
+
+        }
+#endif
+
     }
 
     public void Scan_Room_Button_Clicked()
