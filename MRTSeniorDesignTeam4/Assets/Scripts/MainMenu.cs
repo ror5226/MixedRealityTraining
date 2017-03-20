@@ -16,7 +16,8 @@ public class MainMenu : Singleton<MainMenu> {
     private SpatialMappingManager spatialMappingManager;
     private bool mobileMenu = false;
     private bool billboard = true;
-    private int mainMenu_ButtonCount = 0; 
+    private int mainMenu_ButtonCount = 0;
+    private int tapNum = 0;
 
     // Use this for initialization
     public void Start()
@@ -169,19 +170,25 @@ public class MainMenu : Singleton<MainMenu> {
 
     private void Stop_Menu_Moving(InteractionSourceKind source, int tapCount, Ray headRay)
     {
-        mobileMenu = false;
+        if (tapNum > 0)
+        {
+            mobileMenu = false;
 
+            GameObject menuPanel = this.transform.FindChild("RoomSelection").gameObject;
+            GameObject startCanvas = this.transform.FindChild("FirstMenu").gameObject;
 
-        GameObject menuPanel = this.transform.FindChild("RoomSelection").gameObject;
-        GameObject startCanvas = this.transform.FindChild("FirstMenu").gameObject;
+            menuPanel.SetActive(true);
+            menuPanel.transform.position = startCanvas.transform.position;
+            startCanvas.SetActive(false);
 
-        menuPanel.SetActive(true);
-        menuPanel.transform.position = startCanvas.transform.position;
-        startCanvas.SetActive(false);
+            // Generate Planes from scan
+            spaceUnderstanding.Create_Planes();
 
-        // Generate Planes from scan
-        spaceUnderstanding.Create_Planes();
-
-        gestureRecognizer.TappedEvent -= Stop_Menu_Moving;
+            gestureRecognizer.TappedEvent -= Stop_Menu_Moving;
+        }
+        else
+        {
+            tapNum++;
+        }
     }
 }
