@@ -50,10 +50,16 @@ public class XmlParser {
     public void setAssessmentPanel(string s) {
 
         XmlNodeList ans = currentNode.ChildNodes[3].ChildNodes;
+        a.setAnsAVis(false);
+        a.setAnsBVis(false);
+        a.setAnsCVis(false);
+        a.setAnsDVis(false);
+        a.setAnsEVis(false);
+        a.setAnsFVis(false);
 
         for (int i = 0; i < ans.Count; i++) {
-            string tempAnswer = ans[0].ChildNodes[0].InnerText;
-            string bo = ans[0].ChildNodes[1].InnerText;
+            string tempAnswer = ans[i].ChildNodes[0].InnerText;
+            string bo = ans[i].ChildNodes[1].InnerText;
             bool answerBool;
 
             if (bo.ToLower() == "true") {
@@ -68,9 +74,6 @@ public class XmlParser {
             }
             setAnswer(i,tempAnswer, answerBool);
         }
-
-        a.setAssessmentRows(ans.Count / 2);
-
     }
 
     private void setAnswer(int i, string s, bool b) {
@@ -82,6 +85,7 @@ public class XmlParser {
                 a.setAnsAText(s);
                 a.setAnsABool(b);
                 a.setAnsAVis(true);
+                a.setAssessmentRows(1);
                 break;
             }
 
@@ -97,6 +101,7 @@ public class XmlParser {
             case 2: {
                 a.setAnsCText(s);
                 a.setAnsCBool(b);
+                a.setAssessmentRows(2);
                 a.setAnsCVis(true);
                 break;
             }
@@ -113,6 +118,7 @@ public class XmlParser {
             case 4: {
                 a.setAnsEText(s);
                 a.setAnsEBool(b);
+                a.setAssessmentRows(3);
                 a.setAnsEVis(true);
                 break;
             }

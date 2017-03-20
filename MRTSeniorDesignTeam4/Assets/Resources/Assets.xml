@@ -6,15 +6,19 @@
     <materials>
       These are some materials
     </materials>
-    <question>Here is a cool Question</question>
+    <question>This is a place holder for some textual description of the object that was selected. In this file will normally be the real description of the object but not today brah. Today, we just have me rambling on and on about nothing.</question>
     <answers>
       <ans>
-        <answer>True</answer>
+        <answer>This is a test</answer>
         <boolean>True</boolean>
       </ans>
       <ans>
-        <answer>True</answer>
+        <answer>This is a second test</answer>
         <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>This is a third test</answer>
+        <boolean>True</boolean>
       </ans>
     </answers>
   </asset>
@@ -26,37 +30,141 @@
       These are some materials
     </materials>
     <question>
-      Here is a cool Question
+      This is a place holder for some textual description of the object that was selected. In this file will normally be the real description of the object but not today brah. Today, we just have me rambling on and on about nothing.
     </question>
     <answers>
       <ans>
-        <answer>True</answer>
+        <answer>T1</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>True</answer>
+        <answer>T2</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>T3</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>T4</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>T5</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>T6</answer>
         <boolean>False</boolean>
       </ans>
     </answers>
   </asset>
-  <asset>
-    <name>Sphere</name>
+  <asset name="Counter">
     <description>
-      this is a sphere bro
+      Here you have a birch two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
     </description>
     <materials>
-      These are some materials
+      This is a placeholder fot he counter material.
     </materials>
     <question>
-      Here is a cool Question
+      If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+    </question>
+    <answers>
+      <ans>
+        <answer>Company Policy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Customers may create Permanent Stains</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Professional may Find Additional Damages</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+ <asset name="Double Hung Window">
+    <description>
+      Advanced Low-E energy-saving glass
+      Argon gas is inserted between the 2 panes of glass for added energy efficiency
+      Maintenance-free vinyl frames
+      Both sashes tilt for easy cleaning of exterior glass from inside your home
+    </description>
+    <materials>
+      Framing: Vinyl
+      Window: Glass
+    </materials>
+    <question>
+      If glass is 18" or closer to the ceiling, it is commonly refered to as "safety glazing".
     </question>
     <answers>
       <ans>
         <answer>True</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>False</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+<asset name="Fireplace">
+    <description>
+      All solid Appalachain cherry -no veneers or composite materials
+      Prefinished espresso stain on solid cherry contemporary mantel
+      Proudly built in the USA by American workers
+      Our secure mounting cleat system is hidden when the mantel is installed
+      Our workers deserve both the credit and responsibility for a job well done, so each mantel is signed by the builder before final inspection
+      Bottom board is 58.625 x 7.25
+    </description>
+    <materials>
+      Pending fireplace materials.
+    </materials>
+    <question>
+      True or False: The brick used in the "firebox" is more expensive than the brick used to build the exterior shell.
+    </question>
+    <answers>
+      <ans>
+        <answer>True</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>False</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+<asset name="Overhead Cabinet">
+    <description>
+     You can customize spacing as needed, because the shelves are adjustable.
+     Snap-on hinges can be mounted onto the door without screws, and you can easily remove the door for cleaning.
+     The door damper prevents your cabinet door from slamming by catching the moving door so that it closes slowly, gently and silently.
+     Sturdy frame construction, ¾" thick.
+    </description>
+    <materials>
+      Door: Fiberboard, Acrylic paint, Polyester paint
+      Frame: Particleboard, Melamine foil, Polypropylene
+      Back: Fiberboard, Acrylic paint
+      Hinge: Steel, Nickel plated
+      Shelf: Particleboard, Melamine foil, Polypropylene
+      Main parts: Steel
+      Plastic parts: Polyamide
+    </materials>
+    <question>
+      If a cabinet is burnt, what information can help you determine if repairs are possible?
+    </question>
+    <answers>
+      <ans>
+        <answer>Cause of burn</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>True</answer>
+        <answer>Char depth and type of surface</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Age of Cabinet</answer>
         <boolean>False</boolean>
       </ans>
     </answers>
