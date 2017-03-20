@@ -18,6 +18,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     GameObject ansE;
     GameObject ansF;
     new AudioSource audio;
+    XmlParser xml = new XmlParser();
 
     void Start() {
         assessmentPanel = GameObject.Find("AssessmentPanel");
@@ -39,6 +40,40 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         damageInfo.SetActive(false);
         assessmentPanel.SetActive(false);
         correctPanel.SetActive(false);
+        xml.setup();
+    }
+
+    public XmlParser getXMLParser() {
+        return xml;
+    }
+
+    public void setupPanels(string s) {
+
+        //
+        //  set the title of the info panel.
+        //
+        damageInfo.transform.FindChild("ObjectTitle").GetComponent<Text>().text = s;
+        xml.setInfoPanel(s);
+        xml.setAssessmentPanel(s);
+
+    }
+
+    public void setDesc(string s) {
+        GameObject g = damageInfo.transform.FindChild("InfoPanel").FindChild("DamageInfoParagraph").gameObject;
+        g.GetComponent<Text>().text = s;
+    }
+    public void setMaterial(string s) {
+        GameObject g = damageInfo.transform.FindChild("InfoPanel").FindChild("MaterialInfoParagraph").gameObject;
+        g.GetComponent<Text>().text = s;
+    }
+
+    public void setQuestion(string s) {
+        assessmentPanel.transform.FindChild("QuestionPanel").FindChild("QuestionText").GetComponent<Text>().text = s;
+    }
+
+    public void setQuestions(string s) {
+
+
     }
 
     public void setAudioClip(string s) {
@@ -89,41 +124,123 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         t.text = s;
     }
 
+    //
+    //  Start of A
+    //
     public GameObject getAnsA() {
         return ansA;
     }
+
+    public void setAnsAText(string s) {
+        ansA.transform.FindChild("AnswerText").GetComponent<Text>().text = s;
+    }
+
+    public void setAnsABool(bool b) {
+        ansA.transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = b;
+    }
+
+    public void setAnsAVis(bool t) {
+        ansA.SetActive(t);
+    }
+
+
+    //
+    //  Start of B
+    //
+    public void setAnsBVis(bool t) {
+        ansB.SetActive(t);
+    }
+
     public GameObject getAnsB() {
         return ansB;
     }
+
+    public void setAnsBText(string s) {
+        ansB.transform.FindChild("AnswerText").GetComponent<Text>().text = s;
+    }
+
+    public void setAnsBBool(bool b) {
+        ansB.transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = b;
+    }
+
+
+    //
+    //  Start of C
+    //
+    public void setAnsCVis(bool t) {
+        ansC.SetActive(t);
+    }
+
     public GameObject getAnsC() {
         return ansC;
     }
+
+    public void setAnsCBool(bool b) {
+        ansC.transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = b;
+    }
+
+    public void setAnsCText(string s) {
+        ansC.transform.FindChild("AnswerText").GetComponent<Text>().text = s;
+    }
+
+
+    //
+    //  Start of D
+    //
+    public void setAnsDVis(bool t) {
+        ansD.SetActive(t);
+    }
+
     public GameObject getAnsD() {
         return ansD;
     }
+
+    public void setAnsDBool(bool b) {
+        ansD.transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = b;
+    }
+
+    public void setAnsDText(string s) {
+        ansD.transform.FindChild("AnswerText").GetComponent<Text>().text = s;
+    }
+
+
+    //
+    //  Start of E
+    //
+
+    public void setAnsEVis(bool t) {
+        ansE.SetActive(t);
+    }
+
     public GameObject getAnsE() {
         return ansE;
     }
+
+    public void setAnsEBool(bool b) {
+        ansE.transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = b;
+    }
+
+    public void setAnsEText(string s) {
+        ansE.transform.FindChild("AnswerText").GetComponent<Text>().text = s;
+    }
+
+
+    //
+    //  Start of F
+    //
     public GameObject getAnsF() {
         return ansF;
     }
 
-    public void setAnsA(bool t) {
-        ansA.SetActive(t);
+    public void setAnsFBool(bool b) {
+        ansF.transform.FindChild("AnswerButton").GetComponent<AnswerScript>().correctAnswer = b;
     }
-    public void setAnsB(bool t) {
-        ansB.SetActive(t);
+
+    public void setAnsFText(string s) {
+        ansF.transform.FindChild("AnswerText").GetComponent<Text>().text = s;
     }
-    public void setAnsC(bool t) {
-        ansC.SetActive(t);
-    }
-    public void setAnsD(bool t) {
-        ansD.SetActive(t);
-    }
-    public void setAnsE(bool t) {
-        ansE.SetActive(t);
-    }
-    public void setAnsF(bool t) {
+
+    public void setAnsFVis(bool t) {
         ansF.SetActive(t);
     }
 

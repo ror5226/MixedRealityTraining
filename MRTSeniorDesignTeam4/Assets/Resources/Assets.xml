@@ -1,0 +1,64 @@
+<scene>
+  <asset name="Cube">
+    <description>
+      this is a cube bro
+    </description>
+    <materials>
+      These are some materials
+    </materials>
+    <question>Here is a cool Question</question>
+    <answers>
+      <ans>
+        <answer>True</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>True</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Sphere">
+    <description>
+      this is a sphere bro
+    </description>
+    <materials>
+      These are some materials
+    </materials>
+    <question>
+      Here is a cool Question
+    </question>
+    <answers>
+      <ans>
+        <answer>True</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>True</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset>
+    <name>Sphere</name>
+    <description>
+      this is a sphere bro
+    </description>
+    <materials>
+      These are some materials
+    </materials>
+    <question>
+      Here is a cool Question
+    </question>
+    <answers>
+      <ans>
+        <answer>True</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>True</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+</scene>

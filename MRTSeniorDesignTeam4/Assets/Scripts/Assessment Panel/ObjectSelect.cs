@@ -41,8 +41,10 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
         string selectedObjName = this.gameObject.name;
         string[] split = selectedObjName.Split('(');
 
-        changeDescription(aPanel.getDamageInfo().transform.FindChild("InfoPanel").gameObject, split[0]);
-        changeAssessment(aPanel.getAssessmentPanel(), split[0]);
+        aPanel.getXMLParser().setPanels(split[0]);
+
+        //changeDescription(aPanel.getDamageInfo().transform.FindChild("InfoPanel").gameObject, split[0]);
+        //changeAssessment(aPanel.getAssessmentPanel(), split[0]);
 
         objPos = this.transform.position;
         aPanel.setDamageActive(true);
@@ -54,6 +56,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
         Vector3 camPos = cam.transform.position;
 
         // Rachel's fix
+        
         Assessable assessable = this.GetComponent<Assessable>();
         if (assessable != null)
         {
@@ -69,6 +72,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
             aPanel.getDamageInfo().transform.position = new Vector3(objPos.x, (objPos.y - .5f), (objPos.z + .8f));
 
         }
+        
 
     }
 
@@ -118,6 +122,8 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
         materialText.text = matInfo;
     }
 
+   
+
     private void changeAssessment(GameObject gObj, string objName) {
 
         //  Adds the proper file locations to the path to change the question and answers
@@ -136,12 +142,12 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
         tempText = tempText.Replace("\r\n", "");
         string[] answers = tempText.Split('#');
 
-        aPanel.setAnsA(false);
-        aPanel.setAnsB(false);
-        aPanel.setAnsC(false);
-        aPanel.setAnsD(false);
-        aPanel.setAnsE(false);
-        aPanel.setAnsF(false);
+        aPanel.setAnsAVis(false);
+        aPanel.setAnsBVis(false);
+        aPanel.setAnsCVis(false);
+        aPanel.setAnsDVis(false);
+        aPanel.setAnsEVis(false);
+        aPanel.setAnsFVis(false);
 
         aPanel.setAssessmentActive(true);
 
@@ -153,7 +159,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
                 //
                 case 0:
                     aPanel.getAnsA().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
-                    aPanel.setAnsA(true);
+                    aPanel.setAnsAVis(true);
                 break;
 
                 case 1:
@@ -165,7 +171,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
 
                 case 2:
                     aPanel.getAnsB().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
-                    aPanel.setAnsB(true);
+                    aPanel.setAnsBVis(true);
                 break;
 
                 case 3:
@@ -180,7 +186,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
                 //
                 case 4:
                     aPanel.getAnsC().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
-                    aPanel.setAnsC(true);
+                    aPanel.setAnsCVis(true);
                 break;
 
                 case 5:
@@ -192,7 +198,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
 
                 case 6:
                     aPanel.getAnsD().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
-                    aPanel.setAnsD(true);
+                    aPanel.setAnsDVis(true);
                 break;
 
                 case 7:
@@ -207,7 +213,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
                 // 
                 case 8:
                     aPanel.getAnsE().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
-                    aPanel.setAnsE(true);
+                    aPanel.setAnsEVis(true);
                 break;
                     
                 case 9:
@@ -219,7 +225,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
 
                 case 10:
                     aPanel.getAnsF().transform.FindChild("AnswerText").GetComponent<Text>().text = answers[i];
-                    aPanel.setAnsF(true);
+                    aPanel.setAnsFVis(true);
                 break;
 
                 case 11:
