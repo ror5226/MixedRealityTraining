@@ -62,6 +62,11 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         GameObject g = damageInfo.transform.FindChild("InfoPanel").FindChild("DamageInfoParagraph").gameObject;
         g.GetComponent<Text>().text = s;
     }
+
+    public string getSpeechDesc() {
+        return damageInfo.transform.FindChild("InfoPanel").FindChild("DamageInfoParagraph").gameObject.GetComponent<Text>().text;
+    }
+
     public void setMaterial(string s) {
         GameObject g = damageInfo.transform.FindChild("InfoPanel").FindChild("MaterialInfoParagraph").gameObject;
         g.GetComponent<Text>().text = s;

@@ -47,7 +47,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
         //changeAssessment(aPanel.getAssessmentPanel(), split[0]);
 
         objPos = this.transform.position;
-        aPanel.setDamageActive(true);
+        //aPanel.setDamageActive(true);
 
         //
         //  to be optimized later
@@ -55,8 +55,13 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
         GameObject cam = GameObject.Find("Main Camera");
         Vector3 camPos = cam.transform.position;
 
+        objPos.y = camPos.y;
+        objPos.z = objPos.z - (float).5;
+
+        aPanel.setDamageActive(true);
+
         // Rachel's fix
-        
+        /*
         Assessable assessable = this.GetComponent<Assessable>();
         if (assessable != null)
         {
@@ -72,6 +77,8 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
             aPanel.getDamageInfo().transform.position = new Vector3(objPos.x, (objPos.y - .5f), (objPos.z + .8f));
 
         }
+
+    */
         
 
     }

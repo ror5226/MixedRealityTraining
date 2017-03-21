@@ -50,6 +50,8 @@ public class XmlParser {
     public void setAssessmentPanel(string s) {
 
         XmlNodeList ans = currentNode.ChildNodes[3].ChildNodes;
+
+        a.setQuestion(currentNode.ChildNodes[2].InnerText);
         a.setAnsAVis(false);
         a.setAnsBVis(false);
         a.setAnsCVis(false);
