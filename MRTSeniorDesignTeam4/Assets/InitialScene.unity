@@ -3088,6 +3088,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1199540604470874, guid: 737c2874ef5e99f4eb5cb7dccbfb9e4f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 737c2874ef5e99f4eb5cb7dccbfb9e4f, type: 2}
   m_IsPrefabParent: 0
@@ -3567,6 +3571,10 @@ Prefab:
         type: 2}
       propertyPath: near clip plane
       value: 0.29999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430237711928774, guid: 056e1647fb227854a82449c516aa0f42, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 056e1647fb227854a82449c516aa0f42, type: 2}

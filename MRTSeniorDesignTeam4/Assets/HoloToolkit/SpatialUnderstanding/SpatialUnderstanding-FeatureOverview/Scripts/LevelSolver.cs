@@ -292,11 +292,11 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
         public void Query_OnWall()
         {
             List<PlacementQuery> placementQuery = new List<PlacementQuery>();
-            for (int i = 0; i < 6; ++i)
+           // for (int i = 0; i < 6; ++i)
             {
                 float halfDimSize = UnityEngine.Random.Range(0.3f, 0.6f);
                 placementQuery.Add(
-                    new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(halfDimSize, halfDimSize * 0.5f, 0.05f), 0.5f, 3.0f),
+                    new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(.3f,  0.3f, 0.03f), 0.1f, 1.5f),
                                         new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
                                             SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(halfDimSize * 4.0f),
                                         }));

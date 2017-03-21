@@ -10,7 +10,7 @@ using UnityEngine.Windows.Speech;
 
 namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
 {
-    public class QuerySetup : Singleton<QuerySetup>, ISourceStateHandler, IInputClickHandler
+    public class QuerySetup : Singleton<QuerySetup>//, ISourceStateHandler, IInputClickHandler
     {
         // Consts
         public float kMinAreaForStats = 5.0f;
@@ -244,6 +244,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             DebugSubDisplay.text = DetailsText;
         }
 
+#if UNITY_EDITOR
         private void Update_KeyboardInput(float deltaTime)
         {
             // Toggle SurfaceMapping & CustomUnderstandingMesh visibility
@@ -259,7 +260,6 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             }
         }
 
-        /* Toggle is used in Editor only */
         private static void ToggleScannedMesh()
         {
             SpatialMappingManager.Instance.DrawVisualMeshes = !SpatialMappingManager.Instance.DrawVisualMeshes;
@@ -271,14 +271,18 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = !SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh;
             Debug.Log("SpatialUnderstanding -> SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh=" + SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh);
         }
-
+#endif
         private void Update()
         {
-            // Updates
+            // Updates DIsplay
             Update_DebugDisplay(Time.deltaTime);
+
+#if UNITY_EDITOR //Uses keyboard only in editor
             Update_KeyboardInput(Time.deltaTime);
+#endif
         }
 
+        /*
         public void OnSourceDetected(SourceStateEventData eventData)
         {
             // If the source has positional info and there is currently no visible source
@@ -296,6 +300,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             }
         }
 
+    //End Scan
         public void OnInputClicked(InputClickedEventData eventData)
         {
             if ((SpatialUnderstanding.Instance.ScanState == SpatialUnderstanding.ScanStates.Scanning) &&
@@ -304,5 +309,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 SpatialUnderstanding.Instance.RequestFinishScan();
             }
         }
+
+    */
     }
 }

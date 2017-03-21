@@ -171,7 +171,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
 
         private void OnAirTap(InteractionSourceState state)
         {
-            /*
+            
             // Try to intersect one of the buttons
             Vector3 hitPos, hitNormal;
             Button hitButton;
@@ -182,7 +182,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 {
                     hitButton.onClick.Invoke();
                 }
-            }*/
+            }
         }
 
         private void SetActiveTab(Panels panel)
