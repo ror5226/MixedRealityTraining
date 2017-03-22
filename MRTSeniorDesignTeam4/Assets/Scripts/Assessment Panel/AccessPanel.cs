@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
-    GameObject damageInfo;
+    GameObject infoPanel;
     GameObject assessmentPanel;
     GameObject correctPanel;
 
@@ -22,7 +22,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
     void Start() {
         assessmentPanel = GameObject.Find("AssessmentPanel");
-        damageInfo = GameObject.Find("DamageInfo");
+        infoPanel = GameObject.Find("InfoPanel");
         correctPanel = GameObject.Find("CorrectPanel");
         assessmentCollider = assessmentPanel.transform.GetComponent<BoxCollider>();
         answerPanel = assessmentPanel.transform.FindChild("AnswerPanel").gameObject;
@@ -32,12 +32,12 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         ansD = answerPanel.transform.FindChild("AnswerD").gameObject;
         ansE = answerPanel.transform.FindChild("AnswerE").gameObject;
         ansF = answerPanel.transform.FindChild("AnswerF").gameObject;
-        audio = damageInfo.transform.GetComponent<AudioSource>();
+        audio = infoPanel.transform.GetComponent<AudioSource>();
         ansC.SetActive(false);
         ansD.SetActive(false);
         ansF.SetActive(false);
         ansE.SetActive(false);
-        damageInfo.SetActive(false);
+        infoPanel.SetActive(false);
         assessmentPanel.SetActive(false);
         correctPanel.SetActive(false);
         xml.setup();
@@ -46,41 +46,31 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     public XmlParser getXMLParser() {
         return xml;
     }
+    #region Info Panel Helper methods
+    public void setTitle(string s) {
+        infoPanel.transform.FindChild("InfoContainer").FindChild("ObjectTitle").GetComponent<Text>().text = s;
+    }
 
-    public void setupPanels(string s) {
-
-        //
-        //  set the title of the info panel.
-        //
-        damageInfo.transform.FindChild("ObjectTitle").GetComponent<Text>().text = s;
-        xml.setInfoPanel(s);
-        xml.setAssessmentPanel(s);
-
+    public void setInfoPanelPosition(float x, float y, float z) {
+        infoPanel.transform.position = new Vector3(x, y, z);
     }
 
     public void setDesc(string s) {
-        GameObject g = damageInfo.transform.FindChild("InfoPanel").FindChild("DamageInfoParagraph").gameObject;
+        GameObject g = infoPanel.transform.FindChild("InfoContainer").FindChild("InfoParagraph").gameObject;
         g.GetComponent<Text>().text = s;
-    }
-
-    public string getSpeechDesc() {
-        return damageInfo.transform.FindChild("InfoPanel").FindChild("DamageInfoParagraph").gameObject.GetComponent<Text>().text;
     }
 
     public void setMaterial(string s) {
-        GameObject g = damageInfo.transform.FindChild("InfoPanel").FindChild("MaterialInfoParagraph").gameObject;
+        GameObject g = infoPanel.transform.FindChild("InfoContainer").FindChild("MaterialInfoParagraph").gameObject;
         g.GetComponent<Text>().text = s;
     }
 
-    public void setQuestion(string s) {
-        assessmentPanel.transform.FindChild("QuestionPanel").FindChild("QuestionText").GetComponent<Text>().text = s;
+    public void setImg(string s) {
+        Image img = infoPanel.transform.FindChild("InfoContainer").FindChild("ObjectImage").GetComponent<Image>();
+        Sprite st = (Sprite)Resources.Load<Sprite>(s);
+        img.sprite = st;
     }
-
-    public void setQuestions(string s) {
-
-
-    }
-
+    #region old audio methods, likely to be removed.
     public void setAudioClip(string s) {
         audio.clip = (AudioClip)Resources.Load(s);
     }
@@ -99,36 +89,52 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     public void pauseAudio() {
         audio.Pause();
     }
+    #endregion
 
-    public GameObject getAssessmentPanel() {
-        return assessmentPanel;
+    public string getSpeechText() {
+        return infoPanel.transform.FindChild("InfoContainer").FindChild("InfoParagraph").gameObject.GetComponent<Text>().text;
     }
 
-    public GameObject getDamageInfo() {
-        return damageInfo;
+    public GameObject getInfoPanel() {
+        return infoPanel;
     }
 
+    public void setInfoPanelVis(bool vis) {
+        infoPanel.SetActive(vis);
+    }
+    #endregion
+
+    #region Correct Panel helper methods
     public GameObject getCorrectPanel() {
         return correctPanel;
     }
 
-    public void setCorrectPanelActive(bool vis) {
+    public void setCorrectPanelVis(bool vis) {
         correctPanel.SetActive(vis);
-    }
-
-    public void setDamageActive(bool vis) {
-        damageInfo.SetActive(vis);
-    }
-
-    public void setAssessmentActive(bool vis) {
-        assessmentPanel.SetActive(vis);
     }
 
     public void setCorrectPanelText(string s) {
         Text t = correctPanel.transform.FindChild("CorrectPanelText").FindChild("CorrectText").GetComponent<Text>();
         t.text = s;
     }
+    #endregion
 
+    #region Assessment Panel Helpers
+
+
+    public void setAssessmentPanelVis(bool vis) {
+        assessmentPanel.SetActive(vis);
+    }
+
+    public GameObject getAssessmentPanel() {
+        return assessmentPanel;
+    }
+
+    public void setQuestion(string s) {
+        assessmentPanel.transform.FindChild("QuestionPanel").FindChild("QuestionText").GetComponent<Text>().text = s;
+    }
+
+    #region setting/getting of the multiple choice buttons
     //
     //  Start of A
     //
@@ -249,6 +255,8 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         ansF.SetActive(t);
     }
 
+    #endregion
+
     public void setAssessmentRows(int rows) {
 
         if (rows == 1) {
@@ -256,8 +264,6 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
             assessmentPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 315);
             assessmentPanel.transform.FindChild("QuestionPanel").gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 315);
             answerPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(570, 100);
-
-
         }
 
         else if (rows == 2) {
@@ -274,4 +280,6 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         }
 
     }
+    #endregion
+
 }

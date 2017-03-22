@@ -40,10 +40,11 @@ public class XmlParser {
     }
 
     public void setInfoPanel(string s) {
-        a.setDamageActive(true);
+        a.setInfoPanelVis(true);
+        a.setTitle(s);
         a.setDesc(getAndReplace(currentNode.ChildNodes[0]));
-        a.setMaterial(getAndReplace(currentNode.ChildNodes[1]));
-        //a.setImg(getAndReplace(currentNode.ChildNodes[2]));
+        //a.setMaterial(getAndReplace(currentNode.ChildNodes[1]));
+        a.setImg(getAndReplace(currentNode.ChildNodes[1]));
     }
 
 
