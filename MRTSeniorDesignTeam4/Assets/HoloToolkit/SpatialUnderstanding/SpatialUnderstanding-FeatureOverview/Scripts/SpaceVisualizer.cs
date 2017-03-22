@@ -34,7 +34,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
         public void ClearGeometry(bool clearAll = true)
         {
             lineBoxList = new List<AnimatedBox>();
-            QuerySetup.Instance.SpaceQueryDescription = "";
+            AppState.Instance.SpaceQueryDescription = "";
 
             if (clearAll && (LevelSolver.Instance != null))
             {
