@@ -17,16 +17,16 @@ public class MenuInteractions : MonoBehaviour {
     }
 
     public void damageInfo_OpenAssessment() {
-        aPanel.setAssessmentActive(true);
-        aPanel.getAssessmentPanel().transform.position = aPanel.getDamageInfo().transform.position;
-        aPanel.setDamageActive(false);
-        aPanel.setCorrectPanelActive(false);
+        aPanel.setAssessmentPanelVis(true);
+        aPanel.getAssessmentPanel().transform.position = aPanel.getInfoPanel().transform.position;
+        aPanel.setInfoPanelVis(false);
+        aPanel.setCorrectPanelVis(false);
     }
 
     public void closeMenus() {
-        aPanel.setAssessmentActive(false);
-        aPanel.setDamageActive(false);
-        aPanel.setCorrectPanelActive(false);
+        aPanel.setAssessmentPanelVis(false);
+        aPanel.setInfoPanelVis(false);
+        aPanel.setCorrectPanelVis(false);
     }
 
     public void playAudio() {

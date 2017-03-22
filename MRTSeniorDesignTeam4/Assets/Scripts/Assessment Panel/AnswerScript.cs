@@ -17,9 +17,9 @@ public class AnswerScript : MonoBehaviour {
     }
 	
     public void Answer_Button_Click() {
-        aPanel.setCorrectPanelActive(true);
+        aPanel.setCorrectPanelVis(true);
         aPanel.getCorrectPanel().transform.position = aPanel.getAssessmentPanel().transform.position;
-        aPanel.setAssessmentActive(false);
+        aPanel.setAssessmentPanelVis(false);
 
         if (correctAnswer) {
             aPanel.setCorrectPanelText("You have answered correct. Good Job!");
