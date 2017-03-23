@@ -16,20 +16,25 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
     public void GenerateItemsInWorld(List<GameObject> horizontalSurfaces, List<GameObject> verticalSurfaces, ModuleType moduleSelected)
     {
+        // Types of items defined in assessable 
         List<GameObject> floorObjects = new List<GameObject>();
         List<GameObject> highWallObjects = new List<GameObject>();
         List<GameObject> midWallObjects = new List<GameObject>();
         List<GameObject> lowWallObjects = new List<GameObject>();
         List<GameObject> wallFloorObjects = new List<GameObject>();
 
+        // Loop for all items to be placed in the scene
         foreach (GameObject spacePrefab in spaceObjectPrefabs)
         {
             Assessable assessObject = spacePrefab.GetComponent<Assessable>();
 
+            // Ensure items have the assessable script 
             if(assessObject == null)
             {
                 Debug.Log("Item needs to have Assable script attached to it");
             }
+
+            // Sort items into their proper lists
             if (assessObject.placement == PlacementPosition.Floor)
             {
                 floorObjects.Add(spacePrefab);
@@ -53,6 +58,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         }
 
         float largestArea = 0.0f; 
+
         // Remove any tables/other raised objects
         foreach (GameObject horizontal in horizontalSurfaces)
         {
