@@ -90,6 +90,7 @@ public class MainMenu : Singleton<MainMenu> {
         }
 
 #if UNITY_EDITOR
+        // Stop panel from moving in editor
         if (Input.GetKeyDown(KeyCode.M))
         {
             mobileMenu = false;
@@ -99,10 +100,6 @@ public class MainMenu : Singleton<MainMenu> {
             menuPanel.SetActive(true);
             menuPanel.transform.position = startCanvas.transform.position;
             startCanvas.SetActive(false);
-
-            // Generate Planes from scan
-            spaceUnderstanding.Create_Planes();
-
         }
 #endif
 
