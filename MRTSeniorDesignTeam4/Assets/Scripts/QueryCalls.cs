@@ -8,15 +8,11 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System;
 
-namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
-{
-    public class QueryCalls : MonoBehaviour
+public class QueryCalls : Singleton<QueryCalls>
     {
-        // Singleton
-        public static QueryCalls Instance;
-
-        // Enums
-        public enum QueryStates
+    public SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult result;
+    // Enums
+    public enum QueryStates
         {
             None,
             Processing,
@@ -42,7 +38,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             public List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult> QueryResult;
         }
 
-        private struct PlacementQuery
+        public struct PlacementQuery
         {
             public PlacementQuery(
                 SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition placementDefinition,
@@ -59,7 +55,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             public List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementConstraint> PlacementConstraints;
         }
 
-        private class PlacementResult
+        public class PlacementResult
         {
             public PlacementResult(float timeDelay, SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult result)
             {
@@ -67,7 +63,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 Result = result;
             }
 
-            public LineDrawer.AnimatedBox Box;
+            //public LineDrawer.AnimatedBox Box;
             public SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult Result;
         }
 
@@ -78,13 +74,6 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
         private List<PlacementResult> placementResults = new List<PlacementResult>();
         private QueryStatus queryStatus = new QueryStatus();
 
-        // Functions
-        private void Awake()
-        {
-            Instance = this;
-        }
-
-       
         /*
         public void ClearGeometry(bool clearAll = true)
         {
@@ -101,7 +90,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             }
         }
         */
-        private bool PlaceObjectAsync(
+        public bool PlaceObjectAsync(
             string placementName,
             SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition placementDefinition,
             List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule> placementRules = null,
@@ -114,7 +103,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 clearObjectsFirst);
         }
 
-        private bool PlaceObjectAsync(
+        public bool PlaceObjectAsync(
             string placementName,
             List<PlacementQuery> placementList,
             bool clearObjectsFirst = true)
@@ -137,7 +126,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             queryStatus.Name = placementName;
 
             // Tell user we are processing
-            AppState.Instance.ObjectPlacementDescription = placementName + " (processing)";
+            //AppState.Instance.ObjectPlacementDescription = placementName + " (processing)";
 
             // Kick off a thread to do process the queries
 #if UNITY_EDITOR || !UNITY_WSA
@@ -184,11 +173,11 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             bool clearObjectsFirst = true,
             bool isASync = false)
         {
-            // Clear objects (if requested)
+           /// Clear objects (if requested)
           //  if (!isASync && clearObjectsFirst)
           //  {
           //      ClearGeometry();
-         //   }
+          //  }
             if (!SpatialUnderstanding.Instance.AllowSpatialUnderstanding)
             {
                 return false;
@@ -208,7 +197,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 if (!isASync)
                 {
                     // If not running async, we can just add the results to the draw list right now
-                    AppState.Instance.ObjectPlacementDescription = placementName + " (1)";
+                    //AppState.Instance.ObjectPlacementDescription = placementName + " (1)";
                     float timeDelay = 0;// (float)placementResults.Count * AnimatedBox.DelayPerItem;
                     placementResults.Add(new PlacementResult(timeDelay, placementResult.Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult));
                 }
@@ -220,28 +209,28 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             }
             if (!isASync)
             {
-                AppState.Instance.ObjectPlacementDescription = placementName + " (0)";
+               // AppState.Instance.ObjectPlacementDescription = placementName + " (0)";
             }
             return false;
         }
 
-        private void ProcessPlacementResults()
+        public int ProcessPlacementResults()
         {
-            // Check it
-            if (queryStatus.State != QueryStates.Finished)
-            {
-                return;
-            }
+        // Check it
+        if (queryStatus.State != QueryStates.Finished)
+        {
+            return 0;
+        }
             if (!SpatialUnderstanding.Instance.AllowSpatialUnderstanding)
             {
-                return;
+            return 2;
             }
 
-            // Clear results
-            // ClearGeometry();
+        // Clear results
+        // ClearGeometry();
 
-            // We will reject any above or below the ceiling/floor
-            SpatialUnderstandingDll.Imports.QueryPlayspaceAlignment(SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceAlignmentPtr());
+        // We will reject any above or below the ceiling/floor
+        SpatialUnderstandingDll.Imports.QueryPlayspaceAlignment(SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceAlignmentPtr());
             SpatialUnderstandingDll.Imports.PlayspaceAlignment alignment = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceAlignment();
 
             // Copy over the results
@@ -251,15 +240,17 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                     (queryStatus.QueryResult[i].Position.y > alignment.FloorYValue))
                 {
                     float timeDelay = 0;// (float)placementResults.Count * AnimatedBox.DelayPerItem;
-                    placementResults.Add(new PlacementResult(timeDelay, queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult));
+                result = queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult;
+                    //placementResults.Add(new PlacementResult(timeDelay, queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult));
                 }
             }
 
             // Text
-            AppState.Instance.ObjectPlacementDescription = queryStatus.Name + " (" + placementResults.Count + "/" + (queryStatus.CountSuccess + queryStatus.CountFail) + ")";
+           // AppState.Instance.ObjectPlacementDescription = queryStatus.Name + " (" + placementResults.Count + "/" + (queryStatus.CountSuccess + queryStatus.CountFail) + ")";
 
             // Mark done
             queryStatus.Reset();
+        return 1;
         }
 
         public void Query_OnFloor()
@@ -277,18 +268,15 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             PlaceObjectAsync("OnFloor", placementQuery);
         }
 
-        public void Query_OnWall()
+        public void Query_OnWall(float x, float y, float z, float minHeight, float maxHeight)
         {
             List<PlacementQuery> placementQuery = new List<PlacementQuery>();
-            for (int i = 0; i < 6; ++i)
-            {
-                float halfDimSize = UnityEngine.Random.Range(0.3f, 0.6f);
-                placementQuery.Add(
-                    new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(.1f, 0.1f, 0.03f), 0.1f, 1.0f),
+            float halfDimSize = UnityEngine.Random.Range(0.3f, 0.6f);
+            placementQuery.Add(new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(x, y, z), minHeight, maxHeight),
                                         new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
-                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(halfDimSize * 4.0f),
+                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(x * 4.0f),
                                         }));
-            }
+            
             PlaceObjectAsync("OnWall", placementQuery);
         }
 
@@ -412,13 +400,15 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
 
         private void Update_Queries()
         {
+
+#if UNITY_EDITOR 
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Query_OnFloor();
             }
             if (Input.GetKeyDown(KeyCode.T))
             {
-                Query_OnWall();
+     //           Query_OnWall();
             }
             if (Input.GetKeyDown(KeyCode.Y))
             {
@@ -448,6 +438,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             {
                 Query_OnFloor_NearMe();
             }
+# endif
         }
 
         public bool InitializeSolver()
@@ -467,6 +458,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
 
         private void Update()
         {
+        /*
             // Can't do any of this till we're done with the scanning phase
             if (SpatialUnderstanding.Instance.ScanState != SpatialUnderstanding.ScanStates.Done)
             {
@@ -498,6 +490,6 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
 
             // Lines: Finish up
             //LineDraw_End(needsUpdate);
-        }
+        */
     }
 }

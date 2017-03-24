@@ -13,7 +13,22 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     [Tooltip("A collection of assessable room objects to generate in the world.")]
     public List<GameObject> spaceObjectPrefabs;
     private SurfacePlane mainFloor;
+    private QueryCalls queryCalls;
 
+    // Use this for initialization
+    public void Start()
+    {
+        if(QueryCalls.Instance != null)
+        {
+            queryCalls = QueryCalls.Instance;
+        }
+    }
+
+    public void Update()
+    {
+
+
+    }
     public void GenerateItemsInWorld(List<GameObject> horizontalSurfaces, List<GameObject> verticalSurfaces, ModuleType moduleSelected)
     {
         // Types of items defined in assessable 
@@ -101,9 +116,10 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             }
         }
 
+        // Find postions for objects based off their type
         if (floorObjects.Count > 0)
         {
-           // CreateSpaceObjects(horizontalObjects, horizontalSurfaces, PlacementSurfaces.Horizontal);
+           CreateSpaceObjects(floorObjects, horizontalSurfaces, PlacementPosition.Floor);
         }
 
         if (lowWallObjects.Count > 0)
@@ -132,11 +148,12 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         panelText.text = "Module Score: 0/100";
 
     }
-
+    
     private void CreateSpaceObjects(List<GameObject> spaceObjects, List<GameObject> surfaces, PlacementPosition placementType)
     {
+        #region Original Placement Technique
+        /*
         List<int> UsedPlanes = new List<int>();
-
         // Sort the planes by distance to user.
         surfaces.Sort((lhs, rhs) =>
         {
@@ -210,7 +227,37 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 assessable.setPlane(plane);
 
             }
+           
         }
+        */
+        #endregion
+        List<QueryCalls.PlacementQuery> placementQuery = new List<QueryCalls.PlacementQuery>();
+
+        foreach (GameObject s in spaceObjects)
+        {
+            if (placementType == PlacementPosition.WallFloor)
+            {
+                queryCalls.Query_OnWall(.2f, .2f, .2f, 0.0f, 3.5f);
+                while (queryCalls.ProcessPlacementResults() != 1)
+                {
+
+                }
+                if(queryCalls.ProcessPlacementResults() == 2)
+                {
+                    Debug.Log("Mapp is too small");
+                }
+                else
+                {
+                    Vector3 querypos;
+                    Debug.Log(queryCalls.result.Position.x + " " + queryCalls.result.Position.y + " " + queryCalls.result.Position.z);
+                    querypos = queryCalls.result.Position;
+                    querypos.y = mainFloor.transform.position.y;
+                    GameObject spaceObject = Instantiate(s, querypos, Quaternion.LookRotation(-queryCalls.result.Forward, Vector3.up)) as GameObject;
+                    spaceObject.SetActive(true);
+                }
+            }
+        }
+
     }
     private int FindNearestPlane(List<GameObject> planes, Vector3 minSize, PlacementPosition surface, List<int> usedPlanes)
     {
