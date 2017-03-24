@@ -52,7 +52,7 @@ public class XmlParser {
 
         XmlNodeList ans = currentNode.ChildNodes[3].ChildNodes;
 
-        a.setQuestion(currentNode.ChildNodes[2].InnerText);
+        a.setQuestion(removeTabs(getAndReplace(currentNode.ChildNodes[2])));
         a.setAnsAVis(false);
         a.setAnsBVis(false);
         a.setAnsCVis(false);
@@ -138,8 +138,11 @@ public class XmlParser {
     }
 
     private string getAndReplace(XmlNode n) {
-
         return n.InnerText.Replace("\r\n      ", "").Replace("\r\n  ", "");
-
     }
+
+    private string removeTabs(string s) {
+        return s.Replace("\t", "");
+    }
+
 }

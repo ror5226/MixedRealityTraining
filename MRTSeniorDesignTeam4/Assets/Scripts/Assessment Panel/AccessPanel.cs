@@ -17,6 +17,9 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     GameObject ansD;
     GameObject ansE;
     GameObject ansF;
+    Text currentScore;
+    int score = 0;
+
     new AudioSource audio;
     XmlParser xml = new XmlParser();
 
@@ -24,6 +27,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         assessmentPanel = GameObject.Find("AssessmentPanel");
         infoPanel = GameObject.Find("InfoPanel");
         correctPanel = GameObject.Find("CorrectPanel");
+        currentScore = GameObject.FindGameObjectWithTag("InModule_Text").GetComponent<Text>();
         assessmentCollider = assessmentPanel.transform.GetComponent<BoxCollider>();
         answerPanel = assessmentPanel.transform.FindChild("AnswerPanel").gameObject;
         ansA = answerPanel.transform.FindChild("AnswerA").gameObject;
@@ -120,6 +124,11 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     #endregion
 
     #region Assessment Panel Helpers
+
+    public void setScore(int i) {
+        score += i;
+        currentScore.text = "Module Score:"+ score +"/100";
+    }
 
 
     public void setAssessmentPanelVis(bool vis) {
