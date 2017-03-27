@@ -19,7 +19,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
         public const float RayCastLength = 10.0f;
 
         // Config
-        public TextMesh CursorText;
+        //public TextMesh CursorText;
         public LayerMask UILayerMask;
 
         // Privates
@@ -130,7 +130,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                  (SpatialUnderstanding.Instance.ScanState != SpatialUnderstanding.ScanStates.Finishing) &&
                  (SpatialUnderstanding.Instance.ScanState != SpatialUnderstanding.ScanStates.Done)))
             {
-                CursorText.gameObject.SetActive(false);
+                //CursorText.gameObject.SetActive(false);
                 return;
             }
             if (!SpatialUnderstanding.Instance.AllowSpatialUnderstanding)
@@ -142,22 +142,22 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             if ((rayCastResult != null) &&
                 (rayCastResult.SurfaceType != SpatialUnderstandingDll.Imports.RaycastResult.SurfaceTypes.Invalid))
             {
-                CursorText.gameObject.SetActive(true);
-                CursorText.text = rayCastResult.SurfaceType.ToString();
+                //CursorText.gameObject.SetActive(true);
+                //CursorText.text = rayCastResult.SurfaceType.ToString();
 
-                CursorText.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward, Vector3.up);
-                CursorText.transform.position = transform.position + Camera.main.transform.right * 0.05f;
+                //CursorText.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward, Vector3.up);
+                //CursorText.transform.position = transform.position + Camera.main.transform.right * 0.05f;
             }
             else
             {
-                CursorText.gameObject.SetActive(false);
+                //CursorText.gameObject.SetActive(false);
             }
 
             // If we're looking at the UI, fade the text
             Vector3 hitPos, hitNormal;
             UnityEngine.UI.Button hitButton;
             float textAlpha = RayCastUI(out hitPos, out hitNormal, out hitButton) ? 0.15f : 1.0f;
-            CursorText.color = new Color(1.0f, 1.0f, 1.0f, textAlpha);
+            //CursorText.color = new Color(1.0f, 1.0f, 1.0f, textAlpha);
         }
     }
 }

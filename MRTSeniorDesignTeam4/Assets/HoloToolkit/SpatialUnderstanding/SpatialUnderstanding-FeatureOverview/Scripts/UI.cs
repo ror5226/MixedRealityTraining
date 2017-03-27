@@ -38,7 +38,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
         }
 
         // Config
-        public Canvas ParentCanvas;
+        //public Canvas ParentCanvas;
         public TabPanel[] ButtonPanels = new TabPanel[(int)Panels.PANEL_COUNT];
         public Button PrefabButton;
         public LayerMask UILayerMask;
@@ -56,7 +56,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
         private void Start()
         {
             // Turn menu off until we're placed
-            ParentCanvas.gameObject.SetActive(false);
+            //ParentCanvas.gameObject.SetActive(false);
 
             // Events
             SpatialUnderstanding.Instance.ScanStateChanged += OnScanStateChanged;
@@ -271,6 +271,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
 
         private void AddButton(string text, Panels panel, UnityEngine.Events.UnityAction action)
         {
+            /*
             Button button = Instantiate(PrefabButton);
             button.GetComponentInChildren<Text>().text = text;
             button.transform.SetParent(ButtonPanels[(int)panel].ButtonGrid.transform, false);
@@ -278,6 +279,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             button.onClick.AddListener(action);
 
             ButtonPanels[(int)panel].GridButtons.Add(button);
+            */
         }
 
         private void PlaceMenu(Vector3 position, Vector3 normal, bool needsBillboarding = false)
@@ -294,7 +296,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             SetupMenus();
 
             // Enable it
-            ParentCanvas.gameObject.SetActive(true);
+           // ParentCanvas.gameObject.SetActive(true);
 
             // Create up a box
             MenuAnimatedBox = new AnimatedBox(0.0f, position, rotation, new Color(1.0f, 1.0f, 1.0f, 0.25f), new Vector3(MenuWidth * 0.5f, MenuHeight * 0.5f, 0.025f), LineDrawer.DefaultLineWidth * 0.5f);
