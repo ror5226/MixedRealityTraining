@@ -25,7 +25,6 @@ public class XmlParser {
         else {
             a = AccessPanel.Instance;
         }
-        removeAllTabs();
     }
 
     public void setPanels(string s) {
@@ -43,9 +42,9 @@ public class XmlParser {
     public void setInfoPanel(string s) {
         a.setInfoPanelVis(true);
         a.setTitle(s);
-        a.setDesc(currentNode.ChildNodes[0].InnerText);
+        a.setDesc(getAndReplace(currentNode.ChildNodes[0]));
         //a.setMaterial(getAndReplace(currentNode.ChildNodes[1]));
-        a.setImg(currentNode.ChildNodes[1].InnerText);
+        a.setImg(getAndReplace(currentNode.ChildNodes[1]));
     }
 
 
@@ -53,7 +52,7 @@ public class XmlParser {
 
         XmlNodeList ans = currentNode.ChildNodes[3].ChildNodes;
 
-        a.setQuestion(currentNode.ChildNodes[2].InnerText);
+        a.setQuestion(removeTabs(getAndReplace(currentNode.ChildNodes[2])));
         a.setAnsAVis(false);
         a.setAnsBVis(false);
         a.setAnsCVis(false);
@@ -138,17 +137,12 @@ public class XmlParser {
 
     }
 
-    private string removeTabs(string s) {
-        return s.Replace("      ", "");
+    private string getAndReplace(XmlNode n) {
+        return n.InnerText.Replace("\r\n      ", "").Replace("\r\n  ", "");
     }
 
-    private void removeAllTabs() {
-        for(int i=0; i< assetList.Count; i++) {
-            XmlNode  n = assetList[i];
-            n.ChildNodes[0].InnerText = removeTabs(n.ChildNodes[0].InnerText);
-            n.ChildNodes[1].InnerText = removeTabs(n.ChildNodes[1].InnerText);
-            n.ChildNodes[2].InnerText = removeTabs(n.ChildNodes[2].InnerText);
-        }
+    private string removeTabs(string s) {
+        return s.Replace("\t", "");
     }
 
 }
