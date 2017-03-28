@@ -43,9 +43,9 @@ public class XmlParser {
     public void setInfoPanel(string s) {
         a.setInfoPanelVis(true);
         a.setTitle(s);
-        a.setDesc(getAndReplace(currentNode.ChildNodes[0]));
+        a.setDesc(currentNode.ChildNodes[0].InnerText);
         //a.setMaterial(getAndReplace(currentNode.ChildNodes[1]));
-        a.setImg(getAndReplace(currentNode.ChildNodes[1]));
+        a.setImg(currentNode.ChildNodes[1].InnerText);
     }
 
 
@@ -53,7 +53,7 @@ public class XmlParser {
 
         XmlNodeList ans = currentNode.ChildNodes[3].ChildNodes;
 
-        a.setQuestion(getAndReplace(currentNode.ChildNodes[2]));
+        a.setQuestion(currentNode.ChildNodes[2].InnerText);
         a.setAnsAVis(false);
         a.setAnsBVis(false);
         a.setAnsCVis(false);

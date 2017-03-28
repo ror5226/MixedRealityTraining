@@ -19,6 +19,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     GameObject ansF;
     Text currentScore;
     int score = 0;
+    ReadText txtToSpeach;
 
     new AudioSource audio;
     XmlParser xml = new XmlParser();
@@ -27,7 +28,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         assessmentPanel = GameObject.Find("AssessmentPanel");
         infoPanel = GameObject.Find("InfoPanel");
         correctPanel = GameObject.Find("CorrectPanel");
-        currentScore = GameObject.FindGameObjectWithTag("InModule_Text").GetComponent<Text>();
+        //currentScore = GameObject.FindGameObjectWithTag("InModule_Text").GetComponent<Text>();
         assessmentCollider = assessmentPanel.transform.GetComponent<BoxCollider>();
         answerPanel = assessmentPanel.transform.FindChild("AnswerPanel").gameObject;
         ansA = answerPanel.transform.FindChild("AnswerA").gameObject;
@@ -36,7 +37,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         ansD = answerPanel.transform.FindChild("AnswerD").gameObject;
         ansE = answerPanel.transform.FindChild("AnswerE").gameObject;
         ansF = answerPanel.transform.FindChild("AnswerF").gameObject;
-        audio = infoPanel.transform.GetComponent<AudioSource>();
+        txtToSpeach = GameObject.Find("TextToSpeech").GetComponent<ReadText>();
         ansC.SetActive(false);
         ansD.SetActive(false);
         ansF.SetActive(false);
@@ -74,26 +75,11 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         Sprite st = (Sprite)Resources.Load<Sprite>(s);
         img.sprite = st;
     }
-    #region old audio methods, likely to be removed.
-    public void setAudioClip(string s) {
-        audio.clip = (AudioClip)Resources.Load(s);
-    }
 
-    public void playAudioClip() {
-        if (audio.time <= 2)
-            audio.Play();
-        else
-            audio.UnPause();
-    } 
-
-    public bool isAudioPlaying() {
-        return audio.isPlaying;
+    public void playText() {
+        string s = getSpeechText();
+        txtToSpeach.Say(s);
     }
-
-    public void pauseAudio() {
-        audio.Pause();
-    }
-    #endregion
 
     public string getSpeechText() {
         return infoPanel.transform.FindChild("InfoContainer").FindChild("InfoParagraph").gameObject.GetComponent<Text>().text;
@@ -127,7 +113,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
     public void setScore(int i) {
         score += i;
-        currentScore.text = "Module Score:"+ score +"/100";
+        //currentScore.text = "Module Score:"+ score +"/100";
     }
 
 
