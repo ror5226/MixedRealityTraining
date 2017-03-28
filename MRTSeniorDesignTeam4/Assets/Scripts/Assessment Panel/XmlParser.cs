@@ -19,6 +19,7 @@ public class XmlParser {
         document.PreserveWhitespace = false;
         assetList = document.GetElementsByTagName("asset");
         numberOfAssets = assetList.Count;
+        removeTabs();
         if (AccessPanel.Instance == null) {
             Debug.Log("No AccessPanel Instance");
         }
@@ -52,7 +53,7 @@ public class XmlParser {
 
         XmlNodeList ans = currentNode.ChildNodes[3].ChildNodes;
 
-        a.setQuestion(removeTabs(getAndReplace(currentNode.ChildNodes[2])));
+        a.setQuestion(getAndReplace(currentNode.ChildNodes[2]));
         a.setAnsAVis(false);
         a.setAnsBVis(false);
         a.setAnsCVis(false);
@@ -138,11 +139,15 @@ public class XmlParser {
     }
 
     private string getAndReplace(XmlNode n) {
-        return n.InnerText.Replace("\r\n      ", "").Replace("\r\n  ", "");
+        return n.InnerText.Replace("\r\n      ", ""); ;
     }
 
-    private string removeTabs(string s) {
-        return s.Replace("\t", "");
+    private void removeTabs() {
+        for(int i=0; i < assetList.Count; ++i) {
+            assetList[i].ChildNodes[0].InnerText = assetList[i].ChildNodes[0].InnerText.Replace("      ", "");
+            assetList[i].ChildNodes[1].InnerText = assetList[i].ChildNodes[1].InnerText.Replace("      ", "");
+            assetList[i].ChildNodes[2].InnerText = assetList[i].ChildNodes[2].InnerText.Replace("      ", "");
+        }
     }
 
 }
