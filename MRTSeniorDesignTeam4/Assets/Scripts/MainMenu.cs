@@ -39,14 +39,15 @@ public class MainMenu : Singleton<MainMenu> {
         spatialMappingManager.DrawVisualMeshes = true;
 #else
         spatialMappingManager.DrawVisualMeshes = false;
+        
         spatialMappingManager.StartObserver();
 #endif
-
         // Start to recognize gestures 
         gestureRecognizer = new GestureRecognizer();
         gestureRecognizer.SetRecognizableGestures(GestureSettings.Tap);
         gestureRecognizer.StartCapturingGestures();
 
+        SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
     }
 
     //Move menu with user gaze against wall
@@ -113,6 +114,8 @@ public class MainMenu : Singleton<MainMenu> {
         {
             if(mainMenu_ButtonCount == 0)
             {
+                SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = true;
+
                 // Show mesh on walls
                 spaceUnderstanding.ShowScan();
 
@@ -132,10 +135,15 @@ public class MainMenu : Singleton<MainMenu> {
 
 #if UNITY_EDITOR
                 spatialMappingManager.DrawVisualMeshes = true;
-                // Generate Planes from scan
+
+                // Complete scan
+                SpatialUnderstanding.Instance.RequestFinishScan();
+
                 spaceUnderstanding.Create_Planes();
 #else
                 spatialMappingManager.DrawVisualMeshes = false;
+                SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
+
 #endif
                 // Permenently plane menu on the wall
                 Place_Menu();

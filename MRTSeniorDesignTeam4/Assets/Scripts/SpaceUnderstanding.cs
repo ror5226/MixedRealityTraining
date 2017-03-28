@@ -46,8 +46,14 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
     {
        if (spatialMappingManager != null || gestureRecognizer != null)
        {
+
+#if UNITY_EDITOR
             // Begin spatial scanning
             spatialMappingManager.DrawVisualMeshes = true;
+
+#else
+            SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = true;
+#endif
 
             gestureRecognizer.StartCapturingGestures();
 
@@ -109,12 +115,11 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
 
 #if UNITY_EDITOR
        ModuleMenu.Instance.MenuSwap();
-        RoomAssetManager.Instance.GenerateItemsInWorld(horizontal, vertical, ModuleType.Kitchen);
 #endif
 
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         if (SurfaceMeshesToPlanes.Instance != null)
         {
