@@ -21,6 +21,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         if(QueryCalls.Instance != null)
         {
             queryCalls = QueryCalls.Instance;
+            queryCalls.InitializeSolver();
         }
     }
 
@@ -240,37 +241,41 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             if (placementType == PlacementPosition.WallFloor)
             {
                 queryCalls.Query_OnWall(.2f, .2f, .2f, 0.0f, 3.5f);
-                while (queryCalls.ProcessPlacementResults() != 1)
+                while (queryCalls.ProcessPlacementResults() == -1)
                 {
 
                 }
                 if(queryCalls.ProcessPlacementResults() == 2)
                 {
                     Debug.Log("Mapp is too small");
+                    break;
                 }
                 else
                 {
                     Vector3 querypos;
-                    Debug.Log(queryCalls.result.Position.x + " " + queryCalls.result.Position.y + " " + queryCalls.result.Position.z);
-
-                    float mindiff = 100.0f;
-
-                    GameObject minplane = new GameObject();
-                    foreach (GameObject s in surfaces)
+                    if (queryCalls.ProcessPlacementResults() > 0)
                     {
-                        float diff = Math.Abs((s.transform.position.x - queryCalls.result.Position.x) + (s.transform.position.z - queryCalls.result.Position.z));
-                        Debug.Log("diff " + diff);
-                        if (diff < mindiff)
-                        {
-                            diff = mindiff;
-                            minplane = s;
-                        }
-                    }
-                    querypos = queryCalls.result.Position + ((.5f * Math.Abs(collider.size.z) * obj.transform.localScale.z)) * -minplane.GetComponent<SurfacePlane>().SurfaceNormal;
-                    querypos.y = mainFloor.Plane.Bounds.Center.y + collider.size.y * .5f * obj.transform.localScale.y;
+                        Debug.Log(queryCalls.result.Position.x + " " + queryCalls.result.Position.y + " " + queryCalls.result.Position.z);
 
-                    GameObject spaceObject = Instantiate(obj, querypos, Quaternion.LookRotation(-queryCalls.result.Forward, Vector3.up)) as GameObject;
-                    spaceObject.SetActive(true);
+                        float mindiff = 100.0f;
+
+                        GameObject minplane = new GameObject();
+                        foreach (GameObject s in surfaces)
+                        {
+                            float diff = Math.Abs((s.transform.position.x - queryCalls.result.Position.x) + (s.transform.position.z - queryCalls.result.Position.z));
+                            Debug.Log("diff " + diff);
+                            if (diff < mindiff)
+                            {
+                                diff = mindiff;
+                                minplane = s;
+                            }
+                        }
+                        querypos = queryCalls.result.Position + ((.5f * Math.Abs(collider.size.z) * obj.transform.localScale.z)) * -minplane.GetComponent<SurfacePlane>().SurfaceNormal;
+                        querypos.y = mainFloor.Plane.Bounds.Center.y + collider.size.y * .5f * obj.transform.localScale.y;
+
+                        GameObject spaceObject = Instantiate(obj, querypos, Quaternion.LookRotation(-queryCalls.result.Forward, Vector3.up)) as GameObject;
+                        spaceObject.SetActive(true);
+                    }
                 }
             }
         }

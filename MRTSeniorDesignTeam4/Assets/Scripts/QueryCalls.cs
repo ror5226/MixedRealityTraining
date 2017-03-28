@@ -219,7 +219,7 @@ public class QueryCalls : Singleton<QueryCalls>
         // Check it
         if (queryStatus.State != QueryStates.Finished)
         {
-            return 0;
+            return -1;
         }
             if (!SpatialUnderstanding.Instance.AllowSpatialUnderstanding)
             {
@@ -239,7 +239,7 @@ public class QueryCalls : Singleton<QueryCalls>
                 if ((queryStatus.QueryResult[i].Position.y < alignment.CeilingYValue) &&
                     (queryStatus.QueryResult[i].Position.y > alignment.FloorYValue))
                 {
-                    float timeDelay = 0;// (float)placementResults.Count * AnimatedBox.DelayPerItem;
+                    //float timeDelay = 0;// (float)placementResults.Count * AnimatedBox.DelayPerItem;
                 result = queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult;
                     //placementResults.Add(new PlacementResult(timeDelay, queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult));
                 }
@@ -250,7 +250,7 @@ public class QueryCalls : Singleton<QueryCalls>
 
             // Mark done
             queryStatus.Reset();
-        return 1;
+        return queryStatus.QueryResult.Count;
         }
 
         public void Query_OnFloor()
