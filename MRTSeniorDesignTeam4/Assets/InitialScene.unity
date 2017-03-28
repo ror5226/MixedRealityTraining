@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641216, b: 0.5748169, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d883c0118351e4890753200e0ac916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomModel: {fileID: 100008, guid: 68a7a806bf726614aa309bb190ab7cee, type: 3}
+  RoomModel: {fileID: 100000, guid: ee92b9ab4b11e5248826d2cdbee109e8, type: 3}
   SimulatedUpdatePeriodInSeconds: -1
 --- !u!1 &103312177
 GameObject:
@@ -1544,8 +1544,8 @@ GameObject:
   - component: {fileID: 370930560}
   - component: {fileID: 370930559}
   m_Layer: 5
-  m_Name: DamgeInfoParagraph
-  m_TagString: Untagged
+  m_Name: AreaScanned
+  m_TagString: Start_Panel_Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1566,8 +1566,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -73}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &370930559
 MonoBehaviour:
@@ -1596,13 +1596,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Scanned Area
 --- !u!222 &370930560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2598,7 +2598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -4, y: -144}
+  m_AnchoredPosition: {x: -4, y: -110}
   m_SizeDelta: {x: 385, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &770720156

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
+using UnityEngine.UI;
 
 namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
 {
@@ -24,6 +25,9 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
         public Transform Parent_Scene;
         public SpatialMappingObserver MappingObserver;
         public SpatialUnderstandingCursor AppCursor;
+
+        Text areaText;
+        Button scanButton;
 
         // Properties
         public string SpaceQueryDescription
@@ -176,8 +180,8 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                     if (stats.TotalSurfaceArea > kMinAreaForStats)
                     {
                         string subDisplayText = string.Format("totalArea={0:0.0}, horiz={1:0.0}, wall={2:0.0}", stats.TotalSurfaceArea, stats.HorizSurfaceArea, stats.WallSurfaceArea);
-                        subDisplayText += string.Format("\nnumFloorCells={0}, numCeilingCells={1}, numPlatformCells={2}", stats.NumFloor, stats.NumCeiling, stats.NumPlatform);
-                        subDisplayText += string.Format("\npaintMode={0}, seenCells={1}, notSeen={2}", stats.CellCount_IsPaintMode, stats.CellCount_IsSeenQualtiy_Seen + stats.CellCount_IsSeenQualtiy_Good, stats.CellCount_IsSeenQualtiy_None);
+                        //subDisplayText += string.Format("\nnumFloorCells={0}, numCeilingCells={1}, numPlatformCells={2}", stats.NumFloor, stats.NumCeiling, stats.NumPlatform);
+                        //subDisplayText += string.Format("\npaintMode={0}, seenCells={1}, notSeen={2}", stats.CellCount_IsPaintMode, stats.CellCount_IsSeenQualtiy_Seen + stats.CellCount_IsSeenQualtiy_Good, stats.CellCount_IsSeenQualtiy_None);
                         return subDisplayText;
                     }
                     return "";
@@ -213,6 +217,9 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             keywordRecognizer.Start();
             */
 
+            areaText = GameObject.FindGameObjectWithTag("Start_Panel_Area").GetComponent<Text>();
+            scanButton = GameObject.FindGameObjectWithTag("Scan_Button").GetComponent<Button>();
+
 #if UNITY_EDITOR
 #else
             if(SpatialUnderstanding.Instance != null)
@@ -233,15 +240,18 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
         private void Update_DebugDisplay(float deltaTime)
         {
             // Basic checks
-            if (DebugDisplay == null)
-            {
-                return;
-            }
+            //if (DebugDisplay == null)
+            //{
+            //    return;
+            //}
 
             // Update display text
-            DebugDisplay.text = PrimaryText;
-            DebugDisplay.color = PrimaryColor;
-            DebugSubDisplay.text = DetailsText;
+            //areaText.text = PrimaryText;
+            //areaText.color = PrimaryColor;
+            areaText.text = DetailsText;
+            if (DoesScanMeetMinBarForCompletion) {
+                scanButton.interactable = true;
+            }
         }
 
 #if UNITY_EDITOR

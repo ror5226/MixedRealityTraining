@@ -127,6 +127,7 @@ public class MainMenu : Singleton<MainMenu> {
                 GameObject panelButton = GameObject.FindGameObjectWithTag("Scan_Button_Text"); 
                 Text buttonText = panelButton.GetComponent<Text>();
                 buttonText.text = "Stop Scan";
+                GameObject.FindGameObjectWithTag("Scan_Button").GetComponent<Button>().interactable = false;
 
                 mainMenu_ButtonCount++;
             }
