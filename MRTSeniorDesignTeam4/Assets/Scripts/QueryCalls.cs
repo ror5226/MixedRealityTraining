@@ -274,7 +274,7 @@ public class QueryCalls : Singleton<QueryCalls>
             float halfDimSize = UnityEngine.Random.Range(0.3f, 0.6f);
             placementQuery.Add(new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(x, y, z), minHeight, maxHeight),
                                         new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
-                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(x * 4.0f),
+                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(2.0f),
                                         }));
             
             PlaceObjectAsync("OnWall", placementQuery);
