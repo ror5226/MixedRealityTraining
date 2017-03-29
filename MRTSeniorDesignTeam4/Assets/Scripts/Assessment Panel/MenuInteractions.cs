@@ -28,14 +28,4 @@ public class MenuInteractions : MonoBehaviour {
         aPanel.setInfoPanelVis(false);
         aPanel.setCorrectPanelVis(false);
     }
-
-    public void playAudio() {
-        if (aPanel.isAudioPlaying()) {
-            aPanel.pauseAudio();
-        }
-        else {
-            aPanel.playAudioClip();
-        }
-       
-    }
 }
