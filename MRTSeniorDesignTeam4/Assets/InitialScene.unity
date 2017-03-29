@@ -623,7 +623,7 @@ MonoBehaviour:
   PhysicsLayer: 31
   surfaceMaterial: {fileID: 2100000, guid: d698790d3facd3d4289a13fa1243030a, type: 2}
   autoStartObserver: 1
-  drawVisualMeshes: 0
+  drawVisualMeshes: 1
   castShadows: 0
 --- !u!114 &89563463
 MonoBehaviour:
