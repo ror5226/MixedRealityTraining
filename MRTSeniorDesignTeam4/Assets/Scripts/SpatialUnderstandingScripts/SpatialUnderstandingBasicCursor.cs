@@ -4,8 +4,7 @@
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 
-namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
-{
+
     /// <summary>
     /// 1. Decides when to show the cursor.
     /// 2. Positions the cursor at the gazed location.
@@ -91,5 +90,5 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             gameObject.transform.up = rayResult.Normal;
             gameObject.transform.rotation *= cursorDefaultRotation;
         }
-    }
+    
 }

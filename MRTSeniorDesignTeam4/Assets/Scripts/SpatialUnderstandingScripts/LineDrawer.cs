@@ -7,9 +7,7 @@ using System.Collections.Generic;
 using HoloToolkit.Unity;
 using System;
 
-namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
-{
-    public class LineDrawer : MonoBehaviour
+public class LineDrawer : MonoBehaviour
     {
         // Consts
         public const float DefaultLineWidth = 0.001f;
@@ -471,5 +469,5 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 Lines_LineDataToMesh();
             }
         }
-    }
+    
 }

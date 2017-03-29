@@ -8,15 +8,14 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System;
 
-namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
-{
-    public class LevelSolver : LineDrawer
+public class LevelSolver : LineDrawer
     {
         // Singleton
         public static LevelSolver Instance;
+    public SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult result;
 
-        // Enums
-        public enum QueryStates
+    // Enums
+    public enum QueryStates
         {
             None,
             Processing,
@@ -89,17 +88,15 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             placementResults.Clear();
             if (SpatialUnderstanding.Instance.AllowSpatialUnderstanding)
             {
-                SpatialUnderstandingDllObjectPlacement.Solver_RemoveAllObjects();
+                //SpatialUnderstandingDllObjectPlacement.Solver_RemoveAllObjects();
             }
             AppState.Instance.ObjectPlacementDescription = "";
 
             if (clearAll && (SpaceVisualizer.Instance != null))
             {
-                SpaceVisualizer.Instance.ClearGeometry(false);
+                //SpaceVisualizer.Instance.ClearGeometry(false);
             }
         }
-
-        
 
         private bool Draw_PlacementResults()
         {
@@ -237,16 +234,16 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             return false;
         }
 
-        private void ProcessPlacementResults()
+        public int ProcessPlacementResults()
         {
             // Check it
             if (queryStatus.State != QueryStates.Finished)
             {
-                return;
+                return -1;
             }
             if (!SpatialUnderstanding.Instance.AllowSpatialUnderstanding)
             {
-                return;
+                return 2;
             }
 
             // Clear results
@@ -259,19 +256,21 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             // Copy over the results
             for (int i = 0; i < queryStatus.QueryResult.Count; ++i)
             {
-                if ((queryStatus.QueryResult[i].Position.y < alignment.CeilingYValue) &&
-                    (queryStatus.QueryResult[i].Position.y > alignment.FloorYValue))
-                {
-                    float timeDelay = (float)placementResults.Count * AnimatedBox.DelayPerItem;
-                    placementResults.Add(new PlacementResult(timeDelay, queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult));
-                }
-            }
+                Debug.Log("got a result @" + queryStatus.QueryResult[i].Position.x + " " + queryStatus.QueryResult[i].Position.y);
+                float timeDelay = (float)placementResults.Count * AnimatedBox.DelayPerItem;
+            result = queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult;
 
-            // Text
-            AppState.Instance.ObjectPlacementDescription = queryStatus.Name + " (" + placementResults.Count + "/" + (queryStatus.CountSuccess + queryStatus.CountFail) + ")";
+            // placementResults.Add(new PlacementResult(timeDelay, queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult));
 
+        }
+
+        // Text
+        AppState.Instance.ObjectPlacementDescription = queryStatus.Name + " (" + placementResults.Count + "/" + (queryStatus.CountSuccess + queryStatus.CountFail) + ")";
+
+        int count = queryStatus.QueryResult.Count;
             // Mark done
             queryStatus.Reset();
+        return count;
         }
 
         public void Query_OnFloor()
@@ -289,16 +288,16 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             PlaceObjectAsync("OnFloor", placementQuery);
         }
 
-        public void Query_OnWall()
+        public void Query_OnWall(float x, float y, float z, float minHeight, float maxHeight)
         {
-            List<PlacementQuery> placementQuery = new List<PlacementQuery>();
-           for (int i = 0; i < 6; ++i)
+        List<PlacementQuery> placementQuery = new List<PlacementQuery>();
+            //for (int i = 0; i < 6; ++i)
             {
                 float halfDimSize = UnityEngine.Random.Range(0.3f, 0.6f);
                 placementQuery.Add(
-                    new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(.1f,  0.1f, 0.03f), 0.1f, 1.0f),
+                    new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(x, y, .05f), minHeight, maxHeight),
                                         new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
-                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(halfDimSize * 4.0f),
+                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(1.0f),
                                         }));
             }
             PlaceObjectAsync("OnWall", placementQuery);
@@ -430,7 +429,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             }
             if (Input.GetKeyDown(KeyCode.T))
             {
-                Query_OnWall();
+                //Query_OnWall();
             }
             if (Input.GetKeyDown(KeyCode.Y))
             {
@@ -499,17 +498,17 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             }
 
             // Handle async query results
-            ProcessPlacementResults();
+            //ProcessPlacementResults();
 
             // Lines: Begin
-            LineDraw_Begin();
+            //LineDraw_Begin();
 
             // Drawers
-            bool needsUpdate = false;
-            needsUpdate |= Draw_PlacementResults();
+           // bool needsUpdate = false;
+            //needsUpdate |= Draw_PlacementResults();
 
             // Lines: Finish up
-            LineDraw_End(needsUpdate);
+            //LineDraw_End(needsUpdate);
         }
-    }
+    
 }

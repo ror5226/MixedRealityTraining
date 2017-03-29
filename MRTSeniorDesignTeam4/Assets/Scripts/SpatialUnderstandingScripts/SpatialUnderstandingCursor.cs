@@ -11,9 +11,7 @@ using System.Collections.Generic;
 using HoloToolkit.Unity.InputModule;
 using Button = UnityEngine.UI.Button;
 
-namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
-{
-    public class SpatialUnderstandingCursor : SpatialUnderstandingBasicCursor
+public class SpatialUnderstandingCursor : SpatialUnderstandingBasicCursor
     {
         // Consts
         public const float RayCastLength = 10.0f;
@@ -159,5 +157,5 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             float textAlpha = RayCastUI(out hitPos, out hitNormal, out hitButton) ? 0.15f : 1.0f;
             //CursorText.color = new Color(1.0f, 1.0f, 1.0f, textAlpha);
         }
-    }
+    
 }

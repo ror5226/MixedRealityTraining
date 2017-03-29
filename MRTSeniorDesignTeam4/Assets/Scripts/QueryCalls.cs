@@ -271,7 +271,6 @@ public class QueryCalls : Singleton<QueryCalls>
         public void Query_OnWall(float x, float y, float z, float minHeight, float maxHeight)
         {
             List<PlacementQuery> placementQuery = new List<PlacementQuery>();
-            float halfDimSize = UnityEngine.Random.Range(0.3f, 0.6f);
             placementQuery.Add(new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(x, y, z), minHeight, maxHeight),
                                         new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
                                             SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(2.0f),

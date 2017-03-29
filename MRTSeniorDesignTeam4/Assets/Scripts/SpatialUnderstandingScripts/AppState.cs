@@ -10,9 +10,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
-namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
-{
-    public class AppState : Singleton<AppState>, ISourceStateHandler, IInputClickHandler
+public class AppState : Singleton<AppState>, ISourceStateHandler, IInputClickHandler
     {
         // Consts
         public float kMinAreaForStats = 5.0f;
@@ -293,5 +291,5 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 SpatialUnderstanding.Instance.RequestFinishScan();
             }
         }
-    }
+    
 }
