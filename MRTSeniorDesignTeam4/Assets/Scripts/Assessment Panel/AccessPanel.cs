@@ -18,6 +18,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     GameObject ansE;
     GameObject ansF;
     Text currentScore;
+    int maxScore;
     int score = 0;
     ReadText txtToSpeach;
 
@@ -28,7 +29,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         assessmentPanel = GameObject.Find("AssessmentPanel");
         infoPanel = GameObject.Find("InfoPanel");
         correctPanel = GameObject.Find("CorrectPanel");
-        //currentScore = GameObject.FindGameObjectWithTag("InModule_Text").GetComponent<Text>();
+        currentScore = GameObject.FindGameObjectWithTag("InModule_Text").GetComponent<Text>();
         assessmentCollider = assessmentPanel.transform.GetComponent<BoxCollider>();
         answerPanel = assessmentPanel.transform.FindChild("AnswerPanel").gameObject;
         ansA = answerPanel.transform.FindChild("AnswerA").gameObject;
@@ -113,7 +114,20 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
     public void setScore(int i) {
         score += i;
-        //currentScore.text = "Module Score:"+ score +"/100";
+
+        //
+        //  Remove this once max score can be found.
+        //
+        maxScore = 4;
+        //
+        //  Remove this once max score can be found.
+        //
+
+        currentScore.text = "Module Score:" + score + " of " + maxScore;
+    }
+
+    public void setMaxScore(int i) {
+        maxScore = i;
     }
 
 

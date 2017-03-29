@@ -14,10 +14,10 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
     public class QuerySetup : Singleton<QuerySetup>//, ISourceStateHandler, IInputClickHandler
     {
         // Consts
-        public float kMinAreaForStats = 5.0f;
-        public float kMinAreaForComplete = 50.0f;
-        public float kMinHorizAreaForComplete = 25.0f;
-        public float kMinWallAreaForComplete = 10.0f;
+        public float kMinAreaForStats = 1.0f;
+        public float kMinAreaForComplete = 20.0f;
+        //public float kMinHorizAreaForComplete = 25.0f;
+        //public float kMinWallAreaForComplete = 10.0f;
 
         // Config
         public TextMesh DebugDisplay;
@@ -76,9 +76,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                 SpatialUnderstandingDll.Imports.PlayspaceStats stats = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceStats();
 
                 // Check our preset requirements
-                if ((stats.TotalSurfaceArea > kMinAreaForComplete) ||
-                    (stats.HorizSurfaceArea > kMinHorizAreaForComplete) ||
-                    (stats.WallSurfaceArea > kMinWallAreaForComplete))
+                if (stats.TotalSurfaceArea > kMinAreaForComplete)
                 {
                     return true;
                 }
@@ -179,7 +177,8 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                     // Start showing the stats when they are no longer zero
                     if (stats.TotalSurfaceArea > kMinAreaForStats)
                     {
-                        string subDisplayText = string.Format("totalArea={0:0.0}, horiz={1:0.0}, wall={2:0.0}", stats.TotalSurfaceArea, stats.HorizSurfaceArea, stats.WallSurfaceArea);
+                        string subDisplayText = string.Format("Scanned area: {0:0.0}m", stats.TotalSurfaceArea);
+                        subDisplayText += " of required area: " + string.Format("{0:0.0}m", kMinAreaForComplete);
                         //subDisplayText += string.Format("\nnumFloorCells={0}, numCeilingCells={1}, numPlatformCells={2}", stats.NumFloor, stats.NumCeiling, stats.NumPlatform);
                         //subDisplayText += string.Format("\npaintMode={0}, seenCells={1}, notSeen={2}", stats.CellCount_IsPaintMode, stats.CellCount_IsSeenQualtiy_Seen + stats.CellCount_IsSeenQualtiy_Good, stats.CellCount_IsSeenQualtiy_None);
                         return subDisplayText;
