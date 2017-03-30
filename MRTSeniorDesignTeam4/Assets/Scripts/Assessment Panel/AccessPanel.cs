@@ -18,8 +18,11 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     GameObject ansE;
     GameObject ansF;
     Text currentScore;
+    int maxScore;
     int score = 0;
     ReadText txtToSpeach;
+    Image img;
+    Camera cam;
 
     new AudioSource audio;
     XmlParser xml = new XmlParser();
@@ -28,7 +31,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         assessmentPanel = GameObject.Find("AssessmentPanel");
         infoPanel = GameObject.Find("InfoPanel");
         correctPanel = GameObject.Find("CorrectPanel");
-        //currentScore = GameObject.FindGameObjectWithTag("InModule_Text").GetComponent<Text>();
+        currentScore = GameObject.FindGameObjectWithTag("InModule_Text").GetComponent<Text>();
         assessmentCollider = assessmentPanel.transform.GetComponent<BoxCollider>();
         answerPanel = assessmentPanel.transform.FindChild("AnswerPanel").gameObject;
         ansA = answerPanel.transform.FindChild("AnswerA").gameObject;
@@ -38,7 +41,8 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         ansE = answerPanel.transform.FindChild("AnswerE").gameObject;
         ansF = answerPanel.transform.FindChild("AnswerF").gameObject;
         txtToSpeach = GameObject.Find("TextToSpeech").GetComponent<ReadText>();
-        ansC.SetActive(false);
+        img = infoPanel.transform.FindChild("InfoContainer").FindChild("ObjectImage").GetComponent<Image>();
+            ansC.SetActive(false);
         ansD.SetActive(false);
         ansF.SetActive(false);
         ansE.SetActive(false);
@@ -46,6 +50,12 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         assessmentPanel.SetActive(false);
         correctPanel.SetActive(false);
         xml.setup();
+        cam = GameObject.Find("HoloLensCamera").GetComponent<Camera>();
+    }
+
+
+    public Vector3 getCamForward() {
+        return cam.transform.forward;
     }
 
     public XmlParser getXMLParser() {
@@ -71,7 +81,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     }
 
     public void setImg(string s) {
-        Image img = infoPanel.transform.FindChild("InfoContainer").FindChild("ObjectImage").GetComponent<Image>();
+        //Image img = infoPanel.transform.FindChild("InfoContainer").FindChild("ObjectImage").GetComponent<Image>();
         Sprite st = (Sprite)Resources.Load<Sprite>(s);
         img.sprite = st;
     }
@@ -113,7 +123,20 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
     public void setScore(int i) {
         score += i;
-        //currentScore.text = "Module Score:"+ score +"/100";
+
+        //
+        //  Remove this once max score can be found.
+        //
+        maxScore = 4;
+        //
+        //  Remove this once max score can be found.
+        //
+
+        currentScore.text = "Module Score:" + score + " of " + maxScore;
+    }
+
+    public void setMaxScore(int i) {
+        maxScore = i;
     }
 
 

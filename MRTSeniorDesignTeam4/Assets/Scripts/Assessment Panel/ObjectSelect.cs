@@ -56,7 +56,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
     ///     finally we reposition the info Panel.
     /// </summary>
     /// <param name="eventData"></param>
-    public void OnInputClicked(InputClickedEventData eventData) {
+    public void OnInputClicked(InputClickedEventData eventData){
 
         string selectedObjName = this.gameObject.name;
         string[] split = selectedObjName.Split('(');
@@ -69,29 +69,27 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
 
 
         objPos = this.transform.position;
-        Vector3 camPos = GameObject.Find("Main Camera").transform.position;
+        //Vector3 camPos = GameObject.Find("Main Camera").transform.position;
+        Vector3 camPos = aPanel.getCamForward();
 
-        aPanel.setInfoPanelPosition(objPos.x, camPos.y, objPos.z +.5f);
+        aPanel.setInfoPanelPosition(camPos.x, camPos.y, camPos.z);
 
         // Rachel's fix
         /*
         Assessable assessable = this.GetComponent<Assessable>();
         if (assessable != null)
         {
-           // position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(collider.size.z) * item.transform.localScale.z)) * plane.SurfaceNormal);
-
-            aPanel.getDamageInfo().transform.position = objPos + (.75f * assessable.getPlane().SurfaceNormal);
-            aPanel.getDamageInfo().transform.position += new Vector3(0, -.8f, 0);
+            // position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(collider.size.z) * item.transform.localScale.z)) * plane.SurfaceNormal);
+            Vector3 v = objPos + (.75f * assessable.getPlane().SurfaceNormal);
+            aPanel.setInfoPanelPosition(v.x,camPos.y, v.z);
+            //aPanel.getInfoPanel().transform.position += new Vector3(0, -.8f, 0);
 
         }
         else
         {
             Debug.Log("No panel");
-            aPanel.getDamageInfo().transform.position = new Vector3(objPos.x, (objPos.y - .5f), (objPos.z + .8f));
+            aPanel.getInfoPanel().transform.position = new Vector3(objPos.x, (objPos.y - .5f), (objPos.z + .8f));
 
-        }
-
-    */
-
+        }*/
     }
 }

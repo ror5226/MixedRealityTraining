@@ -150,4 +150,96 @@
       </ans>
     </answers>
   </asset>
+  <asset name="newTV">
+    <description>
+      Sick fuckin' TV.
+    </description>
+    <image>sphere_img</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Couch">
+    <description>
+      Sick fuckin' Couch
+    </description>
+    <image>sphere_img</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="newFridge">
+    <description>
+      Sick fuckin' Fridge
+    </description>
+    <image>sphere_img</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="NewOven 1">
+    <description>
+      Sick fuckin' Oven
+    </description>
+    <image>sphere_img</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
 </scene>
