@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 1412960899987616}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.02, y: 0.52, z: -0.01}
-  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1.1999999, z: 1}
   m_Children:
   - {fileID: 4935355713963018}
   m_Father: {fileID: 0}
@@ -66,7 +66,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1938422653154938}
-  m_LocalRotation: {x: -0, y: -1, z: 0.000000081460335, w: 0}
+  m_LocalRotation: {x: -0, y: -1, z: 0.00000008146033, w: 0}
   m_LocalPosition: {x: 0.02, y: -0.7, z: -0.01}
   m_LocalScale: {x: 1.5, y: 1.2499999, z: 1.5}
   m_Children: []
@@ -121,8 +121,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.70688105, y: 0.9807036, z: 0.6664788}
-  m_Center: {x: 0.02300167, y: -0.21614867, z: -0.0057503283}
+  m_Size: {x: 0.70688105, y: 0.9807036, z: 0.66647875}
+  m_Center: {x: 0.023001669, y: -0.21614866, z: -0.005750328}
 --- !u!114 &114045384304060690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
-  placement: 5
+  placement: 4
   module: 1

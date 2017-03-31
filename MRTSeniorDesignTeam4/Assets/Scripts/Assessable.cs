@@ -9,7 +9,7 @@ public enum PlacementPosition
     Floor = 1,
     HighWall = 2,
     MidWall = 3,
-    LowWall = 4,
+    Ceiling = 4,
     WallFloor = 5
 }
 

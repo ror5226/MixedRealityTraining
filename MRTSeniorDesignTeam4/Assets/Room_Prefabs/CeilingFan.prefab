@@ -84,8 +84,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1079312989025994}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00018976211, y: 0, z: -0.00044769287}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.0001897621, y: 0, z: -0.00044769284}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4944434690829396}
@@ -97,8 +97,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861890246546552}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00018976211, y: 0, z: -0.00044769287}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.0001897621, y: 0, z: -0.00044769284}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4944434690829396}
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 1261520977393750}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.02, y: 0.52, z: -0.01}
-  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1.1999999, z: 1}
   m_Children:
   - {fileID: 4944434690829396}
   m_Father: {fileID: 0}
@@ -126,7 +126,7 @@ Transform:
   m_GameObject: {fileID: 1527707385833346}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0.02, y: 0, z: -0.01}
-  m_LocalScale: {x: 1, y: 0.83333325, z: 1}
+  m_LocalScale: {x: 1, y: 0.8333332, z: 1}
   m_Children:
   - {fileID: 4243360754054556}
   - {fileID: 4000477155245034}
@@ -219,7 +219,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7879498, y: 0.472883, z: 1.805051}
+  m_Size: {x: 1.7879497, y: 0.472883, z: 1.805051}
   m_Center: {x: 0.092006, y: -0.21563876, z: -0.000000059604645}
 --- !u!114 &114455662654482242
 MonoBehaviour:
@@ -244,5 +244,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
-  placement: 2
+  placement: 4
   module: 1

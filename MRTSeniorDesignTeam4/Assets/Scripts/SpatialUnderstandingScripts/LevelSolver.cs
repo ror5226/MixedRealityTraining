@@ -23,7 +23,7 @@ public class LevelSolver : LineDrawer
         }
 
         // Structs
-        private struct QueryStatus
+        public struct QueryStatus
         {
             public void Reset()
             {
@@ -41,7 +41,7 @@ public class LevelSolver : LineDrawer
             public List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult> QueryResult;
         }
 
-        private struct PlacementQuery
+        public struct PlacementQuery
         {
             public PlacementQuery(
                 SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition placementDefinition,
@@ -58,7 +58,7 @@ public class LevelSolver : LineDrawer
             public List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementConstraint> PlacementConstraints;
         }
 
-        private class PlacementResult
+        public class PlacementResult
         {
             public PlacementResult(float timeDelay, SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult result)
             {
@@ -74,8 +74,8 @@ public class LevelSolver : LineDrawer
         public bool IsSolverInitialized { get; private set; }
 
         // Privates
-        private List<PlacementResult> placementResults = new List<PlacementResult>();
-        private QueryStatus queryStatus = new QueryStatus();
+        public List<PlacementResult> placementResults = new List<PlacementResult>();
+        public QueryStatus queryStatus = new QueryStatus();
 
         // Functions
         private void Awake()
@@ -85,16 +85,16 @@ public class LevelSolver : LineDrawer
 
         public void ClearGeometry(bool clearAll = true)
         {
-            placementResults.Clear();
+           // placementResults.Clear();
             if (SpatialUnderstanding.Instance.AllowSpatialUnderstanding)
             {
-                //SpatialUnderstandingDllObjectPlacement.Solver_RemoveAllObjects();
+                SpatialUnderstandingDllObjectPlacement.Solver_RemoveAllObjects();
             }
             AppState.Instance.ObjectPlacementDescription = "";
 
             if (clearAll && (SpaceVisualizer.Instance != null))
             {
-                //SpaceVisualizer.Instance.ClearGeometry(false);
+                SpaceVisualizer.Instance.ClearGeometry(false);
             }
         }
 
@@ -123,7 +123,7 @@ public class LevelSolver : LineDrawer
                 clearObjectsFirst);
         }
 
-        private bool PlaceObjectAsync(
+        public bool PlaceObjectAsync(
             string placementName,
             List<PlacementQuery> placementList,
             bool clearObjectsFirst = true)
@@ -260,7 +260,8 @@ public class LevelSolver : LineDrawer
                 float timeDelay = (float)placementResults.Count * AnimatedBox.DelayPerItem;
             result = queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult;
 
-            // placementResults.Add(new PlacementResult(timeDelay, queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult));
+             placementResults.Add(new PlacementResult(timeDelay, queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult));
+
 
         }
 
@@ -273,49 +274,49 @@ public class LevelSolver : LineDrawer
         return count;
         }
 
-        public void Query_OnFloor()
+        public PlacementQuery Query_OnFloor(float x, float y, float z)
         {
-            List<PlacementQuery> placementQuery = new List<PlacementQuery>();
-            for (int i = 0; i < 4; ++i)
-            {
-                float halfDimSize = UnityEngine.Random.Range(0.15f, 0.35f);
-                placementQuery.Add(
-                    new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnFloor(new Vector3(halfDimSize, halfDimSize, halfDimSize * 2.0f)),
-                                        new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
-                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(halfDimSize * 3.0f),
-                                        }));
-            }
-            PlaceObjectAsync("OnFloor", placementQuery);
-        }
 
-        public void Query_OnWall(float x, float y, float z, float minHeight, float maxHeight)
-        {
-        List<PlacementQuery> placementQuery = new List<PlacementQuery>();
-            //for (int i = 0; i < 6; ++i)
-            {
-                float halfDimSize = UnityEngine.Random.Range(0.3f, 0.6f);
-                placementQuery.Add(
-                    new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(x, y, .05f), minHeight, maxHeight),
+                return new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnFloor(new Vector3(x, y, z)),
                                         new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
                                             SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(1.0f),
-                                        }));
-            }
-            PlaceObjectAsync("OnWall", placementQuery);
+                                        });
+
+          
         }
 
-        public void Query_OnCeiling()
+        public void Query_OnFloor()
         {
-            List<PlacementQuery> placementQuery = new List<PlacementQuery>();
-            for (int i = 0; i < 2; ++i)
+        List<PlacementQuery> placementQuery = new List<PlacementQuery>();
+        for (int i = 0; i < 6; ++i)
+        {
+            placementQuery.Add(new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnFloor(new Vector3(.3F, .1F, .3F)),
+                                new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
+                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(4.0f),
+                                }));
+
+        }
+        PlaceObjectAsync("OnFloor", placementQuery);
+        }
+
+        public PlacementQuery Query_OnWall(float x, float y, float z, float minHeight, float maxHeight)
+        {
             {
-                float halfDimSize = UnityEngine.Random.Range(0.3f, 0.4f);
-                placementQuery.Add(
-                    new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnCeiling(new Vector3(halfDimSize, halfDimSize, halfDimSize)),
+                return new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnWall(new Vector3(x, y, .05f), minHeight, maxHeight),
                                         new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
-                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(halfDimSize * 3.0f),
-                                        }));
+                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(2.0f),
+                                        });
             }
-            PlaceObjectAsync("OnCeiling", placementQuery);
+        }
+
+        public PlacementQuery Query_OnCeiling(float x, float y, float z)
+        {
+            {
+                return new PlacementQuery(SpatialUnderstandingDllObjectPlacement.ObjectPlacementDefinition.Create_OnCeiling(new Vector3(x,y,z)),
+                                        new List<SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule>() {
+                                            SpatialUnderstandingDllObjectPlacement.ObjectPlacementRule.Create_AwayFromOtherObjects(.5f),
+                                        });
+            }
         }
 
         public void Query_OnEdge()
@@ -425,7 +426,7 @@ public class LevelSolver : LineDrawer
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Query_OnFloor();
+                //Query_OnFloor();
             }
             if (Input.GetKeyDown(KeyCode.T))
             {
@@ -433,7 +434,7 @@ public class LevelSolver : LineDrawer
             }
             if (Input.GetKeyDown(KeyCode.Y))
             {
-                Query_OnCeiling();
+                //Query_OnCeiling();
             }
             if (Input.GetKeyDown(KeyCode.U))
             {
@@ -504,7 +505,7 @@ public class LevelSolver : LineDrawer
             //LineDraw_Begin();
 
             // Drawers
-           // bool needsUpdate = false;
+            //bool needsUpdate = false;
             //needsUpdate |= Draw_PlacementResults();
 
             // Lines: Finish up
