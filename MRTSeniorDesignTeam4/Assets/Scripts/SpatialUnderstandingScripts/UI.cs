@@ -252,9 +252,9 @@ public class UI : LineDrawer
             // Level solver
             ButtonPanels[(int)Panels.LevelSolver].Button.GetComponentInChildren<Text>().text = "Object Placement";
             ButtonPanels[(int)Panels.LevelSolver].Button.onClick.AddListener(() => { SetActiveTab(Panels.LevelSolver); timeLastQuery = DateTime.MinValue; });
-            AddButton("On Floor", Panels.LevelSolver, () => { LevelSolver.Instance.Query_OnFloor(); timeLastQuery = DateTime.MinValue; });
+           // AddButton("On Floor", Panels.LevelSolver, () => { LevelSolver.Instance.Query_OnFloor(); timeLastQuery = DateTime.MinValue; });
             //AddButton("On Wall", Panels.LevelSolver, () => { LevelSolver.Instance.Query_OnWall(); timeLastQuery = DateTime.MinValue; });
-            AddButton("On Ceiling", Panels.LevelSolver, () => { LevelSolver.Instance.Query_OnCeiling(); timeLastQuery = DateTime.MinValue; });
+           // AddButton("On Ceiling", Panels.LevelSolver, () => { LevelSolver.Instance.Query_OnCeiling(); timeLastQuery = DateTime.MinValue; });
             AddButton("On SurfaceEdge", Panels.LevelSolver, () => { LevelSolver.Instance.Query_OnEdge(); timeLastQuery = DateTime.MinValue; });
             AddButton("On FloorAndCeiling", Panels.LevelSolver, () => { LevelSolver.Instance.Query_OnFloorAndCeiling(); timeLastQuery = DateTime.MinValue; });
             AddButton("RandomInAir AwayFromMe", Panels.LevelSolver, () => { LevelSolver.Instance.Query_RandomInAir_AwayFromMe(); timeLastQuery = DateTime.MinValue; });
