@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641216, b: 0.5748169, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -785,12 +785,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spaceObjectPrefabs:
-  - {fileID: 1269730256082190, guid: dd0f3a5c52493c34e84dcb02ec99be23, type: 2}
-  - {fileID: 1295982208801112, guid: a20ac8e4af444ad48b4a9924656a23f7, type: 2}
   - {fileID: 1706051586285450, guid: 09784e898984ff044a6e50aa4f474fd2, type: 2}
-  - {fileID: 1349019297886094, guid: ec121e3a5ecd79144a2a9bd57625c4b3, type: 2}
+  - {fileID: 1706051586285450, guid: 09784e898984ff044a6e50aa4f474fd2, type: 2}
+  - {fileID: 1706051586285450, guid: 09784e898984ff044a6e50aa4f474fd2, type: 2}
+  - {fileID: 1706051586285450, guid: 09784e898984ff044a6e50aa4f474fd2, type: 2}
   - {fileID: 1017617001289864, guid: cf274e9eb79d3e545b834720fe4cdc3a, type: 2}
-  - {fileID: 1198574746247670, guid: b5d4063a26578ac478ebe7b8e7ea7cb0, type: 2}
+  - {fileID: 1706051586285450, guid: 09784e898984ff044a6e50aa4f474fd2, type: 2}
+  - {fileID: 1931411525337306, guid: a480cdc1574696c42949ce8e538434e7, type: 2}
+  - {fileID: 1712768278463766, guid: 093cee623b6e82a44be1204bfa354e47, type: 2}
+  - {fileID: 1685441267486816, guid: eccca67346eb5004a8a68e90e91674f5, type: 2}
+  - {fileID: 1412960899987616, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
+  - {fileID: 1954051246501774, guid: 23742059f64f1a143bb65320a3987cd7, type: 2}
   - {fileID: 1931411525337306, guid: a480cdc1574696c42949ce8e538434e7, type: 2}
 --- !u!4 &470834594
 Transform:
@@ -1053,7 +1058,7 @@ Prefab:
         type: 2}
       propertyPath: WallMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: a95adafce2b898146968004d1d986397, type: 2}
+      objectReference: {fileID: 2100000, guid: 969e4200cbdb3604a855515bb57713c9, type: 2}
     - target: {fileID: 114000011287056714, guid: 184d6e9ce2d89844489583805253eb83,
         type: 2}
       propertyPath: FloorMaterial

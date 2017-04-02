@@ -353,6 +353,8 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     {
         Debug.Log("ceiling");
 
+        levelSolver.ClearGeometry();
+
         List<LevelSolver.PlacementQuery> placementQuery = new List<LevelSolver.PlacementQuery>();
         BoxCollider collider;
         foreach (GameObject obj in spaceObjects)
