@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity;
-using UnityEngine.UI;
-
 
 
 public class ModuleMenu : Singleton<ModuleMenu>{
@@ -30,7 +28,6 @@ public class ModuleMenu : Singleton<ModuleMenu>{
             // Load kitchen objects and swap menu
             MenuSwap();
             RoomAssetManager.Instance.GenerateItemsInWorld(SpaceUnderstanding.horizontal, SpaceUnderstanding.vertical, ModuleType.Kitchen);
-
         }
     }
 
@@ -50,9 +47,5 @@ public class ModuleMenu : Singleton<ModuleMenu>{
         modulePanel.SetActive(true);
         modulePanel.transform.position = currentPanel.transform.position;
         currentPanel.SetActive(false);
-        // Update UI text
-        GameObject startPanel = GameObject.FindGameObjectWithTag("InModule_Text");
-        Text panelText = startPanel.GetComponent<Text>();
-        panelText.text = "Loading...";
     }
 }

@@ -757,22 +757,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 230257757}
---- !u!1 &240338074 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1413214931450722, guid: a79672c7f2335994c8296d53733e5c99,
-    type: 2}
-  m_PrefabInternal: {fileID: 1555608782}
---- !u!114 &240338076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 240338074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cff347b3cd2266428907d5317cd4fa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &470834592
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,10 +792,11 @@ MonoBehaviour:
   - {fileID: 1017617001289864, guid: cf274e9eb79d3e545b834720fe4cdc3a, type: 2}
   - {fileID: 1706051586285450, guid: 09784e898984ff044a6e50aa4f474fd2, type: 2}
   - {fileID: 1931411525337306, guid: a480cdc1574696c42949ce8e538434e7, type: 2}
-  - {fileID: 1412960899987616, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-  - {fileID: 1261520977393750, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
+  - {fileID: 1712768278463766, guid: 093cee623b6e82a44be1204bfa354e47, type: 2}
   - {fileID: 1685441267486816, guid: eccca67346eb5004a8a68e90e91674f5, type: 2}
-  - {fileID: 1793183329454318, guid: d8ef6f70ce476244b8b9661d7cecd4cb, type: 2}
+  - {fileID: 1412960899987616, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
+  - {fileID: 1954051246501774, guid: 23742059f64f1a143bb65320a3987cd7, type: 2}
+  - {fileID: 1931411525337306, guid: a480cdc1574696c42949ce8e538434e7, type: 2}
 --- !u!4 &470834594
 Transform:
   m_ObjectHideFlags: 0
@@ -1605,19 +1590,6 @@ Prefab:
     - target: {fileID: 1000010426517654, guid: eaf1c3ae069e5604facb304a323e2684, type: 2}
       propertyPath: m_Name
       value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1791596640118166, guid: eaf1c3ae069e5604facb304a323e2684, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010832349146, guid: eaf1c3ae069e5604facb304a323e2684, type: 2}
-      propertyPath: m_TagString
-      value: InModule_Text
-      objectReference: {fileID: 0}
-    - target: {fileID: 224016963386815244, guid: eaf1c3ae069e5604facb304a323e2684,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.0029999998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaf1c3ae069e5604facb304a323e2684, type: 2}

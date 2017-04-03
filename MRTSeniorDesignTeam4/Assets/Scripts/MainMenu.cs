@@ -64,7 +64,7 @@ public class MainMenu : Singleton<MainMenu> {
         //Raycast against wall to place menu 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 10, raymask))
         {
-            this.transform.position = hitInfo.point + GazeManager.Instance.GazeNormal * .05f;
+            this.transform.position = hitInfo.point - GazeManager.Instance.GazeNormal * .05f;
             this.transform.forward = -hitInfo.normal;
 
         }
