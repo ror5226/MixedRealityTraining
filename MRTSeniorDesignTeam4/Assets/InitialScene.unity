@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kMinAreaForStats: 5
-  kMinAreaForComplete: 50
+  kMinAreaForComplete: 20
   DebugDisplay: {fileID: 0}
   DebugSubDisplay: {fileID: 1776005870}
   Parent_Scene: {fileID: 0}
