@@ -130,7 +130,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
         if (ceilingObjects.Count > 0)
         {
-           PlaceCeilingObjects(ceilingObjects, verticalSurfaces, PlacementPosition.Ceiling);
+         //  PlaceCeilingObjects(ceilingObjects, verticalSurfaces, PlacementPosition.Ceiling);
         }
 
         if (midWallObjects.Count > 0)
