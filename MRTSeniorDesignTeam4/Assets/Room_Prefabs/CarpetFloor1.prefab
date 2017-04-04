@@ -54,7 +54,7 @@ Transform:
   m_GameObject: {fileID: 1088340119070302}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.02, y: 0.52, z: 0.19999999}
-  m_LocalScale: {x: 1, y: 1.1999999, z: 1}
+  m_LocalScale: {x: 1, y: 1.1999998, z: 1}
   m_Children:
   - {fileID: 4439268619791228}
   m_Father: {fileID: 0}
@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1431488562265502}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
+  m_LocalScale: {x: 0.09999999, y: 0.09999999, z: 0.09999999}
   m_Children: []
   m_Father: {fileID: 4380963871308138}
   m_RootOrder: 0
@@ -121,8 +121,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0236208, y: 0.048607234, z: 1.0236949}
-  m_Center: {x: 0.0062316055, y: 0.015090108, z: 0.010295688}
+  m_Size: {x: 1.0236207, y: 0.048607234, z: 1.0236949}
+  m_Center: {x: 0.006231605, y: 0.015090108, z: 0.010295687}
 --- !u!114 &114184089389539732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,4 +147,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
   placement: 1
-  module: 1
+  module: 2

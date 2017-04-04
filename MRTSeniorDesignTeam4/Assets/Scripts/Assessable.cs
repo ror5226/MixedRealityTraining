@@ -16,7 +16,8 @@ public enum PlacementPosition
 public enum ModuleType
 {
     Kitchen = 1,
-    LivingRoom = 2
+    LivingRoom = 2,
+    Both = 3
 }
 
  

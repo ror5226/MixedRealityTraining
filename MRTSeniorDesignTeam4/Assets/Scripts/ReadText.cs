@@ -19,7 +19,7 @@ public class ReadText : Singleton<ReadText> {
     }
 
     // Uses Text to Speech Manager to say whatever string is passed in
-    public void Say(string s)
+    public void Say()
     {
         if(textToSpeechManager != null)
         {

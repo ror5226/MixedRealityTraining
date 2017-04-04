@@ -86,11 +86,6 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         img.sprite = st;
     }
 
-    public void playText() {
-        string s = getSpeechText();
-        txtToSpeach.Say(s);
-    }
-
     public string getSpeechText() {
         return infoPanel.transform.FindChild("InfoContainer").FindChild("InfoParagraph").gameObject.GetComponent<Text>().text;
     }

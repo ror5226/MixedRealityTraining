@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
   placement: 1
-  module: 1
+  module: 2
 --- !u!114 &114898577388231032
 MonoBehaviour:
   m_ObjectHideFlags: 1
