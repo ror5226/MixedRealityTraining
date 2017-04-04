@@ -12,10 +12,15 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
     [Tooltip("A collection of assessable room objects to generate in the world.")]
     public List<GameObject> spaceObjectPrefabs;
+    public List<GameObject> instantiatedAssets;
+    public int assetCount = 10; 
+
+
     private SurfacePlane mainFloor;
+    private SurfacePlane roomCeiling;
     private QueryCalls queryCalls;
     private LevelSolver levelSolver;
-    // Use this for initialization
+
     public void Start()
     {
         if(QueryCalls.Instance != null)
@@ -30,11 +35,6 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         }
     }
 
-    public void Update()
-    {
-
-
-    }
     public void GenerateItemsInWorld(List<GameObject> horizontalSurfaces, List<GameObject> verticalSurfaces, ModuleType moduleSelected)
     {
         // Types of items defined in assessable 
@@ -47,35 +47,39 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         // Loop for all items to be placed in the scene
         foreach (GameObject spacePrefab in spaceObjectPrefabs)
         {
+            
             Assessable assessObject = spacePrefab.GetComponent<Assessable>();
+            if(assessObject.module == moduleSelected)
+            {
+                // Ensure items have the assessable script 
+                if (assessObject == null)
+                {
+                    Debug.Log("Item needs to have Assable script attached to it");
+                }
 
-            // Ensure items have the assessable script 
-            if(assessObject == null)
-            {
-                Debug.Log("Item needs to have Assable script attached to it");
+                // Sort items into their proper lists
+                if (assessObject.placement == PlacementPosition.Floor)
+                {
+                    floorObjects.Add(spacePrefab);
+                }
+                else if (assessObject.placement == PlacementPosition.Ceiling)
+                {
+                    ceilingObjects.Add(spacePrefab);
+                }
+                else if (assessObject.placement == PlacementPosition.MidWall)
+                {
+                    midWallObjects.Add(spacePrefab);
+                }
+                else if (assessObject.placement == PlacementPosition.HighWall)
+                {
+                    highWallObjects.Add(spacePrefab);
+                }
+                else
+                {
+                    wallFloorObjects.Add(spacePrefab);
+                }
             }
-
-            // Sort items into their proper lists
-            if (assessObject.placement == PlacementPosition.Floor)
-            {
-                floorObjects.Add(spacePrefab);
-            }
-            else if (assessObject.placement == PlacementPosition.Ceiling)
-            {
-                ceilingObjects.Add(spacePrefab);
-            }
-            else if (assessObject.placement == PlacementPosition.MidWall)
-            {
-                midWallObjects.Add(spacePrefab);
-            }
-            else if (assessObject.placement == PlacementPosition.HighWall)
-            {
-                highWallObjects.Add(spacePrefab);
-            }
-            else
-            {
-                wallFloorObjects.Add(spacePrefab);
-            }
+           
         }
 
         float largestArea = 0.0f; 
@@ -91,9 +95,13 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
             if (plane != null)
             {
-                if(plane.PlaneType != PlaneTypes.Floor)
+                if(plane.PlaneType != PlaneTypes.Floor && plane.PlaneType != PlaneTypes.Ceiling)
                 {
                     Destroy(horizontal);
+                }
+                else if(plane.PlaneType == PlaneTypes.Ceiling)
+                {
+                    roomCeiling = plane;
                 }
                 else
                 {
@@ -192,14 +200,11 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             Quaternion rotation = Quaternion.identity;
             Vector3 position;
 
-
             // If there is somewhere to put the object 
             if (index >= 0)
             {
                 GameObject surface = surfaces[index];
                 SurfacePlane plane = surface.GetComponent<SurfacePlane>();
-
-
 
                 // Generate postion by taking middle point of plane and then offseting by the width of the asset
                 position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(collider.size.z) * item.transform.localScale.z)) * plane.SurfaceNormal);
@@ -208,9 +213,6 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 {
                     position.y = mainFloor.Plane.Bounds.Center.y + collider.size.y * .5f * item.transform.localScale.y;
                 }
-
-                //     position = AdjustPositionWithSpatialMap(position, plane.SurfaceNormal);
-                //     position = AdjustPositionWithSpatialMap(position, mainFloor.SurfaceNormal);
 
                 if (placementType == PlacementPosition.HighWall || placementType == PlacementPosition.MidWall || placementType == PlacementPosition.Ceiling)
                 {
@@ -229,9 +231,11 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 //Vector3 finalPosition = AdjustPositionWithSpatialMap(position, placementType);
                 GameObject spaceObject = Instantiate(item, position, rotation) as GameObject;
 
+                // Add object to list for later removal of scene
+                instantiatedAssets.Add(spaceObject);
+
                 Assessable assessable = spaceObject.GetComponent<Assessable>();
                 assessable.setPlane(plane);
-
             }
            
         }
@@ -303,17 +307,12 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
     private void PlaceFloorObjects(List<GameObject> spaceObjects, List<GameObject> surfaces, PlacementPosition placementType)
     {
-        Debug.Log("floor");
         
         List<LevelSolver.PlacementQuery> placementQuery = new List<LevelSolver.PlacementQuery>();
         BoxCollider collider;
         foreach (GameObject obj in spaceObjects)
         {
             collider = obj.GetComponent<BoxCollider>();
-
-            // Debug.Log("x: " + (Math.Abs(collider.size.x) * obj.transform.localScale.x));
-            // Debug.Log("y: " + (Math.Abs(collider.size.y) * obj.transform.localScale.y));
-            // Debug.Log("z: " + (Math.Abs(collider.size.z) * obj.transform.localScale.z));
 
             placementQuery.Add(levelSolver.Query_OnFloor(.3f, .3f, .3f));
         }
@@ -340,30 +339,25 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                     GameObject minplane = new GameObject();
 
                     Vector3 querypos = levelSolver.placementResults[i].Result.Position;
-                    // querypos = levelSolver.result.Position;// + ((.5f * Math.Abs(collider.size.z) * obj.transform.localScale.z)) * -minplane.GetComponent<SurfacePlane>().SurfaceNormal;
                     querypos.y = mainFloor.Plane.Bounds.Center.y; // + collider.size.y * .5f * spaceObjects[i].transform.localScale.y;
 
                     GameObject spaceObject = Instantiate(spaceObjects[i], querypos, Quaternion.LookRotation(-levelSolver.placementResults[i].Result.Forward, Vector3.up)) as GameObject;
                     // spaceObject.transform.rotation = Quaternion.LookRotation(spaceObject.transform.localRotation., Vector3.up);
                     spaceObject.SetActive(true);
+                
+                    // Add object to list for later removal of scene
+
+                     instantiatedAssets.Add(spaceObject);
                 }
     }
 
     private void PlaceCeilingObjects(List<GameObject> spaceObjects, List<GameObject> surfaces, PlacementPosition placementType)
     {
-        Debug.Log("ceiling");
-
-        levelSolver.ClearGeometry();
-
         List<LevelSolver.PlacementQuery> placementQuery = new List<LevelSolver.PlacementQuery>();
         BoxCollider collider;
         foreach (GameObject obj in spaceObjects)
         {
             collider = obj.GetComponent<BoxCollider>();
-
-            // Debug.Log("x: " + (Math.Abs(collider.size.x) * obj.transform.localScale.x));
-            // Debug.Log("y: " + (Math.Abs(collider.size.y) * obj.transform.localScale.y));
-            // Debug.Log("z: " + (Math.Abs(collider.size.z) * obj.transform.localScale.z));
 
             placementQuery.Add(levelSolver.Query_OnCeiling(.3f, .3f, .3f));
         }
@@ -390,14 +384,18 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             GameObject minplane = new GameObject();
 
             Vector3 querypos = levelSolver.placementResults[i].Result.Position;
-            // querypos = levelSolver.result.Position;// + ((.5f * Math.Abs(collider.size.z) * obj.transform.localScale.z)) * -minplane.GetComponent<SurfacePlane>().SurfaceNormal;
-            //querypos.y = mainFloor.Plane.Bounds.Center.y; // + collider.size.y * .5f * spaceObjects[i].transform.localScale.y;
+
+            querypos.y = roomCeiling.Plane.Bounds.Center.y;
 
             GameObject spaceObject = Instantiate(spaceObjects[i], querypos, Quaternion.LookRotation(levelSolver.placementResults[i].Result.Forward, Vector3.up)) as GameObject;
-            // spaceObject.transform.rotation = Quaternion.LookRotation(spaceObject.transform.localRotation., Vector3.up);
+
             spaceObject.SetActive(true);
+
+            // Add object to list for later removal of scene
+            instantiatedAssets.Add(spaceObject);
         }
     }
+
     private int FindNearestPlane(List<GameObject> planes, Vector3 minSize, PlacementPosition surface, List<int> usedPlanes)
     {
         int planeIndex = -1;
