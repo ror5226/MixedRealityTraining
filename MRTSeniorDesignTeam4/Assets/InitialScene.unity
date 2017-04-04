@@ -1372,6 +1372,8 @@ MonoBehaviour:
   - {fileID: 1931411525337306, guid: a480cdc1574696c42949ce8e538434e7, type: 2}
   - {fileID: 1685441267486816, guid: eccca67346eb5004a8a68e90e91674f5, type: 2}
   - {fileID: 1793183329454318, guid: d8ef6f70ce476244b8b9661d7cecd4cb, type: 2}
+  instantiatedAssets: []
+  assetCount: 10
 --- !u!4 &470834594
 Transform:
   m_ObjectHideFlags: 0
@@ -1381,9 +1383,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1177055563}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &522264701
 GameObject:
@@ -3224,8 +3227,8 @@ Transform:
   - {fileID: 80331849}
   - {fileID: 522264702}
   - {fileID: 933470532}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 470834594}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1208832115
 GameObject:
