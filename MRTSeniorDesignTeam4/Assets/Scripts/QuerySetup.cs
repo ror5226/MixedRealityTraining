@@ -175,7 +175,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                     SpatialUnderstandingDll.Imports.PlayspaceStats stats = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceStats();
 
                     // Start showing the stats when they are no longer zero
-                    if (stats.TotalSurfaceArea > kMinAreaForStats)
+                    if (stats.TotalSurfaceArea > 0)
                     {
                         string subDisplayText = string.Format("Scanned area: {0:0.0}m", stats.TotalSurfaceArea);
                         subDisplayText += " of required area: " + string.Format("{0:0.0}m", kMinAreaForComplete);
@@ -216,12 +216,15 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             keywordRecognizer.Start();
             */
 
-            areaText = GameObject.FindGameObjectWithTag("Start_Panel_Area").GetComponent<Text>();
-            scanButton = GameObject.FindGameObjectWithTag("Scan_Button").GetComponent<Button>();
-
+            //areaText = GameObject.FindGameObjectWithTag("Start_Panel_Area").GetComponent<Text>();
+            areaText = GameObject.Find("FirstMenu").transform.FindChild("MenuPanel").FindChild("AreaScanned").GetComponent<Text>();
+            //scanButton = GameObject.FindGameObjectWithTag("Scan_Button").GetComponent<Button>();
+            scanButton = GameObject.Find("FirstMenu").transform.Find("ScanRoomButton").GetComponent<Button>();
+            Debug.Log(scanButton.name);
+            Debug.Log(areaText.name);
 #if UNITY_EDITOR
 #else
-            if(SpatialUnderstanding.Instance != null)
+            if (SpatialUnderstanding.Instance != null)
             {
                   SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
             }

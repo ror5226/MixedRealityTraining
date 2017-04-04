@@ -8,18 +8,33 @@ public class ModuleMenu : Singleton<ModuleMenu>{
     GameObject currentPanel;
     GameObject modulePanel;
 
+    private RoomAssetManager roomAssetManager;
+
     // Use this for initialization
     void Start () {
 
         currentPanel = this.transform.FindChild("RoomSelection").gameObject;
         modulePanel = this.transform.FindChild("InModule").gameObject;
         modulePanel.SetActive(false);
+
+        if(RoomAssetManager.Instance != null)
+        {
+            roomAssetManager = RoomAssetManager.Instance;
+        }
+        else
+        {
+            Debug.Log("Room Asset Manager is null");
+        }
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void EndScene()
+    {
+        for (int i = 0; i < roomAssetManager.instantiatedAssets.Count; i++)
+        {
+            roomAssetManager.instantiatedAssets[i].SetActive(false);
+        }
+        roomAssetManager.instantiatedAssets.Clear();
+    }
 
     public void RunKitchenScene()
     {
