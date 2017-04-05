@@ -29,11 +29,24 @@ public class ModuleMenu : Singleton<ModuleMenu>{
 	
     public void EndScene()
     {
+        //Remove all asset from scene
         for (int i = 0; i < roomAssetManager.instantiatedAssets.Count; i++)
         {
             roomAssetManager.instantiatedAssets[i].SetActive(false);
         }
         roomAssetManager.instantiatedAssets.Clear();
+
+        EndModuleMenuSwap();
+
+        roomAssetManager.floorObjects.Clear();
+        roomAssetManager.ceilingObjects.Clear();
+        roomAssetManager.wallFloorObjects.Clear();
+        roomAssetManager.highWallObjects.Clear();
+        roomAssetManager.midWallObjects.Clear();
+
+
+
+
     }
 
     public void RunKitchenScene()
@@ -41,7 +54,7 @@ public class ModuleMenu : Singleton<ModuleMenu>{
         if(SpaceUnderstanding.horizontal != null && SpaceUnderstanding.vertical != null)
         {
             // Load kitchen objects and swap menu
-            MenuSwap();
+            StartModuleMenuSwap();
             RoomAssetManager.Instance.GenerateItemsInWorld(SpaceUnderstanding.horizontal, SpaceUnderstanding.vertical, ModuleType.Kitchen);
         }
     }
@@ -51,16 +64,24 @@ public class ModuleMenu : Singleton<ModuleMenu>{
         if (SpaceUnderstanding.horizontal != null && SpaceUnderstanding.vertical != null)
         {
             // Load living room objects and swap menu
-            MenuSwap();
+            StartModuleMenuSwap();
             RoomAssetManager.Instance.GenerateItemsInWorld(SpaceUnderstanding.horizontal, SpaceUnderstanding.vertical, ModuleType.LivingRoom);
         }
     }
 
     // Swap the current menu with the in module menu 
-    public void MenuSwap()
+    public void StartModuleMenuSwap()
     {
         modulePanel.SetActive(true);
         modulePanel.transform.position = currentPanel.transform.position;
         currentPanel.SetActive(false);
+    }
+
+    // Swap the current menu with the in module menu 
+    public void EndModuleMenuSwap()
+    {
+        currentPanel.SetActive(true);
+        currentPanel.transform.position = currentPanel.transform.position;
+        modulePanel.SetActive(false);
     }
 }

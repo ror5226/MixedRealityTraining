@@ -13,7 +13,14 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     [Tooltip("A collection of assessable room objects to generate in the world.")]
     public List<GameObject> spaceObjectPrefabs;
     public List<GameObject> instantiatedAssets;
-    public int assetCount = 10; 
+    public int assetCount = 10;
+    
+    // Types of items defined in assessable 
+    public List<GameObject> floorObjects = new List<GameObject>();
+    public List<GameObject> highWallObjects = new List<GameObject>();
+    public List<GameObject> midWallObjects = new List<GameObject>();
+    public List<GameObject> ceilingObjects = new List<GameObject>();
+    public List<GameObject> wallFloorObjects = new List<GameObject>();
 
 
     private SurfacePlane mainFloor;
@@ -37,19 +44,13 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
     public void GenerateItemsInWorld(List<GameObject> horizontalSurfaces, List<GameObject> verticalSurfaces, ModuleType moduleSelected)
     {
-        // Types of items defined in assessable 
-        List<GameObject> floorObjects = new List<GameObject>();
-        List<GameObject> highWallObjects = new List<GameObject>();
-        List<GameObject> midWallObjects = new List<GameObject>();
-        List<GameObject> ceilingObjects = new List<GameObject>();
-        List<GameObject> wallFloorObjects = new List<GameObject>();
 
         // Loop for all items to be placed in the scene
         foreach (GameObject spacePrefab in spaceObjectPrefabs)
         {
             
             Assessable assessObject = spacePrefab.GetComponent<Assessable>();
-            if(assessObject.module == moduleSelected)
+            if(assessObject.module == moduleSelected || assessObject.module == ModuleType.Both)
             {
                 // Ensure items have the assessable script 
                 if (assessObject == null)
@@ -331,7 +332,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 Debug.Log("Mapp is too small");
             }
         
-                for (int i = 0; i < levelSolver.placementResults.Count; i++)
+                for (int i = 0; i < levelSolver.placementResults.Count && i < spaceObjects.Count; i++)
                 {
                     Debug.Log(levelSolver.placementResults[i].Result.Position.x + " " + levelSolver.placementResults[i].Result.Position.y + " " + levelSolver.placementResults[i].Result.Position.z);
 

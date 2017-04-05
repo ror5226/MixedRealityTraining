@@ -114,7 +114,7 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
         }
 
 #if UNITY_EDITOR
-       ModuleMenu.Instance.MenuSwap();
+       ModuleMenu.Instance.StartModuleMenuSwap();
 #endif
 
     }
