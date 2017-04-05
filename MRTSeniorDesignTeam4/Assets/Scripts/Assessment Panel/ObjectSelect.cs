@@ -70,12 +70,12 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
 
         objPos = this.transform.position;
         //Vector3 camPos = GameObject.Find("Main Camera").transform.position;
-        Vector3 camPos = aPanel.getCamForward();
+        Vector3 camPos = GameObject.Find("HoloLensCamera").GetComponent<Camera>().transform.forward;
 
-        aPanel.setInfoPanelPosition(camPos.x, camPos.y, camPos.z);
+        //aPanel.setInfoPanelPosition(objPos.x * .3f , camPos.y, objPos.z * .3f);
 
         // Rachel's fix
-        /*
+        
         Assessable assessable = this.GetComponent<Assessable>();
         if (assessable != null)
         {
@@ -90,6 +90,6 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
             Debug.Log("No panel");
             aPanel.getInfoPanel().transform.position = new Vector3(objPos.x, (objPos.y - .5f), (objPos.z + .8f));
 
-        }*/
+        }
     }
 }

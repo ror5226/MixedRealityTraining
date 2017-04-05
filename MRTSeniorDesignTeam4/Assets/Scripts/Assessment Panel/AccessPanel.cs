@@ -23,15 +23,13 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     ReadText txtToSpeach;
     Image img;
     Camera cam;
-
-    new AudioSource audio;
     XmlParser xml = new XmlParser();
 
     void Start() {
         assessmentPanel = GameObject.Find("AssessmentPanel");
         infoPanel = GameObject.Find("InfoPanel");
         correctPanel = GameObject.Find("CorrectPanel");
-       // currentScore = GameObject.FindGameObjectWithTag("InModule_Text").GetComponent<Text>();
+        currentScore = GameObject.Find("InModule").transform.FindChild("MenuPanel").FindChild("WelcomeLabel").gameObject.GetComponent<Text>();
         assessmentCollider = assessmentPanel.transform.GetComponent<BoxCollider>();
         answerPanel = assessmentPanel.transform.FindChild("AnswerPanel").gameObject;
         ansA = answerPanel.transform.FindChild("AnswerA").gameObject;
@@ -42,7 +40,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         ansF = answerPanel.transform.FindChild("AnswerF").gameObject;
         txtToSpeach = GameObject.Find("TextToSpeech").GetComponent<ReadText>();
         img = infoPanel.transform.FindChild("InfoContainer").FindChild("ObjectImage").GetComponent<Image>();
-            ansC.SetActive(false);
+        ansC.SetActive(false);
         ansD.SetActive(false);
         ansF.SetActive(false);
         ansE.SetActive(false);
@@ -53,7 +51,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         cam = GameObject.Find("HoloLensCamera").GetComponent<Camera>();
     }
 
-
+    #region Info Panel Helper methods
     public Vector3 getCamForward() {
         return cam.transform.forward;
     }
@@ -61,7 +59,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     public XmlParser getXMLParser() {
         return xml;
     }
-    #region Info Panel Helper methods
+
     public void setTitle(string s) {
         infoPanel.transform.FindChild("InfoContainer").FindChild("ObjectTitle").GetComponent<Text>().text = s;
     }
@@ -126,7 +124,6 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         //
         //  Remove this once max score can be found.
         //
-
         currentScore.text = "Module Score:" + score + " of " + maxScore;
     }
 
