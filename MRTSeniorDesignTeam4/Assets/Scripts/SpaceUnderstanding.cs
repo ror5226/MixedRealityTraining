@@ -66,6 +66,9 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
 
     public void Create_Planes()
     {
+        readText.Say("Select a module to load.");
+
+
         // Quit observer and complete planes
         spatialMappingManager.StopObserver();
 

@@ -19,6 +19,7 @@ public class MainMenu : Singleton<MainMenu> {
     private int mainMenu_ButtonCount = 0;
     private int tapNum = 0;
     private ReadText readText;
+    private bool welcome = false;
 
     // Use this for initialization
     public void Start()
@@ -41,8 +42,6 @@ public class MainMenu : Singleton<MainMenu> {
             readText = ReadText.Instance;
         }
 
-        readText.Say("Welcome to Mixed Reality Training");
-
 #if UNITY_EDITOR
         spatialMappingManager.DrawVisualMeshes = true;
 #else
@@ -61,8 +60,6 @@ public class MainMenu : Singleton<MainMenu> {
     //Move menu with user gaze against wall
     private void menuMove()
     {
-        readText.Say("Look around the room to move the menu. Airtap to place the menu.");
-
         billboard = false;
 
         RaycastHit hitInfo;
@@ -88,6 +85,11 @@ public class MainMenu : Singleton<MainMenu> {
     // Update is called once per frame
     private void Update()
     {
+        if(welcome == false)
+        {
+            readText.Say("Welcome to mixed reality training!");
+            welcome = true;
+        }
         //Place menu
         if (mobileMenu)
         {
@@ -118,7 +120,7 @@ public class MainMenu : Singleton<MainMenu> {
 
     public void Scan_Room_Button_Clicked()
     {
-        readText.Say("Look around the room to scan. Make sure to scan walls, floor and ceiling.  A blue mesh will appear in locations that have been scanned.");
+        readText.Say("Look around the room to scan. Make sure to scan walls, floor and ceiling.  A green mesh will appear in locations that have been scanned.");
 
         // Check to make sure Gesture Recognizer is instantiated 
         if (gestureRecognizer != null)
@@ -157,6 +159,8 @@ public class MainMenu : Singleton<MainMenu> {
                 SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
 
 #endif
+                readText.Say("Look around the room to move the menu. Airtap to place the menu.");
+
                 // Permenently plane menu on the wall
                 Place_Menu();
             }
@@ -189,6 +193,8 @@ public class MainMenu : Singleton<MainMenu> {
     {
         if (tapNum > 0)
         {
+            readText.Say("Select a module to load.");
+
             mobileMenu = false;
 
             GameObject menuPanel = this.transform.FindChild("RoomSelection").gameObject;
@@ -197,8 +203,6 @@ public class MainMenu : Singleton<MainMenu> {
             menuPanel.SetActive(true);
             menuPanel.transform.position = startCanvas.transform.position;
             startCanvas.SetActive(false);
-
-            readText.Say("Select a module to load.");
 
             // Generate Planes from scan
             spaceUnderstanding.Create_Planes();

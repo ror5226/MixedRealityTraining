@@ -25,6 +25,9 @@ public enum ModuleType
  
 public class Assessable : MonoBehaviour {
 
+    // Number of questions 
+    public int questionVal = 1;
+
     // Public variables for outside scripts to access
     public SurfacePlane plane = null;
     [Tooltip("Type of plane that the object has been classified as.")]
