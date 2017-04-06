@@ -20,7 +20,7 @@ public class MainMenu : Singleton<MainMenu> {
     private int tapNum = 0;
     private ReadText readText;
     private bool welcome = false;
-
+    private GameObject holoLensimage; 
     // Use this for initialization
     public void Start()
     {
@@ -42,6 +42,7 @@ public class MainMenu : Singleton<MainMenu> {
             readText = ReadText.Instance;
         }
 
+        holoLensimage = GameObject.Find("HoloLensImage");
 #if UNITY_EDITOR
         spatialMappingManager.DrawVisualMeshes = true;
 #else
@@ -120,6 +121,7 @@ public class MainMenu : Singleton<MainMenu> {
 
     public void Scan_Room_Button_Clicked()
     {
+        holoLensimage.SetActive(false);
         readText.Say("Look around the room to scan. Make sure to scan walls, floor and ceiling.  A green mesh will appear in locations that have been scanned.");
 
         // Check to make sure Gesture Recognizer is instantiated 
@@ -193,8 +195,6 @@ public class MainMenu : Singleton<MainMenu> {
     {
         if (tapNum > 0)
         {
-            readText.Say("Select a module to load.");
-
             mobileMenu = false;
 
             GameObject menuPanel = this.transform.FindChild("RoomSelection").gameObject;
