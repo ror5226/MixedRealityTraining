@@ -58,7 +58,9 @@ public class ModuleMenu : Singleton<ModuleMenu>{
     // Ran when kitchen button is pressed
     public void RunKitchenScene()
     {
-        if(SpaceUnderstanding.horizontal != null && SpaceUnderstanding.vertical != null)
+        ReadText.Instance.Say("Airtap on objects to interact with them.");
+
+        if (SpaceUnderstanding.horizontal != null && SpaceUnderstanding.vertical != null)
         {
             // Load kitchen objects and swap menu
             StartModuleMenuSwap();
@@ -69,6 +71,8 @@ public class ModuleMenu : Singleton<ModuleMenu>{
     // Ran when living room button is pressed
     public void RunLivingRoonScene()
     {
+        ReadText.Instance.Say("Airtap on objects to interact with them.");
+
         if (SpaceUnderstanding.horizontal != null && SpaceUnderstanding.vertical != null)
         {
             // Load living room objects and swap menu
