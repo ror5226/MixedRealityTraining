@@ -29,7 +29,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         assessmentPanel = GameObject.Find("AssessmentPanel");
         infoPanel = GameObject.Find("InfoPanel");
         correctPanel = GameObject.Find("CorrectPanel");
-        currentScore = GameObject.Find("InModule").transform.FindChild("MenuPanel").FindChild("WelcomeLabel").gameObject.GetComponent<Text>();
+        currentScore = GameObject.Find("WelcomeToMR").GetComponent<Text>();
         assessmentCollider = assessmentPanel.transform.GetComponent<BoxCollider>();
         answerPanel = assessmentPanel.transform.FindChild("AnswerPanel").gameObject;
         ansA = answerPanel.transform.FindChild("AnswerA").gameObject;
