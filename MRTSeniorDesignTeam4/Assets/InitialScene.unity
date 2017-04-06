@@ -1673,7 +1673,7 @@ GameObject:
   - component: {fileID: 643732568}
   - component: {fileID: 643732567}
   m_Layer: 5
-  m_Name: Image
+  m_Name: HoloLensImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
