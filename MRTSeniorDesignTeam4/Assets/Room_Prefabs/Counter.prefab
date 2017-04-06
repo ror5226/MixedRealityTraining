@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743707934403392}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.101, z: -0.086}
+  m_LocalPosition: {x: 0, y: -0.100999996, z: -0.085999995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4568303439757290}
@@ -67,8 +67,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977740475042788}
-  m_LocalRotation: {x: -0, y: -0.7071067, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0.101, z: -0.086}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0.70710695, w: 0}
+  m_LocalPosition: {x: 0, y: 0.100999996, z: -0.085999995}
   m_LocalScale: {x: 50, y: 49.99997, z: 49.99997}
   m_Children: []
   m_Father: {fileID: 4388044683434086}
@@ -138,8 +138,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.74, y: 0.63, z: 0.61}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.65920126, y: 0.63, z: 0.6189774}
+  m_Center: {x: 0.0044884975, y: -0, z: -0.031421736}
 --- !u!114 &114860160867078832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef6018e1bf00a046ad785bd86f61181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questionVal: 1
   plane: {fileID: 0}
   placement: 5
   module: 1
