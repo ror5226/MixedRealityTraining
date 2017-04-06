@@ -9,7 +9,7 @@ using HoloToolkit.Unity.SpatialMapping;
 
 public class RoomAssetManager : Singleton<RoomAssetManager> {
 
-
+    // Public variables for other scrips to access
     [Tooltip("A collection of assessable room objects to generate in the world.")]
     public List<GameObject> spaceObjectPrefabs;
     public List<GameObject> instantiatedAssets;
@@ -22,7 +22,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     public List<GameObject> ceilingObjects = new List<GameObject>();
     public List<GameObject> wallFloorObjects = new List<GameObject>();
 
-
+    // Private variables only used in this script
     private SurfacePlane mainFloor;
     private SurfacePlane roomCeiling;
     private QueryCalls queryCalls;
@@ -44,7 +44,6 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
     public void GenerateItemsInWorld(List<GameObject> horizontalSurfaces, List<GameObject> verticalSurfaces, ModuleType moduleSelected)
     {
-
         // Loop for all items to be placed in the scene
         foreach (GameObject spacePrefab in spaceObjectPrefabs)
         {

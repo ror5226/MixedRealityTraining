@@ -4,6 +4,7 @@ using UnityEngine;
 using HoloToolkit.Unity;
 using HoloToolkit.Unity.SpatialMapping;
 
+// Placement types
 public enum PlacementPosition
 {
     Floor = 1,
@@ -13,6 +14,7 @@ public enum PlacementPosition
     WallFloor = 5
 }
 
+// Module types
 public enum ModuleType
 {
     Kitchen = 1,
@@ -23,18 +25,19 @@ public enum ModuleType
  
 public class Assessable : MonoBehaviour {
 
+    // Public variables for outside scripts to access
     public SurfacePlane plane = null;
-
     [Tooltip("Type of plane that the object has been classified as.")]
     public PlacementPosition placement = PlacementPosition.MidWall;
-
     public ModuleType module = ModuleType.Kitchen;
 
+    // Store plane that obj is placed on
     public void setPlane(SurfacePlane surfacePlane)
     {
         plane = surfacePlane;
     }
 
+    // Return plane
     public SurfacePlane getPlane()
     {
         return plane; 

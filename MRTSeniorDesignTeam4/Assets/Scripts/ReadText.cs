@@ -18,13 +18,24 @@ public class ReadText : Singleton<ReadText> {
         }
     }
 
-    // Uses Text to Speech Manager to say whatever string is passed in
+    // Uses Text to Speech Manager to say whatever is in the current open information panel
     public void Say()
     {
         if(textToSpeechManager != null)
         {
             if (!textToSpeechManager.IsSpeaking())
                 textToSpeechManager.SpeakText(a.getSpeechText());
+            else
+                textToSpeechManager.StopSpeaking();
+        }
+    }
+    // Uses Text to Speech Manager to say whatever string is passed in
+    public void Say(string s)
+    {
+        if (textToSpeechManager != null)
+        {
+            if (!textToSpeechManager.IsSpeaking())
+                textToSpeechManager.SpeakText(s);
             else
                 textToSpeechManager.StopSpeaking();
         }

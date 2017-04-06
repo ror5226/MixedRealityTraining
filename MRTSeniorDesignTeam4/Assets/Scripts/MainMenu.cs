@@ -18,6 +18,7 @@ public class MainMenu : Singleton<MainMenu> {
     private bool billboard = true;
     private int mainMenu_ButtonCount = 0;
     private int tapNum = 0;
+    private ReadText readText;
 
     // Use this for initialization
     public void Start()
@@ -34,6 +35,13 @@ public class MainMenu : Singleton<MainMenu> {
         {
             spatialMappingManager = SpatialMappingManager.Instance;
         }
+
+        if(ReadText.Instance != null)
+        {
+            readText = ReadText.Instance;
+        }
+
+        readText.Say("Welcome to Mixed Reality Training");
 
 #if UNITY_EDITOR
         spatialMappingManager.DrawVisualMeshes = true;
@@ -53,6 +61,8 @@ public class MainMenu : Singleton<MainMenu> {
     //Move menu with user gaze against wall
     private void menuMove()
     {
+        readText.Say("Look around the room to move the menu. Airtap to place the menu.");
+
         billboard = false;
 
         RaycastHit hitInfo;
@@ -108,6 +118,7 @@ public class MainMenu : Singleton<MainMenu> {
 
     public void Scan_Room_Button_Clicked()
     {
+        readText.Say("Look around the room to scan. Make sure to scan walls, floor and ceiling.  A blue mesh will appear in locations that have been scanned.");
 
         // Check to make sure Gesture Recognizer is instantiated 
         if (gestureRecognizer != null)
@@ -186,6 +197,8 @@ public class MainMenu : Singleton<MainMenu> {
             menuPanel.SetActive(true);
             menuPanel.transform.position = startCanvas.transform.position;
             startCanvas.SetActive(false);
+
+            readText.Say("Select a module to load.");
 
             // Generate Planes from scan
             spaceUnderstanding.Create_Planes();

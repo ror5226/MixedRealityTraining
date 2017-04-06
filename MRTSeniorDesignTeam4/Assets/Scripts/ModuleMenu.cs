@@ -5,14 +5,16 @@ using HoloToolkit.Unity;
 
 
 public class ModuleMenu : Singleton<ModuleMenu>{
-    GameObject currentPanel;
-    GameObject modulePanel;
 
+    // Private variables only used in this script
+    private GameObject currentPanel;
+    private GameObject modulePanel;
     private RoomAssetManager roomAssetManager;
 
     // Use this for initialization
     void Start () {
 
+        // Store Panels
         currentPanel = this.transform.FindChild("RoomSelection").gameObject;
         modulePanel = this.transform.FindChild("InModule").gameObject;
         modulePanel.SetActive(false);
@@ -27,6 +29,7 @@ public class ModuleMenu : Singleton<ModuleMenu>{
         }
     }
 	
+    // Ran when end scene button is clicked
     public void EndScene()
     {
         //Remove all asset from scene
@@ -36,19 +39,23 @@ public class ModuleMenu : Singleton<ModuleMenu>{
         }
         roomAssetManager.instantiatedAssets.Clear();
 
+        // Swap menu
         EndModuleMenuSwap();
 
+        // Clear all of the lists
         roomAssetManager.floorObjects.Clear();
         roomAssetManager.ceilingObjects.Clear();
         roomAssetManager.wallFloorObjects.Clear();
         roomAssetManager.highWallObjects.Clear();
         roomAssetManager.midWallObjects.Clear();
 
-
-
-
+        if(ReadText.Instance != null)
+        {
+            ReadText.Instance.Say("Select a module to load.");
+        }
     }
 
+    // Ran when kitchen button is pressed
     public void RunKitchenScene()
     {
         if(SpaceUnderstanding.horizontal != null && SpaceUnderstanding.vertical != null)
@@ -59,6 +66,7 @@ public class ModuleMenu : Singleton<ModuleMenu>{
         }
     }
 
+    // Ran when living room button is pressed
     public void RunLivingRoonScene()
     {
         if (SpaceUnderstanding.horizontal != null && SpaceUnderstanding.vertical != null)
