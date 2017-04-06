@@ -4595,36 +4595,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 224062031543099552, guid: a79672c7f2335994c8296d53733e5c99,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -53.420433
-      objectReference: {fileID: 0}
     - target: {fileID: 114455053341838116, guid: a79672c7f2335994c8296d53733e5c99,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2011205023}
-    - target: {fileID: 114455053341838116, guid: a79672c7f2335994c8296d53733e5c99,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Say
-      objectReference: {fileID: 0}
-    - target: {fileID: 224062031543099552, guid: a79672c7f2335994c8296d53733e5c99,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 20.00003
-      objectReference: {fileID: 0}
-    - target: {fileID: 224062031543099552, guid: a79672c7f2335994c8296d53733e5c99,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224062031543099552, guid: a79672c7f2335994c8296d53733e5c99,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a79672c7f2335994c8296d53733e5c99, type: 2}
   m_IsPrefabParent: 0
