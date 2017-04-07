@@ -29,7 +29,6 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         assessmentPanel = GameObject.Find("AssessmentPanel");
         infoPanel = GameObject.Find("InfoPanel");
         correctPanel = GameObject.Find("CorrectPanel");
-        currentScore = GameObject.Find("WelcomeToMR").GetComponent<Text>();
         assessmentCollider = assessmentPanel.transform.GetComponent<BoxCollider>();
         answerPanel = assessmentPanel.transform.FindChild("AnswerPanel").gameObject;
         ansA = answerPanel.transform.FindChild("AnswerA").gameObject;
@@ -114,13 +113,15 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
     #region Assessment Panel Helpers
 
-    public void setScore(int i) {
+    public void setCurrentScore() {
+        currentScore = GameObject.Find("WelcomeLabel").GetComponent<Text>();
+        maxScore = RoomAssetManager.Instance.assetCount;
+        currentScore.text = "Module Score:" + score + " of " + maxScore;
+    }
+
+    public void setScore(int i) {   
         score += i;
 
-        //
-        //  Remove this once max score can be found.
-        //
-        maxScore = 4;
         //
         //  Remove this once max score can be found.
         //
