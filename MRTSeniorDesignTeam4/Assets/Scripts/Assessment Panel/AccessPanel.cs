@@ -114,7 +114,7 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     #region Assessment Panel Helpers
 
     public void setCurrentScore() {
-        currentScore = GameObject.Find("WelcomeToMR").GetComponent<Text>();
+        currentScore = GameObject.Find("WelcomeLabel").GetComponent<Text>();
     }
 
     public void setScore(int i) {   
