@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65378727972352944}
   - component: {fileID: 114660310170502640}
   m_Layer: 0
-  m_Name: newBookshelf
+  m_Name: Book Shelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473881702807944}
-  m_LocalRotation: {x: -0.0031944814, y: -0.0032150224, z: -0.0032150226, w: 0.9999846}
+  m_LocalRotation: {x: -0.003194482, y: -0.0032150233, z: -0.0032150233, w: 0.99998456}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -66,13 +66,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1525580480352662}
-  m_LocalRotation: {x: -0.004532162, y: 0.7108855, z: 0.000024378372, w: 0.70329314}
-  m_LocalPosition: {x: 0, y: 0.10099998, z: -0.08599999}
+  m_LocalRotation: {x: -0.0000000018626267, y: 0.70710695, z: 0.004532225, w: -0.70709217}
+  m_LocalPosition: {x: 0, y: 0.100999966, z: -0.08599999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4186324440597894}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 95, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!23 &23009228966657158
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -122,7 +122,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0400436, y: 1.9605458, z: 0.40160108}
-  m_Center: {x: -0.011320235, y: 0.029441888, z: -0.11649217}
+  m_Center: {x: -0.011320233, y: 0.029441888, z: -0.11649217}
 --- !u!114 &114232562859087874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef6018e1bf00a046ad785bd86f61181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questionVal: 1
   plane: {fileID: 0}
   placement: 5
   module: 2

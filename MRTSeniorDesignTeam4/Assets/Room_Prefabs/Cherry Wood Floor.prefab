@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 65923298007094514}
   - component: {fileID: 114080849341321366}
   m_Layer: 0
-  m_Name: WoodFloor2
+  m_Name: Cherry Wood Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ Transform:
   m_GameObject: {fileID: 1739282223028926}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.02, y: 0.52, z: 0.19999999}
-  m_LocalScale: {x: 1, y: 1.1999998, z: 1}
+  m_LocalScale: {x: 1, y: 1.1999997, z: 1}
   m_Children:
   - {fileID: 4007169454170118}
   m_Father: {fileID: 0}
@@ -121,8 +121,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0236207, y: 0.048607234, z: 1.0236949}
-  m_Center: {x: 0.006231605, y: 0.015090108, z: 0.010295687}
+  m_Size: {x: 1.0236206, y: 0.048607234, z: 1.0236949}
+  m_Center: {x: 0.0062316046, y: 0.015090108, z: 0.010295686}
 --- !u!114 &114080849341321366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef6018e1bf00a046ad785bd86f61181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questionVal: 1
   plane: {fileID: 0}
   placement: 1
   module: 3
