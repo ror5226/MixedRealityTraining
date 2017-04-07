@@ -143,12 +143,12 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
         if (midWallObjects.Count > 0)
         {
-          //  CreateSpaceObjects(midWallObjects, verticalSurfaces, PlacementPosition.MidWall);
+            PlaceWallFloorObjects(midWallObjects, verticalSurfaces, PlacementPosition.MidWall);
         }
 
         if (highWallObjects.Count > 0)
         {
-           // CreateSpaceObjects(highWallObjects, verticalSurfaces, PlacementPosition.HighWall);
+            PlaceWallFloorObjects(highWallObjects, verticalSurfaces, PlacementPosition.HighWall);
         }
 
         if (wallFloorObjects.Count > 0)
@@ -355,27 +355,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     {
         List<LevelSolver.PlacementQuery> placementQuery = new List<LevelSolver.PlacementQuery>();
         BoxCollider collider;
-        foreach (GameObject obj in spaceObjects)
-        {
-            collider = obj.GetComponent<BoxCollider>();
-
-            placementQuery.Add(levelSolver.Query_OnCeiling(.3f, .3f, .3f));
-        }
-        LevelSolver.Instance.PlaceObjectAsync("OnCeiling", placementQuery);
-
-        int returnedVal;
-
-        do
-        {
-            returnedVal = levelSolver.ProcessPlacementResults();
-        }
-        while (returnedVal == -1);
-
-        if (returnedVal == -2)
-        {
-            Debug.Log("Mapp is too small");
-        }
-
+       
         for (int i = 0; i < levelSolver.placementResults.Count && i < spaceObjects.Count; i++)
         {
             Debug.Log(levelSolver.placementResults[i].Result.Position.x + " " + levelSolver.placementResults[i].Result.Position.y + " " + levelSolver.placementResults[i].Result.Position.z);
