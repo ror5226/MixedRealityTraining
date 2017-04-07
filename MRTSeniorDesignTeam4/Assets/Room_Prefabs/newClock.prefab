@@ -121,8 +121,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4836273, y: 1.7124069, z: 0.37865746}
-  m_Center: {x: 0.005572676, y: 0.84618926, z: -0.003777817}
+  m_Size: {x: 0.4836273, y: 1.7124114, z: 0.37865743}
+  m_Center: {x: 0.005572274, y: 0.84618664, z: -0.003777817}
 --- !u!114 &114108999831794940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef6018e1bf00a046ad785bd86f61181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questionVal: 1
   plane: {fileID: 0}
   placement: 5
   module: 2
