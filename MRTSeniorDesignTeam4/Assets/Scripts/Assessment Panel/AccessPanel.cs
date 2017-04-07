@@ -115,15 +115,13 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
     public void setCurrentScore() {
         currentScore = GameObject.Find("WelcomeLabel").GetComponent<Text>();
+        maxScore = RoomAssetManager.Instance.assetCount;
+        currentScore.text = "Module Score:" + score + " of " + maxScore;
     }
 
     public void setScore(int i) {   
         score += i;
 
-        //
-        //  Remove this once max score can be found.
-        //
-        maxScore = RoomAssetManager.Instance.assetCount;
         //
         //  Remove this once max score can be found.
         //
