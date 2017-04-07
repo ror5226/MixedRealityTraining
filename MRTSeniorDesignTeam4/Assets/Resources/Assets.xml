@@ -78,7 +78,7 @@
       </ans>
     </answers>
   </asset>
- <asset name="Double Hung Window">
+  <asset name="Double Hung Window">
     <description>
       Advanced Low-E energy-saving glass
       Argon gas is inserted between the 2 panes of glass for added energy efficiency
@@ -100,7 +100,7 @@
       </ans>
     </answers>
   </asset>
-<asset name="Fireplace">
+  <asset name="Fireplace">
     <description>
       All solid Appalachain cherry -no veneers or composite materials
       Prefinished espresso stain on solid cherry contemporary mantel
@@ -123,7 +123,7 @@
       </ans>
     </answers>
   </asset>
-<asset name="Overhead Cabinet">
+  <asset name="Overhead Cabinet">
     <description>
      You can customize spacing as needed, because the shelves are adjustable.
      Snap-on hinges can be mounted onto the door without screws, and you can easily remove the door for cleaning.
@@ -149,7 +149,7 @@
       </ans>
     </answers>
   </asset>
-  <asset name="newTV">
+  <asset name="TV">
     <description>
       Sick fuckin' TV.
     </description>
@@ -195,7 +195,7 @@
       </ans>
     </answers>
   </asset>
-  <asset name="newFridge">
+  <asset name="Fridge">
     <description>
       Sick fuckin' Fridge
     </description>
@@ -218,9 +218,124 @@
       </ans>
     </answers>
   </asset>
-  <asset name="NewOven 1">
+  <asset name="Oven">
     <description>
       Sick fuckin' Oven
+    </description>
+    <image>oven</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Oak Wood Floor">
+    <description>
+      Sick fuckin' Oak Wood Floor
+    </description>
+    <image>woodfloor</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Cherry Wood Floor">
+    <description>
+      Sick fuckin' Cherry Wood Floor
+    </description>
+    <image>woodfloor</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Carpet Floor">
+    <description>
+      Sick fuckin' Carpet Floor
+    </description>
+    <image>carpet</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Grandfather Clock">
+    <description>
+      Sick fuckin' Grandfather Clock
+    </description>
+    <image>oven</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="">
+    <description>
+      Sick fuckin'
     </description>
     <image>oven</image>
     <question>
