@@ -142,6 +142,7 @@ public class MainMenu : Singleton<MainMenu> {
                 GameObject panelButton = GameObject.FindGameObjectWithTag("Scan_Button_Text"); 
                 Text buttonText = panelButton.GetComponent<Text>();
                 buttonText.text = "Stop Scan";
+                HoloToolkit.Examples.SpatialUnderstandingFeatureOverview.QuerySetup.Instance.setMinArea(1.0f);
                 GameObject.FindGameObjectWithTag("Scan_Button").GetComponent<Button>().interactable = false;
 
                 mainMenu_ButtonCount++;

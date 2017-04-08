@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641216, b: 0.5748169, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -710,48 +710,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 102265014}
---- !u!1001 &109520558
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4925904490783352, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 5.0145736
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925904490783352, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.2636397
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925904490783352, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 24.211102
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925904490783352, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925904490783352, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925904490783352, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925904490783352, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925904490783352, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c8fbb6a6e60da074db7a64b55c58e7d3, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &115700066
 GameObject:
   m_ObjectHideFlags: 0
@@ -5142,48 +5100,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1712126588}
---- !u!1001 &1716197370
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4425305289375048, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425305289375048, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425305289375048, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425305289375048, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425305289375048, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425305289375048, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425305289375048, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425305289375048, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 73325e16d51ce0143b732a7788e96767, type: 2}
-  m_IsPrefabParent: 0
 --- !u!102 &1776005870
 TextMesh:
   serializedVersion: 3

@@ -1,60 +1,4 @@
 <scene>
-  <asset name="Cube">
-    <description>
-      this is a cube bro
-    </description>
-    <image>cube_img</image>
-    <question>This is a place holder for some textual description of the object that was selected. In this file will normally be the real description of the object but not today brah. Today, we just have me rambling on and on about nothing.</question>
-    <answers>
-      <ans>
-        <answer>This is a test</answer>
-        <boolean>True</boolean>
-      </ans>
-      <ans>
-        <answer>This is a second test</answer>
-        <boolean>False</boolean>
-      </ans>
-      <ans>
-        <answer>This is a third test</answer>
-        <boolean>True</boolean>
-      </ans>
-    </answers>
-  </asset>
-  <asset name="Sphere">
-    <description>
-      this is a sphere bro
-    </description>
-    <image>sphere_img</image>
-    <question>
-      This is a place holder for some textual description of the object that was selected. In this file will normally be the real description of the object but not today brah. Today, we just have me rambling on and on about nothing.
-    </question>
-    <answers>
-      <ans>
-        <answer>T1</answer>
-        <boolean>False</boolean>
-      </ans>
-      <ans>
-        <answer>T2</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>T3</answer>
-        <boolean>True</boolean>
-      </ans>
-      <ans>
-        <answer>T4</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>T5</answer>
-        <boolean>False</boolean>
-      </ans>
-      <ans>
-        <answer>T6</answer>
-        <boolean>False</boolean>
-      </ans>
-    </answers>
-  </asset>
   <asset name="Counter">
     <description>
       Here you have a birch two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
@@ -151,99 +95,101 @@
   </asset>
   <asset name="TV">
     <description>
-      Sick fuckin' TV.
+      This Sharp Roku TV features integrated Roku streaming technology with over 3,000 streaming channels of movies, TV, music and news, delivered through a Full HD 1080p display. This TV supports any USB device and has HDMI ports to support HD picture and digital sound. The Roku mobile app enables voice commands to control this Sharp Roku TV.
     </description>
     <image>tv</image>
     <question>
-    How happy am I?
+    Home electronics, such as TVs and stereos, are typically not covered when damaged by a power surge if they were not connected to a surge protector.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>True</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
+        <answer>False</answer>
         <boolean>True</boolean>
       </ans>
     </answers>
   </asset>
   <asset name="Couch">
     <description>
-      Sick fuckin' Couch
+        This is a tan leather sofa. Made from luxurious Italian leather, the sofa comfortably seats three on cushions filled with soft duck feathers. Sturdy wood construction and all-natural materials.
     </description>
     <image>sofa</image>
     <question>
-    How happy am I?
+    Select the characteristics not used to determine the replacement cost of furniture.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>Size</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
+        <answer>Manufacturer</answer>
         <boolean>False</boolean>
       </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
+      <ans>
+        <answer>Material Quality</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>None of the Above</answer>
         <boolean>True</boolean>
       </ans>
     </answers>
   </asset>
   <asset name="Fridge">
     <description>
-      Sick fuckin' Fridge
+      This Fridge is a 27.6 cu. ft. bottom freezer fridge, Adjustable spill-proof shelving, generous door bins, and a full-width deli tray drawer give you endless options for optimal food storage.
     </description>
     <image>fridge</image>
     <question>
-    How happy am I?
+    Depreciation is typically not subtracted from the replacement cost of home appliances, such as refrigerators.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
-        <boolean>False</boolean>
+        <answer>True</answer>
+        <boolean>True</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
+        <answer>False</answer>
         <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
-        <boolean>True</boolean>
       </ans>
     </answers>
   </asset>
   <asset name="Oven">
     <description>
-      Sick fuckin' Oven
+      Make clean-up hassle free with variable self-cleaning cycles and a glass cooktop with 6" and 9" radiant heating elements can accommodate just about any size for an even heat throughout your cookware.
     </description>
     <image>oven</image>
     <question>
-    How happy am I?
+    Select the most common claim caused by a kitchen oven.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>Electrical fire</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
+        <answer>Gas Explosion</answer>
         <boolean>False</boolean>
       </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
+      <ans>
+        <answer>Groceries on Stovetop Fire</answer>
         <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Boiling Water Damage</answer>
+        <boolean>False</boolean>
       </ans>
     </answers>
   </asset>
   <asset name="Oak Wood Floor">
     <description>
-      Sick fuckin' Oak Wood Floor
+      Real Wood Layer
+      Single Strip
+      Easy Floating "Click-Together" installation
     </description>
     <image>woodfloor</image>
     <question>
@@ -316,24 +262,20 @@
     </description>
     <image>oven</image>
     <question>
-    How happy am I?
+    An appraisal is typically required prior to a loss to determine the values of personal property like antiques and collectables.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
-        <boolean>False</boolean>
+        <answer>True</answer>
+        <boolean>True</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
+        <answer>False</answer>
         <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
-        <boolean>True</boolean>
       </ans>
     </answers>
   </asset>
-  <asset name="">
+  <asset name="Tile Floor">
     <description>
       Sick fuckin'
     </description>
@@ -353,6 +295,219 @@
         <ans>
         <answer>Visibly Upset</answer>
         <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Chandelier">
+    <description>
+      Sick fuckin'
+    </description>
+    <image>oven</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Book Shelf">
+    <description>
+      Sick fuckin'
+    </description>
+    <image>oven</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Ceiling Fan">
+    <description>
+      Sick fuckin'
+    </description>
+    <image>oven</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Ceiling Light">
+    <description>
+      Sick fuckin'
+    </description>
+    <image>oven</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Shelf">
+    <description>
+      Sick fuckin'
+    </description>
+    <image>oven</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Sink">
+    <description>
+      Sick fuckin'
+    </description>
+    <image>oven</image>
+    <question>
+    The size of the sink cutout is measured and subtracted from the square foot measurement of countertops.
+    </question>
+    <answers>
+      <ans>
+        <answer>True</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>False</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Microwave">
+    <description>
+      Sick fuckin'
+    </description>
+    <image>oven</image>
+    <question>
+    How happy am I?
+    </question>
+    <answers>
+      <ans>
+        <answer>Happy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Okay</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>Visibly Upset</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Cube">
+    <description>
+      this is a cube bro
+    </description>
+    <image>cube_img</image>
+    <question>This is a place holder for some textual description of the object that was selected. In this file will normally be the real description of the object but not today brah. Today, we just have me rambling on and on about nothing.</question>
+    <answers>
+      <ans>
+        <answer>This is a test</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>This is a second test</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>This is a third test</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Sphere">
+    <description>
+      this is a sphere bro
+    </description>
+    <image>sphere_img</image>
+    <question>
+      This is a place holder for some textual description of the object that was selected. In this file will normally be the real description of the object but not today brah. Today, we just have me rambling on and on about nothing.
+    </question>
+    <answers>
+      <ans>
+        <answer>T1</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>T2</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>T3</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>T4</answer>
+        <boolean>False</boolean>
+      </ans>
+        <ans>
+        <answer>T5</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>T6</answer>
+        <boolean>False</boolean>
       </ans>
     </answers>
   </asset>

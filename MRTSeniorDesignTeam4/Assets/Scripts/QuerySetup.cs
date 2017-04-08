@@ -14,8 +14,13 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
     public class QuerySetup : Singleton<QuerySetup>//, ISourceStateHandler, IInputClickHandler
     {
         // Consts
-        public float kMinAreaForStats = 1.0f;
-        public float kMinAreaForComplete = 20.0f;
+        float kMinAreaForStats = 100.0f;
+
+        public void setMinArea(float fl) {
+            kMinAreaForStats = fl;
+        }
+
+        float kMinAreaForComplete = 20.0f;
         //public float kMinHorizAreaForComplete = 25.0f;
         //public float kMinWallAreaForComplete = 10.0f;
 
@@ -175,7 +180,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
                     SpatialUnderstandingDll.Imports.PlayspaceStats stats = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceStats();
 
                     // Start showing the stats when they are no longer zero
-                    if (stats.TotalSurfaceArea > 0)
+                    if (stats.TotalSurfaceArea > kMinAreaForStats)
                     {
                         string subDisplayText = string.Format("Scanned area: {0:0.0}m", stats.TotalSurfaceArea);
                         subDisplayText += " of required area: " + string.Format("{0:0.0}m", kMinAreaForComplete);
