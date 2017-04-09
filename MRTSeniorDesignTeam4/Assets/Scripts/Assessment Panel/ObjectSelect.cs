@@ -79,10 +79,15 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
         Assessable assessable = this.GetComponent<Assessable>();
         if (assessable != null)
         {
-            // position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(collider.size.z) * item.transform.localScale.z)) * plane.SurfaceNormal);
-            Vector3 v = objPos + (.75f * assessable.getPlane().SurfaceNormal);
-            aPanel.setInfoPanelPosition(v.x,camPos.y, v.z);
-            //aPanel.getInfoPanel().transform.position += new Vector3(0, -.8f, 0);
+            if (assessable.plane != null) {
+                // position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(collider.size.z) * item.transform.localScale.z)) * plane.SurfaceNormal);
+                Vector3 v = objPos + (.75f * assessable.getPlane().SurfaceNormal);
+                aPanel.setInfoPanelPosition(v.x, camPos.y, v.z);
+                //aPanel.getInfoPanel().transform.position += new Vector3(0, -.8f, 0);
+            }
+            else {
+                aPanel.setInfoPanelPosition(objPos.x, camPos.y, objPos.z);
+            }
 
         }
         else
