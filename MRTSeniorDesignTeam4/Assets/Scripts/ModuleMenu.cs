@@ -95,6 +95,7 @@ public class ModuleMenu : Singleton<ModuleMenu>{
     {
         currentPanel.SetActive(true);
         currentPanel.transform.position = currentPanel.transform.position;
+        AccessPanel.Instance.resetCorrectlyAnswered();
         modulePanel.SetActive(false);
     }
 }

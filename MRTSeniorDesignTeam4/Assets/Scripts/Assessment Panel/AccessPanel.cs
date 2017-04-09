@@ -17,13 +17,17 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     GameObject ansD;
     GameObject ansE;
     GameObject ansF;
+
     Text currentScore;
     int maxScore;
     int score = 0;
+
     ReadText txtToSpeach;
     Image img;
     Camera cam;
     XmlParser xml = new XmlParser();
+
+    List<string> corretlyAnswered = new List<string>();
 
     void Start() {
         assessmentPanel = GameObject.Find("AssessmentPanel");
@@ -61,6 +65,10 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
     public void setTitle(string s) {
         infoPanel.transform.FindChild("InfoContainer").FindChild("ObjectTitle").GetComponent<Text>().text = s;
+    }
+
+    public string getTitle() {
+        return infoPanel.transform.FindChild("InfoContainer").FindChild("ObjectTitle").GetComponent<Text>().text;
     }
 
     public void setInfoPanelPosition(float x, float y, float z) {
@@ -119,17 +127,34 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         currentScore.text = "Module Score:" + score + " of " + maxScore;
     }
 
-    public void setScore(int i) {   
-        score += i;
+    public void setScore(int j, string s) {
 
-        //
-        //  Remove this once max score can be found.
-        //
-        currentScore.text = "Module Score:" + score + " of " + maxScore;
+        bool answeredYet = true;
+        for (int i = 0; i < corretlyAnswered.Count; i++) {
+            if(s == corretlyAnswered[i]) {
+                answeredYet = false;
+                break;
+            }
+        }
+        if (answeredYet) {
+            score += j;
+            corretlyAnswered.Add(s);
+
+            //
+            //  Remove this once max score can be found.
+            //
+            currentScore.text = "Module Score:" + score + " of " + maxScore;
+        }
     }
 
     public void setMaxScore(int i) {
+
         maxScore = i;
+    }
+
+    public void resetCorrectlyAnswered() {
+        corretlyAnswered.Clear();
+        score = 0;
     }
 
 

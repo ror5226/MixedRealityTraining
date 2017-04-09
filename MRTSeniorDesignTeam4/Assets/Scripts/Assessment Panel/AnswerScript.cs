@@ -30,7 +30,7 @@ public class AnswerScript : MonoBehaviour {
 
             //  Increment precent finished if we are still doing that here.
             if (!plzDontCheat) {
-                aPanel.setScore(1);
+                aPanel.setScore(1, aPanel.getTitle());
             }
         }
         else {
