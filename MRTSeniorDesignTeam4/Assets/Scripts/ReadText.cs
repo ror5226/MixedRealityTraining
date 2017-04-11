@@ -29,6 +29,16 @@ public class ReadText : Singleton<ReadText> {
                 textToSpeechManager.StopSpeaking();
         }
     }
+
+    public void SayQuestion() {
+        if (textToSpeechManager != null) {
+            if (!textToSpeechManager.IsSpeaking())
+                textToSpeechManager.SpeakText(a.getQuestionSpeech());
+            else
+                textToSpeechManager.StopSpeaking();
+        }
+    }
+
     // Uses Text to Speech Manager to say whatever string is passed in
     public void Say(string s)
     {

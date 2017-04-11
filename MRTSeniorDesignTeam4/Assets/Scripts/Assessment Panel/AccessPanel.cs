@@ -95,6 +95,10 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
         return infoPanel.transform.FindChild("InfoContainer").FindChild("InfoParagraph").gameObject.GetComponent<Text>().text;
     }
 
+    public string getQuestionSpeech() {
+        return GameObject.Find("QuestionPanel").transform.FindChild("QuestionText").GetComponent<Text>().text;
+    }
+
     public GameObject getInfoPanel() {
         return infoPanel;
     }

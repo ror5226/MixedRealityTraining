@@ -70,7 +70,7 @@ public class ObjectSelect : MonoBehaviour, IInputClickHandler {
 
         objPos = this.transform.position;
         //Vector3 camPos = GameObject.Find("Main Camera").transform.position;
-        Vector3 camPos = GameObject.Find("HoloLensCamera").GetComponent<Camera>().transform.forward;
+        Vector3 camPos = GameObject.Find("HoloLensCamera").GetComponent<Camera>().transform.position;
 
         //aPanel.setInfoPanelPosition(objPos.x * .3f , camPos.y, objPos.z * .3f);
 
