@@ -260,7 +260,7 @@
     <description>
       Sick fuckin' Grandfather Clock
     </description>
-    <image>oven</image>
+    <image>clock</image>
     <question>
     An appraisal is typically required prior to a loss to determine the values of personal property like antiques and collectables.
     </question>
@@ -277,9 +277,9 @@
   </asset>
   <asset name="Tile Floor">
     <description>
-      Sick fuckin'
+      Tile from Rush River Stone will certainly make an impression. With a  rich blend of dark grey shades with subtle silver veining. With an on-trend look, this travertine tile is created with a powerful water jet to deliver clean, smooth edges that are easy to walk on.
     </description>
-    <image>oven</image>
+    <image>tile</image>
     <question>
     How happy am I?
     </question>
@@ -302,7 +302,7 @@
     <description>
       Sick fuckin'
     </description>
-    <image>oven</image>
+    <image>chandelier</image>
     <question>
     How happy am I?
     </question>
@@ -325,7 +325,7 @@
     <description>
       Sick fuckin'
     </description>
-    <image>oven</image>
+    <image>bookshelf</image>
     <question>
     How happy am I?
     </question>
@@ -346,23 +346,19 @@
   </asset>
   <asset name="Ceiling Fan">
     <description>
-      Sick fuckin'
+    This bronze metal housed ceiling fan comes equipped with 42" MDF blades as well as a built in light.
     </description>
-    <image>oven</image>
+    <image>fan</image>
     <question>
-    How happy am I?
+    In a light fixture is saturated by water, it always needs replaced.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>True</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
+        <answer>False</answer>
         <boolean>True</boolean>
       </ans>
     </answers>
@@ -371,7 +367,7 @@
     <description>
       Sick fuckin'
     </description>
-    <image>oven</image>
+    <image>light</image>
     <question>
     How happy am I?
     </question>
@@ -417,7 +413,7 @@
     <description>
       Sick fuckin'
     </description>
-    <image>oven</image>
+    <image>sink</image>
     <question>
     The size of the sink cutout is measured and subtracted from the square foot measurement of countertops.
     </question>
