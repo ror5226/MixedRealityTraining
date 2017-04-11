@@ -13,7 +13,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     [Tooltip("A collection of assessable room objects to generate in the world.")]
     public List<GameObject> spaceObjectPrefabs;
     public List<GameObject> instantiatedAssets;
-    public int assetCount = 10;
+    public int assetCount = 0;
     
     // Types of items defined in assessable 
     public List<GameObject> floorObjects = new List<GameObject>();
@@ -79,7 +79,6 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                     wallFloorObjects.Add(spacePrefab);
                 }
             }
-           
         }
 
         float largestArea = 0.0f; 
@@ -156,11 +155,10 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
              PlaceWallFloorObjects(wallFloorObjects, verticalSurfaces, PlacementPosition.WallFloor);
         }
 
-        // Update UI text
-        GameObject startPanel = GameObject.FindGameObjectWithTag("InModule_Text");
-        Text panelText = startPanel.GetComponent<Text>();
-        panelText.text = "Module Score: 0/100";
-
+        if (AccessPanel.Instance != null)
+        {
+            AccessPanel.Instance.setCurrentScore();
+        }
     }
     
     private void PlaceWallFloorObjects(List<GameObject> spaceObjects, List<GameObject> surfaces, PlacementPosition placementType)
@@ -184,6 +182,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
         foreach (GameObject item in spaceObjects)
         {
+
             int index = -1;
 
             BoxCollider collider = item.GetComponent<BoxCollider>();
@@ -203,6 +202,8 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             // If there is somewhere to put the object 
             if (index >= 0)
             {
+                assetCount++;
+
                 GameObject surface = surfaces[index];
                 SurfacePlane plane = surface.GetComponent<SurfacePlane>();
 
@@ -307,11 +308,12 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
     private void PlaceFloorObjects(List<GameObject> spaceObjects, List<GameObject> surfaces, PlacementPosition placementType)
     {
-        
         List<LevelSolver.PlacementQuery> placementQuery = new List<LevelSolver.PlacementQuery>();
         BoxCollider collider;
         foreach (GameObject obj in spaceObjects)
         {
+            assetCount++;
+
             collider = obj.GetComponent<BoxCollider>();
 
             placementQuery.Add(levelSolver.Query_OnFloor(.3f, .3f, .3f));
@@ -358,6 +360,8 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
        
         for (int i = 0; i < levelSolver.placementResults.Count && i < spaceObjects.Count; i++)
         {
+            assetCount++;
+
             Debug.Log(levelSolver.placementResults[i].Result.Position.x + " " + levelSolver.placementResults[i].Result.Position.y + " " + levelSolver.placementResults[i].Result.Position.z);
 
             collider = spaceObjects[i].GetComponent<BoxCollider>();
