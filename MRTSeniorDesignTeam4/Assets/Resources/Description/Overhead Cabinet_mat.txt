@@ -1,7 +1,0 @@
-Door: Fiberboard, Acrylic paint, Polyester paint
-Frame: Particleboard, Melamine foil, Polypropylene
-Back: Fiberboard, Acrylic paint
-Hinge: Steel, Nickel plated
-Shelf: Particleboard, Melamine foil, Polypropylene
-Main parts: Steel
-Plastic parts: Polyamide
