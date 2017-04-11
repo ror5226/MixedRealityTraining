@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1637,7 +1637,7 @@ MonoBehaviour:
   - {fileID: 1357486963326178, guid: 155086deef26a904598fb8a14e3073b1, type: 2}
   - {fileID: 1357486963326178, guid: 155086deef26a904598fb8a14e3073b1, type: 2}
   instantiatedAssets: []
-  assetCount: 10
+  assetCount: 0
   floorObjects: []
   highWallObjects: []
   midWallObjects: []
@@ -4995,6 +4995,61 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.x
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 65031810921441128, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 65147180158131506, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 65572232954377596, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 65406691723563772, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114422320065561466, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: PivotAxis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114422320065561466, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114367575470041922, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114527974363090030, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65147180158131506, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65031810921441128, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65572232954377596, guid: a79672c7f2335994c8296d53733e5c99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a79672c7f2335994c8296d53733e5c99, type: 2}
