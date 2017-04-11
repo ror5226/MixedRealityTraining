@@ -212,53 +212,45 @@
   </asset>
   <asset name="Cherry Wood Floor">
     <description>
-      Sick fuckin' Cherry Wood Floor
+      Solid Hardwood floors express beauty and elegance, while the construction adds great strength and stability.  The tongue and groove profile allows the flooring to be installed on and above grade.
     </description>
     <image>woodfloor</image>
     <question>
-    How happy am I?
+      It is always advisable to allow a wood floor to dry before making repair operation decisions?
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
-        <boolean>False</boolean>
+        <answer>True</answer>
+        <boolean>True</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
+        <answer>False</answer>
         <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
-        <boolean>True</boolean>
       </ans>
     </answers>
   </asset>
   <asset name="Carpet Floor">
     <description>
-      Sick fuckin' Carpet Floor
+    PureColor provides the ultimate performance in fiber with its virtually stain-proof coloration, coupled with the soil-resistant SoilShield. PureColor will stay clean longer, clean easier and retain more vibrancy over time.
     </description>
     <image>carpet</image>
     <question>
-    How happy am I?
+    Delamination is a common characteristic of water damage to carpet?
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>True</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
+        <answer>False</answer>
         <boolean>True</boolean>
       </ans>
     </answers>
   </asset>
   <asset name="Grandfather Clock">
     <description>
-      Sick fuckin' Grandfather Clock
+    finished in Camden Oak on select hardwoods and select veneers. The case also features reeded columns with turned column caps and a sculpted base with cutout. The polished brass-finished dial features detailed corner spandrels and center disc.
     </description>
     <image>clock</image>
     <question>
@@ -281,65 +273,65 @@
     </description>
     <image>tile</image>
     <question>
-    How happy am I?
+    What type of damage can smoke or soot cause to a grouted tile floor?
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>Staining of the grout</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Staining of the tiles</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
+        <answer>Loose tiles</answer>
         <boolean>False</boolean>
       </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
-        <boolean>True</boolean>
+      <ans>
+        <answer>Cracked tiles</answer>
+        <boolean>False</boolean>
       </ans>
     </answers>
   </asset>
   <asset name="Chandelier">
     <description>
-      Sick fuckin'
+    An artful chandelier design with gently curved support arms and frame details. Italian bronze finish with antique amber glass adds a soft and warm touch. Perfect for placement over a dining table or in an entryway.
     </description>
     <image>chandelier</image>
     <question>
-    How happy am I?
+    Fire and impact damage always require replacement of the entire electrical fixture.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>True</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
+        <answer>False</answer>
         <boolean>True</boolean>
       </ans>
     </answers>
   </asset>
   <asset name="Book Shelf">
     <description>
-      Sick fuckin'
+    ladder design is crafted from manufactured wood in a Jamocha wood finish for a rich touch of appeal.
     </description>
     <image>bookshelf</image>
     <question>
-    How happy am I?
+      If a wood cabinet has permanent stains what repair options should be considered?
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>Whole unit replacement</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
+        <answer>Partial unit replacement</answer>
         <boolean>False</boolean>
       </ans>
         <ans>
-        <answer>Visibly Upset</answer>
+        <answer>Sand and Refinish</answer>
         <boolean>True</boolean>
       </ans>
     </answers>
@@ -365,23 +357,19 @@
   </asset>
   <asset name="Ceiling Light">
     <description>
-      Sick fuckin'
+     this Brushed Nickel 2-Light Flush Mount from Hampton Bay. Featuring a brushed nickel finish for a clean and timeless design, the frosted swirl glass dome.
     </description>
     <image>light</image>
     <question>
-    How happy am I?
+    Fire and impact damage always require replacement of the entire electrical fixture.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>True</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
+        <answer>False</answer>
         <boolean>True</boolean>
       </ans>
     </answers>
@@ -411,7 +399,7 @@
   </asset>
   <asset name="Sink">
     <description>
-      Sick fuckin'
+     Single Bowl Bar Sink with Faucet and Strainer has a functional and environmentally friendly design. It is made of 80% recycled content and is 100% recyclable. This single-bowl bar sink offers is constructed of durable 20-Gauge stainless steel and has a long-lasting satin finish.
     </description>
     <image>sink</image>
     <question>
@@ -430,23 +418,19 @@
   </asset>
   <asset name="Microwave">
     <description>
-      Sick fuckin'
+    This Samsung over-the-range microwave has a sleek design and LED display to keep your kitchen looking sharp. Plus, the interior is easy to keep fresh and stain-free with ceramic enamel that is effortless to maintain.
     </description>
-    <image>oven</image>
+    <image>microwave</image>
     <question>
-    How happy am I?
+    Home electronics, such as TVs and stereos, are typically not covered when damaged by a power surge if they were not connected to a surge protector.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>True</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
+        <answer>False</answer>
         <boolean>True</boolean>
       </ans>
     </answers>
