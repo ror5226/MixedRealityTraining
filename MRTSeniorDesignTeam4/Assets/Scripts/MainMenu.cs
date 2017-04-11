@@ -162,7 +162,7 @@ public class MainMenu : Singleton<MainMenu> {
                 SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
 
 #endif
-                readText.Say("Look around the room to move the menu. Airtap to place the menu.");
+                readText.Say("Look around the room to move the menu. Air tap to place the menu.");
 
                 // Permenently plane menu on the wall
                 Place_Menu();
@@ -181,7 +181,7 @@ public class MainMenu : Singleton<MainMenu> {
         // Update UI text
         GameObject startPanel = GameObject.FindGameObjectWithTag("Start_Panel_Text");
         Text panelText = startPanel.GetComponent<Text>();
-        panelText.text = "Look around the room to place menu\n airtap to place";
+        panelText.text = "Look around the room to place menu\n air tap to place";
 
         // Remove Button on UI
         GameObject scanButton = GameObject.FindGameObjectWithTag("Scan_Button");

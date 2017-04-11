@@ -38,7 +38,7 @@ public class ModuleMenu : Singleton<ModuleMenu>{
             roomAssetManager.instantiatedAssets[i].SetActive(false);
         }
         roomAssetManager.instantiatedAssets.Clear();
-
+        roomAssetManager.assetCount = 0; 
         // Swap menu
         EndModuleMenuSwap();
 
