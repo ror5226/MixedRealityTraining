@@ -1,11 +1,11 @@
 <scene>
   <asset name="Birch Counter">
     <description>
-    Here you have a birch two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+      Here you have a birch two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
     </description>
     <image>cabinets</image>
     <question>
-    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+      If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
     </question>
     <answers>
       <ans>
@@ -24,11 +24,11 @@
   </asset>
   <asset name="Cherry Counter">
     <description>
-    Here you have a cherry two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+      Here you have a cherry two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
     </description>
     <image>cabinets</image>
     <question>
-    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+      If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
     </question>
     <answers>
       <ans>
@@ -47,11 +47,11 @@
   </asset>
   <asset name="Mahogany Counter">
     <description>
-    Here you have a mahogany two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+      Here you have a mahogany two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
     </description>
     <image>cabinets</image>
     <question>
-    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+      If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
     </question>
     <answers>
       <ans>
@@ -70,11 +70,11 @@
   </asset>
   <asset name="Oak Counter">
     <description>
-    Here you have a oak two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+      Here you have a oak two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
     </description>
     <image>cabinets</image>
     <question>
-    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+      If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
     </question>
     <answers>
       <ans>
@@ -93,11 +93,30 @@
   </asset>
   <asset name="Double Hung Window">
     <description>
-    Advanced Low-E energy-saving glass with argon gas is inserted between the 2 panes of glass for added energy efficiency. Maintenance-free vinyl frames, both sashes tilt for easy cleaning of exterior glass from inside your home.
+      Advanced Low-E energy-saving glass with argon gas is inserted between the 2 panes of glass for added energy efficiency. Maintenance-free vinyl frames, both sashes tilt for easy cleaning of exterior glass from inside your home.
     </description>
     <image>window</image>
     <question>
-    If glass is 18" or closer to the ceiling, it is commonly refered to as "safety glazing".
+      If glass is 18" or closer to the ceiling, it is commonly refered to as "safety glazing".
+    </question>
+    <answers>
+      <ans>
+        <answer>True</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>False</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Narrow Window">
+    <description>
+      Advanced Low-E energy-saving glass with argon gas is inserted between the 2 panes of glass for added energy efficiency. Maintenance-free vinyl frames, both sashes tilt for easy cleaning of exterior glass from inside your home.
+    </description>
+    <image>window</image>
+    <question>
+      If glass is 18" or closer to the ceiling, it is commonly refered to as "safety glazing".
     </question>
     <answers>
       <ans>
@@ -112,11 +131,11 @@
   </asset>
   <asset name="Fireplace">
     <description>
-    All solid Appalachian cherry -no veneers or composite materials. Prefinished espresso stain on solid cherry contemporary mantel with a brick exterior shell. Bottom board is 58.625 x 7.25. A fire has cause damage to the exterior shell.
+      All solid Appalachian cherry -no veneers or composite materials. Prefinished espresso stain on solid cherry contemporary mantel with a brick exterior shell. Bottom board is 58.625 x 7.25. A fire has cause damage to the exterior shell.
     </description>
     <image>fireplace</image>
     <question>
-    True or False: The brick used in the "firebox" is more expensive than the brick used to build the exterior shell.
+      True or False: The brick used in the "firebox" is more expensive than the brick used to build the exterior shell.
     </question>
     <answers>
       <ans>
@@ -131,11 +150,11 @@
   </asset>
   <asset name="Birch Overhead Cabinet">
     <description>
-    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
+      This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
     </description>
     <image>ohcabinet_img</image>
     <question>
-    If a cabinet is burnt, what information can help you determine if repairs are possible?
+      If a cabinet is burnt, what information can help you determine if repairs are possible?
     </question>
     <answers>
       <ans>
@@ -154,11 +173,11 @@
   </asset>
   <asset name="Cherry Overhead Cabinet">
     <description>
-    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
+      This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
     </description>
     <image>ohcabinet_img</image>
     <question>
-    If a cabinet is burnt, what information can help you determine if repairs are possible?
+      If a cabinet is burnt, what information can help you determine if repairs are possible?
     </question>
     <answers>
       <ans>
@@ -177,11 +196,11 @@
   </asset>
   <asset name="Mahogany Overhead Cabinet">
     <description>
-    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
+      This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
     </description>
     <image>ohcabinet_img</image>
     <question>
-    If a cabinet is burnt, what information can help you determine if repairs are possible?
+      If a cabinet is burnt, what information can help you determine if repairs are possible?
     </question>
     <answers>
       <ans>
@@ -200,11 +219,11 @@
   </asset>
   <asset name="Oak Overhead Cabinet">
     <description>
-    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
+      This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
     </description>
     <image>ohcabinet_img</image>
     <question>
-    If a cabinet is burnt, what information can help you determine if repairs are possible?
+      If a cabinet is burnt, what information can help you determine if repairs are possible?
     </question>
     <answers>
       <ans>
@@ -223,11 +242,11 @@
   </asset>
   <asset name="TV">
     <description>
-    This Sharp Roku TV features integrated Roku streaming technology with over 3,000 streaming channels of movies, TV, music and news, delivered through a Full HD 1080p display. This TV supports any USB device and has HDMI ports to support HD picture and digital sound. The Roku mobile app enables voice commands to control this Sharp Roku TV.
+      This Sharp Roku TV features integrated Roku streaming technology with over 3,000 streaming channels of movies, TV, music and news, delivered through a Full HD 1080p display. This TV supports any USB device and has HDMI ports to support HD picture and digital sound. The Roku mobile app enables voice commands to control this Sharp Roku TV.
     </description>
     <image>tv</image>
     <question>
-    Home electronics, such as TVs and stereos, are typically not covered when damaged by a power surge if they were not connected to a surge protector.
+      Home electronics, such as TVs and stereos, are typically not covered when damaged by a power surge if they were not connected to a surge protector.
     </question>
     <answers>
       <ans>
@@ -242,11 +261,11 @@
   </asset>
   <asset name="Couch">
     <description>
-    This is a tan leather sofa. Made from luxurious Italian leather, the sofa comfortably seats three on cushions filled with soft duck feathers. Sturdy wood construction and all-natural materials.
+      This is a tan leather sofa. Made from luxurious Italian leather, the sofa comfortably seats three on cushions filled with soft duck feathers. Sturdy wood construction and all-natural materials.
     </description>
     <image>sofa</image>
     <question>
-    Select the characteristics not used to determine the replacement cost of furniture.
+      Select the characteristics not used to determine the replacement cost of furniture.
     </question>
     <answers>
       <ans>
@@ -273,7 +292,7 @@
     </description>
     <image>fridge</image>
     <question>
-    Depreciation is typically not subtracted from the replacement cost of home appliances, such as refrigerators.
+      Depreciation is typically not subtracted from the replacement cost of home appliances, such as refrigerators.
     </question>
     <answers>
       <ans>
@@ -288,11 +307,11 @@
   </asset>
   <asset name="Oven">
     <description>
-    Make clean-up hassle free with variable self-cleaning cycles and a glass cooktop with 6" and 9" radiant heating elements can accommodate just about any size for an even heat throughout your cookware.
+      Make clean-up hassle free with variable self-cleaning cycles and a glass cooktop with 6" and 9" radiant heating elements can accommodate just about any size for an even heat throughout your cookware.
     </description>
     <image>oven</image>
     <question>
-    What is the most common claim caused by a kitchen oven?
+      What is the most common claim caused by a kitchen oven?
     </question>
     <answers>
       <ans>
@@ -315,11 +334,11 @@
   </asset>
   <asset name="Oak Wood Floor">
     <description>
-    5 inch planks with factory applied protective finish little variation and few to no knots. Locking technology for easy installation.
+      5 inch planks with factory applied protective finish little variation and few to no knots. Locking technology for easy installation.
     </description>
     <image>woodfloor</image>
     <question>
-    It is always advisable to allow a wood floor to dry before making repair operation decisions. Resistant to color change from sunlight.
+      It is always advisable to allow a wood floor to dry before making repair operation decisions. Resistant to color change from sunlight.
     </question>
     <answers>
       <ans>
@@ -334,11 +353,11 @@
   </asset>
   <asset name="Cherry Wood Floor">
     <description>
-    Solid Hardwood floors express beauty and elegance, while the construction adds great strength and stability.  The tongue and groove profile allows the flooring to be installed on and above grade.
+      Solid Hardwood floors express beauty and elegance, while the construction adds great strength and stability.  The tongue and groove profile allows the flooring to be installed on and above grade.
     </description>
     <image>woodfloor</image>
     <question>
-    It is always advisable to allow a wood floor to dry before making repair operation decisions?
+      It is always advisable to allow a wood floor to dry before making repair operation decisions?
     </question>
     <answers>
       <ans>
@@ -353,11 +372,11 @@
   </asset>
   <asset name="Carpet Floor">
     <description>
-    PureColor provides the ultimate performance in fiber with its virtually stain-proof coloration, coupled with the soil-resistant SoilShield. PureColor will stay clean longer, clean easier and retain more vibrancy over time.
+      PureColor provides the ultimate performance in fiber with its virtually stain-proof coloration, coupled with the soil-resistant SoilShield. PureColor will stay clean longer, clean easier and retain more vibrancy over time.
     </description>
     <image>carpet</image>
     <question>
-    Is delamination a common characteristic of water damage to carpet?
+      Is delamination a common characteristic of water damage to carpet?
     </question>
     <answers>
       <ans>
@@ -372,11 +391,11 @@
   </asset>
   <asset name="Grandfather Clock">
     <description>
-    Finished in Camden Oak on select hardwoods and select veneers. The case also features reeded columns with turned column caps and a sculpted base with cutout. The polished brass-finished dial features detailed corner spandrels and center disc.
+      Finished in Camden Oak on select hardwoods and select veneers. The case also features reeded columns with turned column caps and a sculpted base with cutout. The polished brass-finished dial features detailed corner spandrels and center disc.
     </description>
     <image>clock</image>
     <question>
-    An appraisal is typically required prior to a loss to determine the values of personal property like antiques and collectables.
+      An appraisal is typically required prior to a loss to determine the values of personal property like antiques and collectables.
     </question>
     <answers>
       <ans>
@@ -391,11 +410,11 @@
   </asset>
   <asset name="Tile Floor">
     <description>
-    Tile from Rush River Stone will certainly make an impression. With a  rich blend of dark grey shades with subtle silver veining. With an on-trend look, this travertine tile is created with a powerful water jet to deliver clean, smooth edges that are easy to walk on.
+      Tile from Rush River Stone will certainly make an impression. With a  rich blend of dark grey shades with subtle silver veining. With an on-trend look, this travertine tile is created with a powerful water jet to deliver clean, smooth edges that are easy to walk on.
     </description>
     <image>tile</image>
     <question>
-    What type of damage can smoke or soot cause to a grouted tile floor?
+      What type of damage can smoke or soot cause to a grouted tile floor?
     </question>
     <answers>
       <ans>
@@ -418,11 +437,11 @@
   </asset>
   <asset name="Chandelier">
     <description>
-    An artful chandelier design with gently curved support arms and frame details. Italian bronze finish with antique amber glass adds a soft and warm touch. Perfect for placement over a dining table or in an entryway.
+      An artful chandelier design with gently curved support arms and frame details. Italian bronze finish with antique amber glass adds a soft and warm touch. Perfect for placement over a dining table or in an entryway.
     </description>
     <image>chandelier</image>
     <question>
-    Fire and impact damage always require replacement of the entire electrical fixture.
+      Fire and impact damage always require replacement of the entire electrical fixture.
     </question>
     <answers>
       <ans>
@@ -437,7 +456,7 @@
   </asset>
   <asset name="Book Shelf">
     <description>
-    ladder design is crafted from manufactured wood in a Jamocha wood finish for a rich touch of appeal.
+      This bookshelf is made of solid pine, with a natural and renewable material that gets more beautiful with each passing year. There are 4 adjustable shelves and one stationary shelf so you can customize your storage as needed.
     </description>
     <image>bookshelf</image>
     <question>
@@ -460,11 +479,11 @@
   </asset>
   <asset name="Ceiling Fan">
     <description>
-    This bronze metal housed ceiling fan comes equipped with 42" MDF blades as well as a built in light.
+      This bronze metal housed ceiling fan comes equipped with 42" MDF blades as well as a built in light.
     </description>
     <image>fan</image>
     <question>
-    In a light fixture is saturated by water, it always needs replaced.
+      In a light fixture is saturated by water, it always needs replaced.
     </question>
     <answers>
       <ans>
@@ -479,11 +498,11 @@
   </asset>
   <asset name="Ceiling Light">
     <description>
-    this Brushed Nickel 2-Light Flush Mount from Hampton Bay. Featuring a brushed nickel finish for a clean and timeless design, the frosted swirl glass dome.
+      This Brushed Nickel 2-Light Flush Mount from Hampton Bay. Featuring a brushed nickel finish for a clean and timeless design, the frosted swirl glass dome.
     </description>
     <image>light</image>
     <question>
-    Fire and impact damage always require replacement of the entire electrical fixture.
+      Fire and impact damage always require replacement of the entire electrical fixture.
     </question>
     <answers>
       <ans>
@@ -498,7 +517,7 @@
   </asset>
   <asset name="Shelf">
     <description>
-    ladder design is crafted from manufactured wood in a Jamocha wood finish for a rich touch of appeal.
+      This bookshelf is made of solid pine, with a natural and renewable material that gets more beautiful with each passing year. There are 4 adjustable shelves and one stationary shelf so you can customize your storage as needed.
     </description>
     <image>bookshelf</image>
     <question>
@@ -521,11 +540,11 @@
   </asset>
   <asset name="Sink">
     <description>
-     Single Bowl Bar Sink with Faucet and Strainer has a functional and environmentally friendly design. It is made of 80% recycled content and is 100% recyclable. This single-bowl bar sink offers is constructed of durable 20-Gauge stainless steel and has a long-lasting satin finish.
+      Single Bowl Bar Sink with Faucet and Strainer has a functional and environmentally friendly design. It is made of 80% recycled content and is 100% recyclable. This single-bowl bar sink offers is constructed of durable 20-Gauge stainless steel and has a long-lasting satin finish.
     </description>
     <image>sink</image>
     <question>
-    The size of the sink cutout is measured and subtracted from the square foot measurement of countertops.
+      The size of the sink cutout is measured and subtracted from the square foot measurement of countertops.
     </question>
     <answers>
       <ans>
@@ -540,11 +559,30 @@
   </asset>
   <asset name="Microwave">
     <description>
-    This Samsung over-the-range microwave has a sleek design and LED display to keep your kitchen looking sharp. Plus, the interior is easy to keep fresh and stain-free with ceramic enamel that is effortless to maintain.
+      This Samsung over-the-range microwave has a sleek design and LED display to keep your kitchen looking sharp. Plus, the interior is easy to keep fresh and stain-free with ceramic enamel that is effortless to maintain.
     </description>
     <image>microwave</image>
     <question>
-    Home electronics, such as TVs and stereos, are typically not covered when damaged by a power surge if they were not connected to a surge protector.
+      Home electronics, such as TVs and stereos, are typically not covered when damaged by a power surge if they were not connected to a surge protector.
+    </question>
+    <answers>
+      <ans>
+        <answer>True</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>False</answer>
+        <boolean>True</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Floor Lamp">
+    <description>
+      This lamp is made from metal that makes it robust and durable. It has a bronze finished stand, and a red and gold bell fabric shade. It accommodates a 150W incandescent bulb or 150W E-26 3 way bulb.
+    </description>
+    <image>microwave</image>
+    <question>
+      Home electronics, such as TVs and stereos, are typically not covered when damaged by a power surge if they were not connected to a surge protector.
     </question>
     <answers>
       <ans>
