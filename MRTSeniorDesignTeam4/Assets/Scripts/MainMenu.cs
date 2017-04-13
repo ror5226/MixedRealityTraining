@@ -122,13 +122,14 @@ public class MainMenu : Singleton<MainMenu> {
     public void Scan_Room_Button_Clicked()
     {
         holoLensimage.SetActive(false);
-        readText.Say("Look around the room to scan. Make sure to scan walls, floor and ceiling.  A green mesh will appear in locations that have been scanned.");
 
         // Check to make sure Gesture Recognizer is instantiated 
         if (gestureRecognizer != null)
         {
             if(mainMenu_ButtonCount == 0)
             {
+                readText.Say("Look around the room to scan. Make sure to scan walls, floor and ceiling.  A green mesh will appear in locations that have been scanned.");
+
                 SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = true;
 
                 // Show mesh on walls
