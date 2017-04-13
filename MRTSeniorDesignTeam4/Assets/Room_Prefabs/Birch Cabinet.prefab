@@ -152,7 +152,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionVal: 1
   plane: {fileID: 0}
-  children: []
+  children:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   placement: 3
   module: 1
 --- !u!114 &114965861859073700

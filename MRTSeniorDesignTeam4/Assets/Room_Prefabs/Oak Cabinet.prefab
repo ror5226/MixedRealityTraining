@@ -59,7 +59,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4315708472398842}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 270.85095, y: 90.00001, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 270.85092, y: 90.00001, z: 90.00001}
 --- !u!4 &4315708472398842
 Transform:
   m_ObjectHideFlags: 1
@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1828127045680166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.02, z: 0.08999999}
-  m_LocalScale: {x: 0.5999999, y: 0.5999999, z: 0.5999999}
+  m_LocalScale: {x: 0.59999985, y: 0.59999985, z: 0.59999985}
   m_Children:
   - {fileID: 4093810008142864}
   m_Father: {fileID: 0}
@@ -137,7 +137,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4499998, y: 1.41, z: 0.73999995}
+  m_Size: {x: 1.4499997, y: 1.41, z: 0.73999995}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114328720591042778
 MonoBehaviour:
@@ -164,7 +164,7 @@ MonoBehaviour:
   questionVal: 1
   plane: {fileID: 0}
   children:
-  - {fileID: 1408841490169412, guid: ab6673b90f7dff643a8c75f1a1a2c0e9, type: 2}
+  - {fileID: 1533162728432154, guid: e3e6fb4c1a153274c83ab151820f3b5f, type: 2}
   - {fileID: 1490661477116898, guid: 383a2697955607f4aba358ce2012b88a, type: 2}
   placement: 3
   module: 1
