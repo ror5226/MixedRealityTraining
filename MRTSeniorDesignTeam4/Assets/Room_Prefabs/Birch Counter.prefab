@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65632297938715460}
   - component: {fileID: 114878673802903536}
   m_Layer: 0
-  m_Name: Counter
+  m_Name: ' Birch Counter'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   questionVal: 1
   plane: {fileID: 0}
   children:
-  - {fileID: 1743707934403392}
+  - {fileID: 1209663933241024, guid: f4daaa2e7e85474448e10d8af1863d15, type: 2}
   placement: 5
   module: 1
 --- !u!114 &114878673802903536
