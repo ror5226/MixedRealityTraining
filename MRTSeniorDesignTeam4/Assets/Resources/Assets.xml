@@ -1,7 +1,53 @@
 <scene>
-  <asset name="Counter">
+  <asset name="Cherry Counter">
     <description>
-    Here you have a birch two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+    Here you have a cherry two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+    </description>
+    <image>cabinets</image>
+    <question>
+    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+    </question>
+    <answers>
+      <ans>
+        <answer>Company Policy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Customers may create Permanent Stains</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Professional may Find Additional Damages</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Mahogany Counter">
+    <description>
+    Here you have a mahogany two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+    </description>
+    <image>cabinets</image>
+    <question>
+    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+    </question>
+    <answers>
+      <ans>
+        <answer>Company Policy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Customers may create Permanent Stains</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Professional may Find Additional Damages</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Oak Counter">
+    <description>
+    Here you have a oak two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
     </description>
     <image>cabinets</image>
     <question>
@@ -60,7 +106,53 @@
       </ans>
     </answers>
   </asset>
-  <asset name="Overhead Cabinet">
+  <asset name="Cherry Overhead Cabinet">
+    <description>
+    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
+    </description>
+    <image>ohcabinet_img</image>
+    <question>
+    If a cabinet is burnt, what information can help you determine if repairs are possible?
+    </question>
+    <answers>
+      <ans>
+        <answer>Cause of burn</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Char depth and type of surface</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Age of Cabinet</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Mahogany Overhead Cabinet">
+    <description>
+    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
+    </description>
+    <image>ohcabinet_img</image>
+    <question>
+    If a cabinet is burnt, what information can help you determine if repairs are possible?
+    </question>
+    <answers>
+      <ans>
+        <answer>Cause of burn</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Char depth and type of surface</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Age of Cabinet</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Oak Overhead Cabinet">
     <description>
     This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
     </description>
