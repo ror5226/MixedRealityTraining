@@ -32,10 +32,12 @@ public class AnswerScript : MonoBehaviour {
             if (!plzDontCheat) {
                 aPanel.setScore(1, aPanel.getTitle());
             }
+            ReadText.Instance.Say("You have answered correct.\n\nGood Job!");
         }
         else {
             aPanel.setCorrectPanelText("You have answered incorrectly.\n\nTry Again?");
             aPanel.getCorrectPanel().transform.FindChild("TryAgainButton").gameObject.SetActive(true);
+            ReadText.Instance.Say("You have answered incorrectly.\n\nTry Again?");
         }
     }
 }
