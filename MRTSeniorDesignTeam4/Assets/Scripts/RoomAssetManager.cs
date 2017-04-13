@@ -183,6 +183,8 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         foreach (GameObject item in spaceObjects)
         {
 
+            assetCount++;
+
             int index = -1;
 
             BoxCollider collider = item.GetComponent<BoxCollider>();
@@ -202,7 +204,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             // If there is somewhere to put the object 
             if (index >= 0)
             {
-                assetCount++;
+                
 
                 GameObject surface = surfaces[index];
                 SurfacePlane plane = surface.GetComponent<SurfacePlane>();
@@ -237,6 +239,13 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 Assessable assessable = spaceObject.GetComponent<Assessable>();
                 assessable.setPlane(plane);
+
+                // CHeck to see if object has children to place
+                if (assessable.children.Length > 0)
+                {
+                    PlaceChildren(surface, item, plane, assessable, placementType);
+                }
+
             }
            
         }
@@ -306,6 +315,74 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         #endregion
     }
 
+    // If an object has children, we place them here
+    void PlaceChildren(GameObject surface, GameObject parent, SurfacePlane plane, Assessable assessable, PlacementPosition placementType)
+    {
+        assetCount += assessable.children.Length;
+
+        // Set rotation to look towards room center
+        Quaternion rotation = Quaternion.LookRotation(surface.transform.forward, Vector3.up);
+
+        // Get Assessable component of child
+        Assessable childAssessable = assessable.children[0].GetComponent<Assessable>();
+        childAssessable.setPlane(plane);
+
+        // Get Collider of child
+        BoxCollider childCollider = assessable.children[0].GetComponent<BoxCollider>();
+        if (childCollider == null)
+        {
+            Debug.Log("Child needs BoxCollider");
+        }
+
+        // Set initial position
+        Vector3 position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(childCollider.size.z) * assessable.children[0].transform.localScale.z)) * plane.SurfaceNormal);
+
+        if (placementType == PlacementPosition.WallFloor)
+        {
+            Vector3 right = Vector3.Cross(surface.transform.forward, Vector3.up);
+
+            position.y = mainFloor.Plane.Bounds.Center.y + childCollider.size.y * .5f * childCollider.transform.localScale.y;
+            position += (parent.transform.localScale.x * parent.GetComponent<BoxCollider>().size. x * .5f + assessable.children[0].transform.localScale.y * childCollider.size.x *.5f + .25f) * right;
+        }
+
+        // Instantiate object
+        GameObject childObject = Instantiate(assessable.children[0], position, rotation) as GameObject;
+
+        // Add object to list for later removal of scene
+        instantiatedAssets.Add(childObject);
+
+        if (assessable.children.Length > 1)
+        {
+            // Get Assessable component of child
+
+            childAssessable = assessable.children[1].GetComponent<Assessable>();
+            childAssessable.setPlane(plane);
+
+            // Get Collider of child
+            childCollider = assessable.children[1].GetComponent<BoxCollider>();
+            if (childCollider == null)
+            {
+                Debug.Log("Child needs BoxCollider");
+            }
+
+            // Set initial position
+            position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(childCollider.size.z) * assessable.children[1].transform.localScale.z)) * plane.SurfaceNormal);
+
+            if (placementType == PlacementPosition.WallFloor)
+            {
+                Vector3 left = Vector3.Cross(surface.transform.forward, -Vector3.up);
+                position.y = mainFloor.Plane.Bounds.Center.y + childCollider.size.y * .5f * childCollider.transform.localScale.y;
+                position += (parent.transform.localScale.x * parent.GetComponent<BoxCollider>().size.x * .5f + assessable.children[1].transform.localScale.y * childCollider.size.x * .5f + .25f) * left;
+                rotation = Quaternion.LookRotation(surface.transform.forward, Vector3.up);
+            }
+
+            // Instantiate object
+            childObject = Instantiate(assessable.children[1], position, rotation) as GameObject;
+
+            // Add object to list for later removal of scene
+            instantiatedAssets.Add(childObject);
+        }
+    }
     private void PlaceFloorObjects(List<GameObject> spaceObjects, List<GameObject> surfaces, PlacementPosition placementType)
     {
         List<LevelSolver.PlacementQuery> placementQuery = new List<LevelSolver.PlacementQuery>();
@@ -339,7 +416,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                     collider = spaceObjects[i].GetComponent<BoxCollider>();
                     GameObject minplane = new GameObject();
-
+                    
                     Vector3 querypos = levelSolver.placementResults[i].Result.Position;
                     querypos.y = mainFloor.Plane.Bounds.Center.y; // + collider.size.y * .5f * spaceObjects[i].transform.localScale.y;
 

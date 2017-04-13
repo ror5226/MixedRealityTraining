@@ -53,7 +53,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1858887623893096}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0.70710695, w: 0}
+  m_LocalRotation: {x: -0, y: -0.70710677, z: -0.7071069, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.11}
   m_LocalScale: {x: 100, y: 99.99966, z: 99.99966}
   m_Children: []
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1349019297886094}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -2.5349998, z: -0.11}
+  m_LocalPosition: {x: 0, y: -2.5349996, z: -0.11}
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 0.59999996}
   m_Children:
   - {fileID: 4097472302097492}
@@ -156,6 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionVal: 1
   plane: {fileID: 0}
+  children:
+  - {fileID: 1743707934403392, guid: e5a932e549ff0bd4c97408cf33d90bc3, type: 2}
+  - {fileID: 1743707934403392, guid: e5a932e549ff0bd4c97408cf33d90bc3, type: 2}
   placement: 5
   module: 1
 --- !u!114 &114466390785756584

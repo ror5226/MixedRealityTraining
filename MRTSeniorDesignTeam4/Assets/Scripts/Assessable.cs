@@ -31,6 +31,11 @@ public class Assessable : MonoBehaviour {
     // Public variables for outside scripts to access
     public SurfacePlane plane = null;
     [Tooltip("Type of plane that the object has been classified as.")]
+
+    // Objects to be placed beside it
+    public GameObject[] children; 
+    
+    // Defaults
     public PlacementPosition placement = PlacementPosition.MidWall;
     public ModuleType module = ModuleType.Kitchen;
 
@@ -48,11 +53,14 @@ public class Assessable : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (questionVal != 1 + children.Length)
+        {
+            questionVal += children.Length;
+        }
 	}
 }

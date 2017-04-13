@@ -138,7 +138,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.65920126, y: 0.63, z: 0.6189774}
+  m_Size: {x: 0.59, y: 0.55999994, z: 0.6189774}
   m_Center: {x: 0.0044884975, y: -0, z: -0.031421736}
 --- !u!114 &114860160867078832
 MonoBehaviour:
@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionVal: 1
   plane: {fileID: 0}
+  children:
+  - {fileID: 1743707934403392}
   placement: 5
   module: 1
 --- !u!114 &114878673802903536
