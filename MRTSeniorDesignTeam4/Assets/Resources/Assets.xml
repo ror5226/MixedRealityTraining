@@ -1,11 +1,80 @@
 <scene>
-  <asset name="Counter">
+  <asset name="Birch Counter">
     <description>
-      Here you have a birch two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+    Here you have a birch two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
     </description>
     <image>cabinets</image>
     <question>
-      If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+    </question>
+    <answers>
+      <ans>
+        <answer>Company Policy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Customers may create Permanent Stains</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Professional may Find Additional Damages</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Cherry Counter">
+    <description>
+    Here you have a cherry two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+    </description>
+    <image>cabinets</image>
+    <question>
+    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+    </question>
+    <answers>
+      <ans>
+        <answer>Company Policy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Customers may create Permanent Stains</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Professional may Find Additional Damages</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Mahogany Counter">
+    <description>
+    Here you have a mahogany two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+    </description>
+    <image>cabinets</image>
+    <question>
+    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
+    </question>
+    <answers>
+      <ans>
+        <answer>Company Policy</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Customers may create Permanent Stains</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Professional may Find Additional Damages</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Oak Counter">
+    <description>
+    Here you have a oak two door and 4 drawer cabinet with stainless steel knobs. The cabinet also includes a veneer wrapped toe kick. The cabinet also includes a grey granite countertop with rounded edges.
+    </description>
+    <image>cabinets</image>
+    <question>
+    If a customer has a kitchen fire and the customer offers to clean the smoke residue off the cabinets and countertops, why should professional cleaning be used instead?
     </question>
     <answers>
       <ans>
@@ -24,14 +93,11 @@
   </asset>
   <asset name="Double Hung Window">
     <description>
-      Advanced Low-E energy-saving glass
-      Argon gas is inserted between the 2 panes of glass for added energy efficiency
-      Maintenance-free vinyl frames
-      Both sashes tilt for easy cleaning of exterior glass from inside your home
+    Advanced Low-E energy-saving glass with argon gas is inserted between the 2 panes of glass for added energy efficiency. Maintenance-free vinyl frames, both sashes tilt for easy cleaning of exterior glass from inside your home.
     </description>
     <image>window</image>
     <question>
-      If glass is 18" or closer to the ceiling, it is commonly refered to as "safety glazing".
+    If glass is 18" or closer to the ceiling, it is commonly refered to as "safety glazing".
     </question>
     <answers>
       <ans>
@@ -46,15 +112,11 @@
   </asset>
   <asset name="Fireplace">
     <description>
-      All solid Appalachain cherry -no veneers or composite materials
-      Prefinished espresso stain on solid cherry contemporary mantel
-      Brick exterior shell
-      Fire has cause damage to the exterior shell
-      Bottom board is 58.625 x 7.25
+    All solid Appalachian cherry -no veneers or composite materials. Prefinished espresso stain on solid cherry contemporary mantel with a brick exterior shell. Bottom board is 58.625 x 7.25. A fire has cause damage to the exterior shell.
     </description>
     <image>fireplace</image>
     <question>
-      True or False: The brick used in the "firebox" is more expensive than the brick used to build the exterior shell.
+    True or False: The brick used in the "firebox" is more expensive than the brick used to build the exterior shell.
     </question>
     <answers>
       <ans>
@@ -67,16 +129,82 @@
       </ans>
     </answers>
   </asset>
-  <asset name="Overhead Cabinet">
+  <asset name="Birch Overhead Cabinet">
     <description>
-     You can customize spacing as needed, because the shelves are adjustable.
-     Snap-on hinges can be mounted onto the door without screws, and you can easily remove the door for cleaning.
-     The door damper prevents your cabinet door from slamming by catching the moving door so that it closes slowly, gently and silently.
-     Sturdy frame construction, ¾" thick.
+    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
     </description>
     <image>ohcabinet_img</image>
     <question>
-      If a cabinet is burnt, what information can help you determine if repairs are possible?
+    If a cabinet is burnt, what information can help you determine if repairs are possible?
+    </question>
+    <answers>
+      <ans>
+        <answer>Cause of burn</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Char depth and type of surface</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Age of Cabinet</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Cherry Overhead Cabinet">
+    <description>
+    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
+    </description>
+    <image>ohcabinet_img</image>
+    <question>
+    If a cabinet is burnt, what information can help you determine if repairs are possible?
+    </question>
+    <answers>
+      <ans>
+        <answer>Cause of burn</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Char depth and type of surface</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Age of Cabinet</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Mahogany Overhead Cabinet">
+    <description>
+    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
+    </description>
+    <image>ohcabinet_img</image>
+    <question>
+    If a cabinet is burnt, what information can help you determine if repairs are possible?
+    </question>
+    <answers>
+      <ans>
+        <answer>Cause of burn</answer>
+        <boolean>False</boolean>
+      </ans>
+      <ans>
+        <answer>Char depth and type of surface</answer>
+        <boolean>True</boolean>
+      </ans>
+      <ans>
+        <answer>Age of Cabinet</answer>
+        <boolean>False</boolean>
+      </ans>
+    </answers>
+  </asset>
+  <asset name="Oak Overhead Cabinet">
+    <description>
+    This cabinet has recessed-panel doors with the 36 inch Wall Cabinet. Has a sturdy composite box, a solid wood door frame and an oak-veneer flat insert panel. The cabinet's hinges are concealed to create a more seamless look.
+    </description>
+    <image>ohcabinet_img</image>
+    <question>
+    If a cabinet is burnt, what information can help you determine if repairs are possible?
     </question>
     <answers>
       <ans>
@@ -95,7 +223,7 @@
   </asset>
   <asset name="TV">
     <description>
-      This Sharp Roku TV features integrated Roku streaming technology with over 3,000 streaming channels of movies, TV, music and news, delivered through a Full HD 1080p display. This TV supports any USB device and has HDMI ports to support HD picture and digital sound. The Roku mobile app enables voice commands to control this Sharp Roku TV.
+    This Sharp Roku TV features integrated Roku streaming technology with over 3,000 streaming channels of movies, TV, music and news, delivered through a Full HD 1080p display. This TV supports any USB device and has HDMI ports to support HD picture and digital sound. The Roku mobile app enables voice commands to control this Sharp Roku TV.
     </description>
     <image>tv</image>
     <question>
@@ -114,7 +242,7 @@
   </asset>
   <asset name="Couch">
     <description>
-        This is a tan leather sofa. Made from luxurious Italian leather, the sofa comfortably seats three on cushions filled with soft duck feathers. Sturdy wood construction and all-natural materials.
+    This is a tan leather sofa. Made from luxurious Italian leather, the sofa comfortably seats three on cushions filled with soft duck feathers. Sturdy wood construction and all-natural materials.
     </description>
     <image>sofa</image>
     <question>
@@ -141,7 +269,7 @@
   </asset>
   <asset name="Fridge">
     <description>
-      This Fridge is a 27.6 cu. ft. bottom freezer fridge, Adjustable spill-proof shelving, generous door bins, and a full-width deli tray drawer give you endless options for optimal food storage.
+      This Fridge is a 27.6 cu. ft. bottom freezer fridge, with adjustable spill-proof shelving, door bins, and a full-width deli tray drawer give you endless options for optimal food storage.
     </description>
     <image>fridge</image>
     <question>
@@ -160,11 +288,11 @@
   </asset>
   <asset name="Oven">
     <description>
-      Make clean-up hassle free with variable self-cleaning cycles and a glass cooktop with 6" and 9" radiant heating elements can accommodate just about any size for an even heat throughout your cookware.
+    Make clean-up hassle free with variable self-cleaning cycles and a glass cooktop with 6" and 9" radiant heating elements can accommodate just about any size for an even heat throughout your cookware.
     </description>
     <image>oven</image>
     <question>
-    Select the most common claim caused by a kitchen oven.
+    What is the most common claim caused by a kitchen oven?
     </question>
     <answers>
       <ans>
@@ -187,36 +315,30 @@
   </asset>
   <asset name="Oak Wood Floor">
     <description>
-      Real Wood Layer
-      Single Strip
-      Easy Floating "Click-Together" installation
+    5 inch planks with factory applied protective finish little variation and few to no knots. Locking technology for easy installation.
     </description>
     <image>woodfloor</image>
     <question>
-    How happy am I?
+    It is always advisable to allow a wood floor to dry before making repair operation decisions. Resistant to color change from sunlight.
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
-        <boolean>False</boolean>
+        <answer>True</answer>
+        <boolean>True</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
+        <answer>False</answer>
         <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>Visibly Upset</answer>
-        <boolean>True</boolean>
       </ans>
     </answers>
   </asset>
   <asset name="Cherry Wood Floor">
     <description>
-      Solid Hardwood floors express beauty and elegance, while the construction adds great strength and stability.  The tongue and groove profile allows the flooring to be installed on and above grade.
+    Solid Hardwood floors express beauty and elegance, while the construction adds great strength and stability.  The tongue and groove profile allows the flooring to be installed on and above grade.
     </description>
     <image>woodfloor</image>
     <question>
-      It is always advisable to allow a wood floor to dry before making repair operation decisions?
+    It is always advisable to allow a wood floor to dry before making repair operation decisions?
     </question>
     <answers>
       <ans>
@@ -235,7 +357,7 @@
     </description>
     <image>carpet</image>
     <question>
-    Delamination is a common characteristic of water damage to carpet?
+    Is delamination a common characteristic of water damage to carpet?
     </question>
     <answers>
       <ans>
@@ -250,7 +372,7 @@
   </asset>
   <asset name="Grandfather Clock">
     <description>
-    finished in Camden Oak on select hardwoods and select veneers. The case also features reeded columns with turned column caps and a sculpted base with cutout. The polished brass-finished dial features detailed corner spandrels and center disc.
+    Finished in Camden Oak on select hardwoods and select veneers. The case also features reeded columns with turned column caps and a sculpted base with cutout. The polished brass-finished dial features detailed corner spandrels and center disc.
     </description>
     <image>clock</image>
     <question>
@@ -269,7 +391,7 @@
   </asset>
   <asset name="Tile Floor">
     <description>
-      Tile from Rush River Stone will certainly make an impression. With a  rich blend of dark grey shades with subtle silver veining. With an on-trend look, this travertine tile is created with a powerful water jet to deliver clean, smooth edges that are easy to walk on.
+    Tile from Rush River Stone will certainly make an impression. With a  rich blend of dark grey shades with subtle silver veining. With an on-trend look, this travertine tile is created with a powerful water jet to deliver clean, smooth edges that are easy to walk on.
     </description>
     <image>tile</image>
     <question>
@@ -357,7 +479,7 @@
   </asset>
   <asset name="Ceiling Light">
     <description>
-     this Brushed Nickel 2-Light Flush Mount from Hampton Bay. Featuring a brushed nickel finish for a clean and timeless design, the frosted swirl glass dome.
+    this Brushed Nickel 2-Light Flush Mount from Hampton Bay. Featuring a brushed nickel finish for a clean and timeless design, the frosted swirl glass dome.
     </description>
     <image>light</image>
     <question>
@@ -376,23 +498,23 @@
   </asset>
   <asset name="Shelf">
     <description>
-      Sick fuckin'
+    ladder design is crafted from manufactured wood in a Jamocha wood finish for a rich touch of appeal.
     </description>
-    <image>oven</image>
+    <image>bookshelf</image>
     <question>
-    How happy am I?
+      If a wood cabinet has permanent stains what repair options should be considered?
     </question>
     <answers>
       <ans>
-        <answer>Happy</answer>
+        <answer>Whole unit replacement</answer>
         <boolean>False</boolean>
       </ans>
       <ans>
-        <answer>Okay</answer>
+        <answer>Partial unit replacement</answer>
         <boolean>False</boolean>
       </ans>
         <ans>
-        <answer>Visibly Upset</answer>
+        <answer>Sand and Refinish</answer>
         <boolean>True</boolean>
       </ans>
     </answers>
@@ -432,62 +554,6 @@
       <ans>
         <answer>False</answer>
         <boolean>True</boolean>
-      </ans>
-    </answers>
-  </asset>
-  <asset name="Cube">
-    <description>
-      this is a cube bro
-    </description>
-    <image>cube_img</image>
-    <question>This is a place holder for some textual description of the object that was selected. In this file will normally be the real description of the object but not today brah. Today, we just have me rambling on and on about nothing.</question>
-    <answers>
-      <ans>
-        <answer>This is a test</answer>
-        <boolean>True</boolean>
-      </ans>
-      <ans>
-        <answer>This is a second test</answer>
-        <boolean>False</boolean>
-      </ans>
-      <ans>
-        <answer>This is a third test</answer>
-        <boolean>True</boolean>
-      </ans>
-    </answers>
-  </asset>
-  <asset name="Sphere">
-    <description>
-      this is a sphere bro
-    </description>
-    <image>sphere_img</image>
-    <question>
-      This is a place holder for some textual description of the object that was selected. In this file will normally be the real description of the object but not today brah. Today, we just have me rambling on and on about nothing.
-    </question>
-    <answers>
-      <ans>
-        <answer>T1</answer>
-        <boolean>False</boolean>
-      </ans>
-      <ans>
-        <answer>T2</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>T3</answer>
-        <boolean>True</boolean>
-      </ans>
-      <ans>
-        <answer>T4</answer>
-        <boolean>False</boolean>
-      </ans>
-        <ans>
-        <answer>T5</answer>
-        <boolean>False</boolean>
-      </ans>
-      <ans>
-        <answer>T6</answer>
-        <boolean>False</boolean>
       </ans>
     </answers>
   </asset>
