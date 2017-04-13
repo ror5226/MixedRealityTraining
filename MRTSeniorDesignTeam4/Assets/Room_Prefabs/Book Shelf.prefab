@@ -137,7 +137,7 @@ MonoBehaviour:
   questionVal: 1
   plane: {fileID: 0}
   children:
-  - {fileID: 1473881702807944}
+  - {fileID: 1932317613827752, guid: 17898c2921dec494c984a2159bd0a9ff, type: 2}
   placement: 5
   module: 2
 --- !u!114 &114660310170502640

@@ -157,8 +157,8 @@ MonoBehaviour:
   questionVal: 1
   plane: {fileID: 0}
   children:
-  - {fileID: 1743707934403392, guid: e5a932e549ff0bd4c97408cf33d90bc3, type: 2}
-  - {fileID: 1743707934403392, guid: e5a932e549ff0bd4c97408cf33d90bc3, type: 2}
+  - {fileID: 1017617001289864, guid: cf274e9eb79d3e545b834720fe4cdc3a, type: 2}
+  - {fileID: 1566627420949562, guid: 778a721c54d031a41b26d708e3cd432c, type: 2}
   placement: 5
   module: 1
 --- !u!114 &114466390785756584

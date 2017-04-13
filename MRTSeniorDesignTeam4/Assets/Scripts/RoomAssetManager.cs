@@ -339,12 +339,16 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
         if (placementType == PlacementPosition.WallFloor)
         {
-            Vector3 right = Vector3.Cross(surface.transform.forward, Vector3.up);
-
             position.y = mainFloor.Plane.Bounds.Center.y + childCollider.size.y * .5f * childCollider.transform.localScale.y;
-            position += (parent.transform.localScale.x * parent.GetComponent<BoxCollider>().size. x * .5f + assessable.children[0].transform.localScale.y * childCollider.size.x *.5f + .25f) * right;
+
+        }
+        else if (placementType == PlacementPosition.MidWall)
+        {
+            position.y = position.y + childCollider.size.y * .5f;
         }
 
+        Vector3 right = Vector3.Cross(surface.transform.forward, Vector3.up);
+        position += (parent.transform.localScale.x * parent.GetComponent<BoxCollider>().size.x * .5f + assessable.children[0].transform.localScale.y * childCollider.size.x * .5f + .25f) * right;
         // Instantiate object
         GameObject childObject = Instantiate(assessable.children[0], position, rotation) as GameObject;
 
@@ -364,17 +368,22 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             {
                 Debug.Log("Child needs BoxCollider");
             }
-
+           
             // Set initial position
             position = surface.transform.position + ((plane.PlaneThickness + (.5f * Math.Abs(childCollider.size.z) * assessable.children[1].transform.localScale.z)) * plane.SurfaceNormal);
 
             if (placementType == PlacementPosition.WallFloor)
             {
-                Vector3 left = Vector3.Cross(surface.transform.forward, -Vector3.up);
                 position.y = mainFloor.Plane.Bounds.Center.y + childCollider.size.y * .5f * childCollider.transform.localScale.y;
-                position += (parent.transform.localScale.x * parent.GetComponent<BoxCollider>().size.x * .5f + assessable.children[1].transform.localScale.y * childCollider.size.x * .5f + .25f) * left;
-                rotation = Quaternion.LookRotation(surface.transform.forward, Vector3.up);
             }
+            else if(placementType == PlacementPosition.MidWall)
+            {
+                position.y = position.y + childCollider.size.y * .5f;
+            }
+
+            Vector3 left = Vector3.Cross(surface.transform.forward, -Vector3.up);
+            position += (parent.transform.localScale.x * parent.GetComponent<BoxCollider>().size.x * .5f + assessable.children[1].transform.localScale.y * childCollider.size.x * .5f + .25f) * left;
+            rotation = Quaternion.LookRotation(surface.transform.forward, Vector3.up);
 
             // Instantiate object
             childObject = Instantiate(assessable.children[1], position, rotation) as GameObject;
