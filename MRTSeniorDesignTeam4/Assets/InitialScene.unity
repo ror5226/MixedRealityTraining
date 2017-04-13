@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641216, b: 0.5748169, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 89563458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1.081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 719125742}
@@ -1635,7 +1635,7 @@ MonoBehaviour:
   - {fileID: 1793183329454318, guid: d8ef6f70ce476244b8b9661d7cecd4cb, type: 2}
   - {fileID: 1120634739028942, guid: a979f7e3514f7254aa81ec1859f7d6e8, type: 2}
   - {fileID: 1473881702807944, guid: aaceb1a6fded4f1498d719f1a142075b, type: 2}
-  - {fileID: 1357486963326178, guid: 155086deef26a904598fb8a14e3073b1, type: 2}
+  - {fileID: 1342986080180974, guid: e90a3b69ad3c0f649990341f76d954a2, type: 2}
   instantiatedAssets: []
   assetCount: 0
   floorObjects: []

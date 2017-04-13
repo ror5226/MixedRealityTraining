@@ -53,8 +53,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1357486963326178}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.28, y: 1.06, z: 1}
+  m_LocalPosition: {x: 0, y: -0.132, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.1999999, z: 1}
   m_Children:
   - {fileID: 4573654632106556}
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621746386248200}
   m_LocalRotation: {x: -0.010447313, y: 0.999891, z: 0.010447304, w: 0.000109466484}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.015, y: -0.873, z: -0.020000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4195527849010636}
@@ -121,8 +121,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4836273, y: 0, z: 0.37865737}
-  m_Center: {x: 0.005572274, y: 0.27999994, z: -0.003777817}
+  m_Size: {x: 0.4836273, y: 1.64, z: 0.37865737}
+  m_Center: {x: 0.005572274, y: 0.77, z: -0.003777817}
 --- !u!114 &114108999831794940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionVal: 1
   plane: {fileID: 0}
+  children: []
   placement: 5
   module: 2
 --- !u!114 &114254549330417194
