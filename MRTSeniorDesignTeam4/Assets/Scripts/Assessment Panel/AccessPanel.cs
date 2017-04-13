@@ -5,12 +5,22 @@ using UnityEngine;
 
 public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
+    //
+    //  All basic panels for the menu system
+    //
     GameObject infoPanel;
     GameObject assessmentPanel;
     GameObject correctPanel;
 
+    //
+    //  Answer/assessment panel
+    //
     GameObject answerPanel;
     BoxCollider assessmentCollider;
+
+    //
+    //  Variables used for the answer buttsons A-F
+    //
     GameObject ansA;
     GameObject ansB;
     GameObject ansC;
@@ -29,6 +39,12 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
 
     List<string> corretlyAnswered = new List<string>();
 
+    /// <summary>
+    ///     This is run when the application starts.
+    ///         This method is used to initalize all of its required variables once.
+    ///         The reason for this is because it uses the singleton design pattern as to not
+    ///         have to create many instances of this object.
+    /// </summary>
     void Start() {
         assessmentPanel = GameObject.Find("AssessmentPanel");
         infoPanel = GameObject.Find("InfoPanel");
@@ -55,6 +71,18 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     }
 
     #region Info Panel Helper methods
+
+    /// <summary>
+    ///     
+    ///     This section is where most of the utility methods that interact with the
+    ///     Info panel go. This allows for multiple classes to interact with the panel
+    ///     without having to use the find methods which can be inefficent in unity.
+    ///      
+    ///     For future development, if any new methods that need to interact with the
+    ///     InfoPanel section of the menu system they should be placed here.
+    /// 
+    /// </summary>
+
     public Vector3 getCamForward() {
         return cam.transform.forward;
     }
@@ -109,6 +137,16 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     #endregion
 
     #region Correct Panel helper methods
+
+    /// <summary> 
+    /// 
+    ///     This region is all methods for accessing and changing the CorrectPanel
+    ///     
+    ///     In future development it is best to add/change any of the methods for this
+    ///     panel in this region.
+    /// 
+    /// </summary>
+
     public GameObject getCorrectPanel() {
         return correctPanel;
     }
@@ -124,6 +162,17 @@ public class AccessPanel : HoloToolkit.Unity.Singleton<AccessPanel> {
     #endregion
 
     #region Assessment Panel Helpers
+
+    /// <summary>
+    /// 
+    ///     This region holds all of the core methods for the AssessmentPanel.
+    ///     Whether it is setting the score, changing the text of the MainMenu to reflect the score
+    ///     and many more functionalities they are all here.
+    ///     
+    ///     In future development any changes/additions to the functionality of the AssessmentPanel
+    ///     should be done here so that they are easily found.
+    /// 
+    /// </summary>
 
     public void setCurrentScore() {
         currentScore = GameObject.Find("WelcomeLabel").GetComponent<Text>();
