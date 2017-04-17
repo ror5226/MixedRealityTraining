@@ -28,7 +28,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     private QueryCalls queryCalls;
     private LevelSolver levelSolver;
     private bool queryWait = false;
-
+    private GameObject menu;
 
 
     public void Start()
@@ -43,6 +43,8 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         {
                levelSolver = LevelSolver.Instance;
         }
+
+        menu = GameObject.Find("InModule");
     }
 
     public void Update()
@@ -236,6 +238,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 }
 
+
                 //Vector3 finalPosition = AdjustPositionWithSpatialMap(position, placementType);
                 GameObject spaceObject = Instantiate(item, position, rotation) as GameObject;
 
@@ -244,7 +247,10 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                 Assessable assessable = spaceObject.GetComponent<Assessable>();
                 assessable.setPlane(plane);
-
+                if (CheckMenuPlace(position))
+                {
+                    spaceObject.SetActive(false);
+                }
                 // CHeck to see if object has children to place
                 if (assessable.children.Length > 0)
                 {
@@ -453,10 +459,10 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             {
                 assetCount++;
 
-                Debug.Log(levelSolver.placementResults[i].Result.Position.x + " " + levelSolver.placementResults[i].Result.Position.y + " " + levelSolver.placementResults[i].Result.Position.z);
+                //Debug.Log(levelSolver.placementResults[i].Result.Position.x + " " + levelSolver.placementResults[i].Result.Position.y + " " + levelSolver.placementResults[i].Result.Position.z);
 
                 BoxCollider collider = ceilingObjects[i].GetComponent<BoxCollider>();
-                GameObject minplane = new GameObject();
+                //GameObject minplane = new GameObject();
 
                 Vector3 querypos = levelSolver.placementResults[i].Result.Position;
 
@@ -502,6 +508,21 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         return planeIndex;
     }
 
+    private bool CheckMenuPlace(Vector3 itemPos)
+    {
+        Vector3 menuPos = menu.transform.position;
+        Double distance = Math.Sqrt(Math.Pow(menuPos.x - itemPos.x, 2.0) + Math.Pow(menuPos.y - itemPos.y, 2.0) + Math.Pow(menuPos.z - itemPos.z, 2.0));
+        BoxCollider collider = menu.GetComponent<BoxCollider>();
+       
+        //Pick default numbers  
+        if(distance < 1.0)
+        {
+            assetCount--;
+            return true;
+        }
+        return false;
+
+    }
     private Vector3 AdjustPositionWithSpatialMap(Vector3 position, Vector3 surfaceNormal)
     {
         Vector3 newPosition = position;

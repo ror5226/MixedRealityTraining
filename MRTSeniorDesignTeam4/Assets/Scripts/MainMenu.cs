@@ -56,6 +56,8 @@ public class MainMenu : Singleton<MainMenu> {
         gestureRecognizer.StartCapturingGestures();
 
         SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
+
+
     }
 
     //Move menu with user gaze against wall

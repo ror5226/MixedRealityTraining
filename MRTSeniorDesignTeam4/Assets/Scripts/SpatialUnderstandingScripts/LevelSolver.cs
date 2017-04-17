@@ -251,7 +251,7 @@ public class LevelSolver : LineDrawer
 
             // We will reject any above or below the ceiling/floor
             SpatialUnderstandingDll.Imports.QueryPlayspaceAlignment(SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceAlignmentPtr());
-            SpatialUnderstandingDll.Imports.PlayspaceAlignment alignment = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceAlignment();
+            //SpatialUnderstandingDll.Imports.PlayspaceAlignment alignment = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceAlignment();
 
             // Copy over the results
             for (int i = 0; i < queryStatus.QueryResult.Count; ++i)
