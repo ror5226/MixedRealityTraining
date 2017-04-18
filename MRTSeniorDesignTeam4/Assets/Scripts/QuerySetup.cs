@@ -20,7 +20,7 @@ namespace HoloToolkit.Examples.SpatialUnderstandingFeatureOverview
             kMinAreaForStats = fl;
         }
 
-        float kMinAreaForComplete = 20.0f;
+        float kMinAreaForComplete = 50.0f;
         //public float kMinHorizAreaForComplete = 25.0f;
         //public float kMinWallAreaForComplete = 10.0f;
 

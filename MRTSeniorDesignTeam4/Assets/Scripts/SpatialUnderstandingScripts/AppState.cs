@@ -288,7 +288,7 @@ public class AppState : Singleton<AppState>, ISourceStateHandler, IInputClickHan
             if ((SpatialUnderstanding.Instance.ScanState == SpatialUnderstanding.ScanStates.Scanning) &&
                 !SpatialUnderstanding.Instance.ScanStatsReportStillWorking)
             {
-                SpatialUnderstanding.Instance.RequestFinishScan();
+               // SpatialUnderstanding.Instance.RequestFinishScan();
             }
         }
     

@@ -161,6 +161,8 @@ public class MainMenu : Singleton<MainMenu> {
 
                 spaceUnderstanding.Create_Planes();
 #else
+                // Complete scan
+                SpatialUnderstanding.Instance.RequestFinishScan();
                 spatialMappingManager.DrawVisualMeshes = false;
                 SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
 
