@@ -85,7 +85,6 @@ public class ModuleMenu : Singleton<ModuleMenu>{
     public void StartModuleMenuSwap()
     {
         modulePanel.SetActive(true);
-        AccessPanel.Instance.setCurrentScore();
         modulePanel.transform.position = currentPanel.transform.position;
         currentPanel.SetActive(false);
     }
