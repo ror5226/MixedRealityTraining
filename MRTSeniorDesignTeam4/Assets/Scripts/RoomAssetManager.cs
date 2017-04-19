@@ -410,7 +410,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             }
 
             // Add object to list for later removal of scene
-            instantiatedAssets.Add(childObject);
+            instantiatedAssets.Add(childObject2);
         }
     }
 
