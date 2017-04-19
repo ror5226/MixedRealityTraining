@@ -361,8 +361,13 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         Vector3 right = Vector3.Cross(surface.transform.forward, Vector3.up);
         position += (parent.transform.localScale.x * parent.GetComponent<BoxCollider>().size.x * .5f + assessable.children[0].transform.localScale.y * childCollider.size.x * .5f + .25f) * right;
         // Instantiate object
+
         GameObject childObject = Instantiate(assessable.children[0], position, rotation) as GameObject;
 
+        if (CheckMenuPlace(position))
+        {
+            childObject.SetActive(false);
+        }
         // Add object to list for later removal of scene
         instantiatedAssets.Add(childObject);
 
@@ -397,7 +402,12 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             rotation = Quaternion.LookRotation(surface.transform.forward, Vector3.up);
 
             // Instantiate object
-            childObject = Instantiate(assessable.children[1], position, rotation) as GameObject;
+            GameObject childObject2 = Instantiate(assessable.children[1], position, rotation) as GameObject;
+
+            if (CheckMenuPlace(position))
+            {
+                childObject2.SetActive(false);
+            }
 
             // Add object to list for later removal of scene
             instantiatedAssets.Add(childObject);

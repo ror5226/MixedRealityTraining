@@ -57,10 +57,6 @@ public class MainMenu : Singleton<MainMenu> {
 
         //SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
 
-        SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = true;
-
-        // Show mesh on walls
-        spaceUnderstanding.ShowScan();
     }
 
     //Move menu with user gaze against wall
@@ -135,7 +131,10 @@ public class MainMenu : Singleton<MainMenu> {
             {
                 readText.Say("Look around the room to scan. Make sure to scan walls, floor and ceiling.  A green mesh will appear in locations that have been scanned.");
 
-              
+                SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = true;
+
+                // Show mesh on walls
+                spaceUnderstanding.ShowScan();
 
                 // Update UI text
                 GameObject startPanel = GameObject.FindGameObjectWithTag("Start_Panel_Text");
