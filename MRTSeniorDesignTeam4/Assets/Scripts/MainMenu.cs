@@ -55,7 +55,7 @@ public class MainMenu : Singleton<MainMenu> {
         gestureRecognizer.SetRecognizableGestures(GestureSettings.Tap);
         gestureRecognizer.StartCapturingGestures();
 
-        //SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
+        SpatialUnderstanding.Instance.UnderstandingCustomMesh.DrawProcessedMesh = false;
 
     }
 
