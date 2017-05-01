@@ -170,7 +170,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     
     private void PlaceWallFloorObjects(List<GameObject> spaceObjects, List<GameObject> surfaces, PlacementPosition placementType)
     {
-        #region Original Placement Technique
+        #region Placement Technique Utilizing Spatial Mapping
         
         List<int> UsedPlanes = new List<int>();
         // Sort the planes by distance to user.
@@ -212,7 +212,6 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
             if (index >= 0)
             {
                 
-
                 GameObject surface = surfaces[index];
                 SurfacePlane plane = surface.GetComponent<SurfacePlane>();
 
@@ -263,7 +262,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         
         #endregion
 
-        #region Spatial Understanding Technique
+        #region Spatial Understanding API Technique
 
         /*
         List<LevelSolver.PlacementQuery> placementQuery = new List<LevelSolver.PlacementQuery>();
@@ -360,8 +359,8 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
         Vector3 right = Vector3.Cross(surface.transform.forward, Vector3.up);
         position += (parent.transform.localScale.x * parent.GetComponent<BoxCollider>().size.x * .5f + assessable.children[0].transform.localScale.y * childCollider.size.x * .5f + .25f) * right;
+       
         // Instantiate object
-
         GameObject childObject = Instantiate(assessable.children[0], position, rotation) as GameObject;
 
         if (CheckMenuPlace(position))
@@ -414,6 +413,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         }
     }
 
+    // Generate floor item query
     private void QueryFloorObjects(List<GameObject> spaceObjects)
     {
         List<LevelSolver.PlacementQuery> placementQuery = new List<LevelSolver.PlacementQuery>();
@@ -429,6 +429,7 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
         queryWait = true;
     }
 
+    // Placement of floor and ceiling items
     private void PlaceFloorCeilingObjects(List<GameObject> floorObjects, List<GameObject> ceilingObjects)
     { 
             int returnedVal = levelSolver.ProcessPlacementResults();
@@ -448,31 +449,21 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
 
                      BoxCollider collider = floorObjects[i].GetComponent<BoxCollider>();
 
-                    //  Debug.Log(levelSolver.placementResults[i].Result.Position.x + " " + levelSolver.placementResults[i].Result.Position.y + " " + levelSolver.placementResults[i].Result.Position.z);
-
                     collider = floorObjects[i].GetComponent<BoxCollider>();
-                    GameObject minplane = new GameObject();
                     
                     Vector3 querypos = levelSolver.placementResults[i].Result.Position;
-                    querypos.y = mainFloor.Plane.Bounds.Center.y; // + collider.size.y * .5f * spaceObjects[i].transform.localScale.y;
+                    querypos.y = mainFloor.Plane.Bounds.Center.y; 
 
                     GameObject spaceObject = Instantiate(floorObjects[i], querypos, Quaternion.LookRotation(-levelSolver.placementResults[i].Result.Forward, Vector3.up)) as GameObject;
-                    // spaceObject.transform.rotation = Quaternion.LookRotation(spaceObject.transform.localRotation., Vector3.up);
                     spaceObject.SetActive(true);
                 
                     // Add object to list for later removal of scene
-
                      instantiatedAssets.Add(spaceObject);
                 }
 
             for (int i = 0; i < levelSolver.placementResults.Count && i < ceilingObjects.Count; i++)
             {
                 assetCount++;
-
-                //Debug.Log(levelSolver.placementResults[i].Result.Position.x + " " + levelSolver.placementResults[i].Result.Position.y + " " + levelSolver.placementResults[i].Result.Position.z);
-
-                BoxCollider collider = ceilingObjects[i].GetComponent<BoxCollider>();
-                //GameObject minplane = new GameObject();
 
                 Vector3 querypos = levelSolver.placementResults[i].Result.Position;
 
@@ -506,10 +497,9 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
                 continue;
             }
 
-            //BoxCollider collider = planes[i].GetComponent<BoxCollider>();
             if (planes[i].transform.localScale.x < minSize.x || planes[i].transform.localScale.y < minSize.y)
             {
-                // Plain is too small
+                // Plane is too small
                 continue;
             }
             
@@ -522,9 +512,8 @@ public class RoomAssetManager : Singleton<RoomAssetManager> {
     {
         Vector3 menuPos = menu.transform.position;
         Double distance = Math.Sqrt(Math.Pow(menuPos.x - itemPos.x, 2.0) + Math.Pow(menuPos.y - itemPos.y, 2.0) + Math.Pow(menuPos.z - itemPos.z, 2.0));
-        BoxCollider collider = menu.GetComponent<BoxCollider>();
        
-        //Pick default numbers  
+        // Ensure menu is not covered by asset
         if(distance < 1.0)
         {
             assetCount--;

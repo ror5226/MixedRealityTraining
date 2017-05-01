@@ -196,6 +196,7 @@ public class MainMenu : Singleton<MainMenu> {
             mainMenu_ButtonCount++;
     }
 
+    // On airtap stop the movement of the menu
     private void Stop_Menu_Moving(InteractionSourceKind source, int tapCount, Ray headRay)
     {
         if (tapNum > 0)

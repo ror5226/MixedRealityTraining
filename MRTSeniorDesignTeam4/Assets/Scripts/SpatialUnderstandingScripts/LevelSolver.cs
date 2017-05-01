@@ -251,12 +251,10 @@ public class LevelSolver : LineDrawer
 
             // We will reject any above or below the ceiling/floor
             SpatialUnderstandingDll.Imports.QueryPlayspaceAlignment(SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceAlignmentPtr());
-            //SpatialUnderstandingDll.Imports.PlayspaceAlignment alignment = SpatialUnderstanding.Instance.UnderstandingDLL.GetStaticPlayspaceAlignment();
 
             // Copy over the results
             for (int i = 0; i < queryStatus.QueryResult.Count; ++i)
             {
-                Debug.Log("got a result @" + queryStatus.QueryResult[i].Position.x + " " + queryStatus.QueryResult[i].Position.y);
                 float timeDelay = (float)placementResults.Count * AnimatedBox.DelayPerItem;
             result = queryStatus.QueryResult[i].Clone() as SpatialUnderstandingDllObjectPlacement.ObjectPlacementResult;
 

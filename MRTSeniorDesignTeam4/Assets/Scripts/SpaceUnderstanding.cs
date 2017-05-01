@@ -110,7 +110,6 @@ public class SpaceUnderstanding : Singleton<SpaceUnderstanding> {
             }
         }
 
-        // Eventually should add in code to only enable scan button once enough walls are found or something like that 
         else
         {
             Debug.Log("Not enough walls or floors");
